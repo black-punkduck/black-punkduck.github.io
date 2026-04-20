@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogs on Makehuman_2</title>
+    <link>https://black-punkduck.github.io/bookpage/</link>
+    <description>Recent content in blogs on Makehuman_2</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2026 02:21:29 -0600</lastBuildDate>
+    <atom:link href="https://black-punkduck.github.io/bookpage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elvs Dev Blog #1</title>
+      <link>https://black-punkduck.github.io/blogs/first/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/first/</guid>
+      <description>(April of 2026)&#xA;Greetings,&#xA;It has been quite some time since I(Elvaerwyn) was able to address the people of MH!&#xA;This has been a truly unprecedented few years of development by Punkduck and&#xA;myself. I have truly missed the sense of community, and artistic freedoms-however real life&#xA;along with the reality of the size of the endeavor-has kept me quite busy overall! Working&#xA;with Punk has been a great experience also, and to that end I am grateful</description>
+    </item>
+    <item>
+      <title>Punks Dev Blog #1</title>
+      <link>https://black-punkduck.github.io/blogs/second/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/second/</guid>
+      <description>Content here&#xA;Ralfs first ever dev Blog goes here&amp;hellip;hint hint hint&amp;hellip;.</description>
+    </item>
+    <item>
+      <title>testblog</title>
+      <link>https://black-punkduck.github.io/blogs/third/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/third/</guid>
+      <description>Content here</description>
+    </item>
+    <item>
+      <title>testblog2</title>
+      <link>https://black-punkduck.github.io/blogs/fourth/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/fourth/</guid>
+      <description>Content here to test 2</description>
+    </item>
+    <item>
+      <title>testblog3</title>
+      <link>https://black-punkduck.github.io/blogs/fifth/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/fifth/</guid>
+      <description>Content here to test 3</description>
+    </item>
+    <item>
+      <title>testblog3</title>
+      <link>https://black-punkduck.github.io/blogs/sixth/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/sixth/</guid>
+      <description>Content here to test Do you see me Last&amp;hellip;? I am number 6</description>
+    </item>
+    <item>
+      <title>testblog4</title>
+      <link>https://black-punkduck.github.io/blogs/seventh/</link>
+      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/seventh/</guid>
+      <description>Content here to test again My name is 7 Do you see me?</description>
+    </item>
+  </channel>
+</rss>

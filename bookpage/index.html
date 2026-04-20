@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en"> <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+    <td>
+      <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+      </a>&nbsp;
+    </td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class="nav-active"><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://steampowered.com" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+  <img src="/images/seasonal_banners/bannermh2_spring.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p>Current: April 20, 2026</p>
+<div class="book-spread-wrapper">
+  <div class="book-spine-container">
+    <div class="pen-body"><div class="pen-cap"><div class="pen-clip"></div></div></div>
+    <div class="bookmark-banner" id="shuffle-bookmark">
+      <span class="banner-text">MH 2 Developer Blogs</span>
+      <img src="/images/makehumanexeclogo2.png" class="bookmark-pic">
+    </div>
+    <div class="book-page left-page">
+      <div class="book-content">
+        <h3>Blog Index</h3>
+        <ul>
+            <li>
+              <h2>
+                <a href="https://black-punkduck.github.io/blogs/first/" class="preview-trigger" data-id="blog-5ce3e262cd37167045e2d83874c3eb1e">
+                    Elvs Dev Blog #1
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <a href="https://black-punkduck.github.io/blogs/second/" class="preview-trigger" data-id="blog-993497f2cac843ad602c5769d39b9063">
+                    Punks Dev Blog #1
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <a href="https://black-punkduck.github.io/blogs/third/" class="preview-trigger" data-id="blog-f967088ec0910cdd0202ace2c79e1168">
+                    testblog
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <a href="https://black-punkduck.github.io/blogs/fourth/" class="preview-trigger" data-id="blog-3504fcc5016ecdec0f8c98551cf254bf">
+                    testblog2
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <a href="https://black-punkduck.github.io/blogs/fifth/" class="preview-trigger" data-id="blog-2f5414929a39076cafb131bc64b1cc5d">
+                    testblog3
+                </a>
+              </h2>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="book-page right-page">
+      <div class="page-side-stack"></div>
+      <div class="book-content preview-scroll-area" id="book-preview-target">
+        <div class="default-view"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="blog-database" style="display: none;">
+    <div class="blog-entry"
+         id="blog-5ce3e262cd37167045e2d83874c3eb1e"
+         data-title="Elvs Dev Blog #1"
+         data-url="https://black-punkduck.github.io/blogs/first/">
+      <p>(April of 2026)</p>
+<p><strong>Greetings,</strong></p>
+<p> It has been quite some time since I(Elvaerwyn) was able to address the people of MH!<br>
+This has been a truly unprecedented few years of development by Punkduck and<br>
+myself. I have truly missed the sense of community, and artistic freedoms-however real life<br>
+along with the reality of the size of the endeavor-has kept me quite busy overall! Working<br>
+with Punk has been a great experience also, and to that end I am grateful<br>
+once again for our ability to work together and meet one anothers team needs<br>
+without the necessity for leadership in general.  Both of us are responsible and goal oriented<br>
+and found it easy to not lose track of the needs of this project!</p>
+<p> The Software now known as MH2 has been built new from the ground up-this has involved<br>
+much learning curve journeys for both of us. Punk has learned all new code writing skills<br>
+along with stepping outside himself to tackle the backend of complexities such as<br>
+intuitive software design and user interface.  I have learned to do more tedious things<br>
+without losing focus like designing and creating more icons than I ever thought I would in<br>
+life in a very short time. I also got to revisit site design and have managed to create a<br>
+brand new home for our software, resources, art, history, manual etc.</p>
+<p> I hope that the first users diving in, will appreciate the patience, dedication, and<br>
+time that has gone in to making all of this a solid reality! I also hope they will<br>
+feel free to add to the project with their bug finding skills, along with the usual<br>
+assortment of artistic contributions to the community asset pool! That being said-<br>
+I am exited to announce there is even more room to contribute to this pool as we now<br>
+need more skybox images-or cubemaps for customization of inside Makehuman rendering!</p>
+<p> My current objective is to make the fantasy release a reality with many new body<br>
+part customizations and abilities outside the standard MH2 character body model! Feel<br>
+free to be ready with your new custom body parts to add here also-such as tails, antenae,<br>
+wings, ears, etc! ;). Exiting is the fantasy Skeleton!(Finally my creation sees the light of day!)<br>
+<em>Cue the manical cackles</em>&hellip;</p>
+<p> To those that prefer or in fact need a stand alone character creator in the<br>
+open source capacity-Ribbons cut, alpha release open-Welcome :D!</p>
+<div style="color: orange"> **Please Join us on discord forums! Please drop some stars on the Github pages!<br>
+Know that you are a pleasure to create and develop for and are so very appreciated!!** </div>
+<p>Elv</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-993497f2cac843ad602c5769d39b9063"
+         data-title="Punks Dev Blog #1"
+         data-url="https://black-punkduck.github.io/blogs/second/">
+      <p>Content here</p>
+<p>Ralfs first ever dev Blog goes here&hellip;hint hint hint&hellip;.</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-f967088ec0910cdd0202ace2c79e1168"
+         data-title="testblog"
+         data-url="https://black-punkduck.github.io/blogs/third/">
+      <p>Content here</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-3504fcc5016ecdec0f8c98551cf254bf"
+         data-title="testblog2"
+         data-url="https://black-punkduck.github.io/blogs/fourth/">
+      <p>Content here to test
+2</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-2f5414929a39076cafb131bc64b1cc5d"
+         data-title="testblog3"
+         data-url="https://black-punkduck.github.io/blogs/fifth/">
+      <p>Content here  to test
+3</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-6748dd479268e76e2de5341c856120fc"
+         data-title="testblog3"
+         data-url="https://black-punkduck.github.io/blogs/sixth/">
+      <p>Content here  to test
+Do you see me
+Last&hellip;? I am number 6</p>
+    </div>
+    <div class="blog-entry"
+         id="blog-fc7a0ac8aa7634742d107b4b4358ecd0"
+         data-title="testblog4"
+         data-url="https://black-punkduck.github.io/blogs/seventh/">
+      <p>Content here
+to test again My name is 7
+Do you see me?</p>
+    </div>
+</div>
+<style>
+.book-spread-wrapper { display: flex; justify-content: center; padding: 60px 20px 200px; perspective: 2500px; position: relative; z-index: 1; pointer-events: none; }
+.book-spine-container { display: flex; position: relative; transform-style: preserve-3d; transform: translateZ(15px); z-index: 1; pointer-events: none; }
+.book-page { width: 700px; height: 750px; background: #fdfcf0; padding: 3rem; position: relative; transition: transform 0.5s; box-shadow: 0 15px 35px -5px rgba(0,0,0,0.2); z-index: 1; transform-style: preserve-3d; display: flex; flex-direction: column; }
+.preview-scroll-area { display: block !important; height: 100% !important; max-height: 100% !important; overflow-y: auto !important; overflow-x: hidden; padding-right: 20px; flex-grow: 1; }
+.preview-scroll-area::-webkit-scrollbar { width: 8px; }
+.preview-scroll-area::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; }
+.preview-scroll-area::-webkit-scrollbar-thumb { background: #f58220; border-radius: 10px; }
+.left-page { transform: rotateY(-5deg); transform-origin: right center; border-radius: 20px 5px 5px 20px; background: linear-gradient(to left, #dcdabc 0%, #fdfcf0 8%); position: relative; z-index: 20; pointer-events: auto !important; }
+.right-page { transform: rotateY(5deg); transform-origin: left center; border-radius: 5px 20px 20px 5px; background: linear-gradient(to right, #dcdabc 0%, #fdfcf0 8%); pointer-events: auto !important; }
+.bookmark-banner { position: absolute; top: 10px; left: 50%; width: 75px; height: 460px; background-color: #f58220; text-align: center; padding: 15px 2px; z-index: 100; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 92%, 0% 100%); pointer-events: auto !important; transform: translateX(-50%) translateZ(60px); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease; cursor: pointer; }
+.bookmark-banner:hover { transform: translateX(-50%) translateZ(80px) translateY(10px); }
+.banner-text { font-family: sans-serif; font-size: 20px; font-weight: bold; writing-mode: vertical-rl; text-transform: uppercase; margin-top: 20px; }
+.bookmark-pic { width: 60px; margin-top: auto; margin-bottom: 60px; }
+.pen-body { position: absolute; right: -80px; top: 50%; width: 14px; height: 440px; background: linear-gradient(to right, #cc6d1e 0%, #323232 50%, #cc6d1e 100%); border-radius: 7px; transform: rotate(5deg) translateZ(10px); z-index: 5; transition: all 0.3s ease; pointer-events: auto !important; cursor: pointer; }
+.pen-cap { position: absolute; top: 0; left: -1px; width: 16px; height: 120px; background: linear-gradient(to right, #999 0%, #eee 50%, #999 100%); border-radius: 8px 8px 2px 2px; border-bottom: 2px solid #333; }
+.pen-clip { position: absolute; top: 20px; left: 4px; width: 4px; height: 80px; background: linear-gradient(to bottom, #777, #ccc, #777); border-radius: 2px; box-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+.pen-body:hover { box-shadow: 0 0 25px rgba(245, 130, 32, 0.8); filter: brightness(1.1); animation: penBounce 0.6s ease-in-out infinite; }
+@keyframes penBounce { 0%, 100% { transform: rotate(5deg) translateZ(10px) translateY(0); } 50% { transform: rotate(5deg) translateZ(10px) translateY(-10px); } }
+.book-content { font-family: "Georgia", serif; line-height: 1.6; color: #2c2c2c; }
+.book-content a { color: #2c2c2c; text-decoration: underline; font-weight: bold; }
+.book-content a:hover { color: #f58220; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 1150px) { .book-spine-container { flex-direction: column; align-items: center; } .book-page { width: 90vw; height: auto; min-height: 400px; } .bookmark-banner, .pen-body { display: none; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const target = document.getElementById('book-preview-target');
+  const bookmark = document.getElementById('shuffle-bookmark');
+  const pen = document.querySelector('.pen-body');
+  const allEntries = document.querySelectorAll('.blog-entry');
+  function render(title, url, html, label = "Selected Preview") {
+    target.innerHTML = `
+      <div class="preview-wrapper" style="animation: fadeIn 0.4s ease-out; padding-bottom: 40px; width: 100%;">
+        <h3 style="color: #f58220; margin-bottom: 5px; font-size: 0.9rem; text-transform: uppercase;">${label}</h3>
+        <h2 style="margin-top: 0; margin-bottom: 15px;"><a href="${url}">${title}</a></h2>
+        <div class="preview-body" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px; color: #333;">${html}</div>
+        <a href="${url}" style="color: #cc6d1e; font-weight: bold; font-size: 1.1rem; text-decoration: none; border: 2px solid #cc6d1e; padding: 8px 15px; border-radius: 5px; display: inline-block;">READ FULL POST →</a>
+      </div>
+    `;
+    target.scrollTop = 0;
+  }
+  document.querySelectorAll('.preview-trigger').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      const entryId = link.getAttribute('data-id');
+      const entry = document.getElementById(entryId);
+      render(entry.getAttribute('data-title'), entry.getAttribute('data-url'), entry.innerHTML);
+    });
+  });
+  if (bookmark && allEntries.length > 0) {
+    bookmark.addEventListener('click', () => {
+      const randomEntry = allEntries[Math.floor(Math.random() * allEntries.length)];
+      render(
+        randomEntry.getAttribute('data-title'),
+        randomEntry.getAttribute('data-url'),
+        randomEntry.innerHTML,
+        "Random Discovery"
+      );
+    });
+  }
+  if (pen) pen.addEventListener('click', () => target.scrollTo({ top: 0, behavior: 'smooth' }));
+});
+</script>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black_hu233145ddc8ae14b164f490727a623b22_5437_50x50_resize_box_3.png" alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
