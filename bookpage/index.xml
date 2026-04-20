@@ -6,21 +6,21 @@
     <description>Recent content in blogs on Makehuman_2</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 02:21:29 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://black-punkduck.github.io/bookpage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Punkducks Dev Blog #1</title>
+      <link>https://black-punkduck.github.io/blogs/second/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/second/</guid>
+      <description>So here after a long time a few sentences from my side. MakeHumans old version 1 had a pretty good concept.&#xA;But it was limited to a certain mesh. One of my ideas was to make that flexible. Long ago I added wings inside old makehuman. I changed the base mesh (just put other helpers at the end). It worked. But after that the old version did not really run.</description>
+    </item>
     <item>
       <title>Elvs Dev Blog #1</title>
       <link>https://black-punkduck.github.io/blogs/first/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/first/</guid>
       <description>(April of 2026)&#xA;Greetings,&#xA;It has been quite some time since I(Elvaerwyn) was able to address the people of MH!&#xA;This has been a truly unprecedented few years of development by Punkduck and&#xA;myself. I have truly missed the sense of community, and artistic freedoms-however real life&#xA;along with the reality of the size of the endeavor-has kept me quite busy overall! Working&#xA;with Punk has been a great experience also, and to that end I am grateful</description>
-    </item>
-    <item>
-      <title>Punks Dev Blog #1</title>
-      <link>https://black-punkduck.github.io/blogs/second/</link>
-      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
-      <guid>https://black-punkduck.github.io/blogs/second/</guid>
-      <description>Content here&#xA;Ralfs first ever dev Blog goes here&amp;hellip;hint hint hint&amp;hellip;.</description>
     </item>
     <item>
       <title>testblog</title>
