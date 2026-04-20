@@ -22,50 +22,44 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   box-sizing: border-box;
   justify-content: center;
-  border-radius: 15px; 
+  border-radius: 15px;
   border: 8px solid transparent;
-  background-image: linear-gradient(#657074, #657074), 
+  background-image: linear-gradient(#657074, #657074),
                     linear-gradient(to right, black, orange);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
   /* Drop Shadow */
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
 }
 .search-results-container {
-  width: 60% !important; 
+  width: 60% !important;
   padding: 10px;
   background-color: #657074;
-  display: grid !important; 
-  margin: 3rem auto !important; 
+  display: grid !important;
+  margin: 3rem auto !important;
   gap: .25rem;
   font-size: .8rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   border-radius: 5px;
   outline: 2px solid white;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   justify-content: center;
 }
-
 .frontpagecontainer {
   display: flex;
 }
-
 .frontpagecontainer > div {
  margin: 10px;
 }
-
 .frontpageleft {
   flex-grow: 0.5;
 }
-
 .frontpageright {
   border-radius: 5px;
   flex-grow: 1;
   background-color: #0;
   color: #FFFFFF;
 }
-
 html, body {
   padding: 0;
   margin: 0;
@@ -81,102 +75,91 @@ nav {
   color: #1e1e1e;
   height: 50px;
 }
-
 pre { white-space:pre-line; display: inline; }
-
 table, th, td { border-collapse: collapse; padding: 10px; }
-
 a { color: #323232; }
-
 :root {
     color-scheme: light dark;
 }
-
 a:visited {
     /* Black for light, White for dark */
     color: light-dark(White, #323232 );
     text-decoration: none;
 }
-
 a:hover {
     color: #f58220 !important; /* Optional: change color on hover */
 }
-
-footer { background-color: #1e1e1e !important; color: #FFFFFF !important; 
+footer { background-color: #1e1e1e !important; color: #FFFFFF !important;
    display: flex;
    justify-content: space-between; /* Pushes items to far left and far right */
    align-items: center; /* Vertically centers items */
    padding: 10px 20px;
 }
-
 div { padding: 0px 10px 0px 10px }
-
+.horgradient { height: 8px; background: linear-gradient(to right, #f58220, black); margin: 10px 0; width: 80%; border-radius: 4px; }
 a#footer { color: #ffffff; }
 a#footer:hover { color: #f58220; }
 a#footer { background-color: #1e1e1e; }
-
-.smallcode {overflow-y: scroll; background-color: #1e1e1e; color: white; border: 5px solid #f58220; margin: 10px; padding: 5px;}
-
+.smallcode {overflow-y: scroll; background-color: #1e1e1e; color: white; border: 6px solid #cc6d1e; margin: 10px; padding: 5px;}
 .contexttab { border-collapse: separate; border-spacing: 10px; }
 .explain { background-color: #657074;  border: 3px solid white; border-radius: 10px; padding: 10px; }
-
 .searchbut {
   border:none;
   outline: none;
   background-color: #1e1e1e;
   cursor:pointer;
   padding: 3px 3px 3px 3px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
 }
-
 .searchinp {
     padding: 15px;
     border-radius: 5px 0px 0px 5px;
     border-color: Black;
     border-width: 4px;
     border-style: solid;
+    height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
-
+.searchinp:focus {
+  outline: none !important;
+  border: 1px solid rgb(245, 130, 32) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+              0 0 10px rgba(245, 130, 32, 0.7) !important;
+}
 .entry-meta {
     display: none;
 }
-
 .custom-page-hover a:hover {
     color: orange !important; /* Your chosen hover color */
 }
-
 .spacer {
     height: 50px;
-
 }
-
 .white-link {
     color: white !important;
     text-decoration: underline; /* Optional */
 }
-
 /* html inline images */
 img.idouble { vertical-align: middle; height: 2em; width: auto; margin-right: -1em; margin-left: -1em }
 img.icon { vertical-align: middle; height: 1.3em; width: auto; background-color: #f0f0f0; }
-
 /* md inline images */
 img[src*="#idouble"] { vertical-align: middle; height: 2em; width: auto; margin-right: -1em; margin-left: -1em }
 img[src*="#icon"] { vertical-align: middle; height: 1.3em; width: auto; background-color: #f0f0f0; }
-
 .banner-container {
   height: 100vh; /* Sets height to viewport height */
   width: 100%;
   overflow: hidden;
   position: relative;
 }
-
 .banner-container img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* This forces the image to fill the space without stretching */
   object-position: center; /* Centers the image */
 }
-
 .calendar {
   width: 100%;
   max-width: 300px; /* Compact sidebar size */
@@ -184,18 +167,15 @@ img[src*="#icon"] { vertical-align: middle; height: 1.3em; width: auto; backgrou
   text-align: center;
   font-family: sans-serif;
 }
-
 .calendar th {
   font-size: 0.8rem;
   color: #888;
   padding-bottom: 10px;
 }
-
 .calendar td {
   padding: 10px 5px;
   font-size: 1rem;
 }
-
 /* Base style for all date numbers */
 .calendar span, .calendar a {
   display: inline-block;
@@ -205,36 +185,29 @@ img[src*="#icon"] { vertical-align: middle; height: 1.3em; width: auto; backgrou
   text-decoration: none;
   color: #333;
 }
-
 /* Modification for dates with posts */
 .calendar .has-posts {
   font-weight: bold;
   color: #007bff; /* Change to your brand color */
   border-bottom: 2px solid #007bff; /* Subtitle indicator instead of a box */
 }
-
 .calendar .no-posts {
   color: #ccc; /* Fade out dates without content */
 }
-
 /************************************
 timeline
 ************************************/
-
 .timeline {
   position: relative;
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px; /* Match the inner rounding */
-  
   /* Drop Shadow */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  
   /* Create the border using a pseudo-element */
-  border: 10px solid transparent; 
+  border: 10px solid transparent;
   background-clip: padding-box;
 }
-
 .timeline::before {
   content: "";
   position: absolute;
@@ -245,7 +218,6 @@ timeline
   border-radius: inherit; /* Inherits the 20px radius */
   background: linear-gradient(45deg, #f58220, #000000);
 }
-
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
   content: "";
@@ -257,7 +229,6 @@ timeline
   left: 10%;
   margin-left: -3px;
 }
-
 /* Container around content */
 .timeline .container {
   padding: 10px 10px 10px 40px;
@@ -288,7 +259,6 @@ timeline
   left: -10%;
   font-size: large;
 }
-
 /* Add arrows to the right container (pointing left) */
 .timeline .container::before {
   content: " ";
@@ -310,19 +280,16 @@ timeline
   border-radius: 6px;
   transition: box-shadow 0.3s;
 }
-
 /* small shadow change on hover*/
 .timeline .content:hover {
   box-shadow: 0 0 3px 4px Black;
 }
-
 /* card title format */
 .timeline .content .title {
   padding: 5px 30px;
   font-weight: bold;
   display: inline-block;
 }
-
 /* time moment format*/
 .timeline .content .moment {
   color: #f58220;
@@ -332,12 +299,10 @@ timeline
   right: 0;
   padding: 5px;
 }
-
 /* body size */
 .timeline .content .body {
   padding: 5px 30px;
 }
-
 /* responsive for small devices*/
 @media screen and (max-width: 600px) {
   .timeline .container {
@@ -361,11 +326,9 @@ timeline
     position: relative;
   }
 }
-
 html {
   height: 100%; /* Allows body to use percentage heights if needed */
 }
-
 body {
   margin: 0;
   min-height: 100vh;
@@ -375,42 +338,34 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 /* Firefox */
 html {
   scrollbar-width: thick;
   scrollbar-color: #FFFFFF #323232; /* Thumb, Track */
 }
-
 html:hover {
   scrollbar-color: #555 #f58220; /* Thumb Hover, Track */
 }
-
 /* Chrome, Edge, and Safari */
 ::-webkit-scrollbar {
   width: 12px;
 }
-
 ::-webkit-scrollbar-track {
   background: #1e1e1e;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #1e1e1e;
   border-radius: 6px;
   border: 3px solid #f1f1f1; /* Creates padding around thumb */
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
-
 .calendar {
   position: static;
   top: 0; /* Stays at the top of the viewport */
   right: 0; /* Stays at the right side of the viewport */
 }
-
 .random-gallery-box {
     display: flex;
     gap: 10px;
@@ -418,29 +373,24 @@ html:hover {
     padding: 15px;
     min-height: 180px;
     align-items: center;
-
     /* 1. Set the thick border and rounded corners */
-    border: 10px solid transparent; 
-    border-radius: 20px; 
-
+    border: 10px solid transparent;
+    border-radius: 20px;
     /* 2. Layer 1: Grey background for the content area */
     /*    Layer 2: Orange to Black gradient for the border area */
-    background-image: 
-        linear-gradient(#646e71, #646e71), 
+    background-image:
+        linear-gradient(#646e71, #646e71),
         linear-gradient(to right, #f58220, black);
-    
-    /* 3. Tell the first layer to stay inside the border, 
+    /* 3. Tell the first layer to stay inside the border,
           and the second to fill the border space */
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
-
 /* This targets any div inside the gallery box when hovered */
 .random-gallery-box div:hover {
     transform: scale(1.17);
     background-color: #1e1e1e;
 }
-
 /* Hover effect: Scale up and add an orange shadow */
 .random-gallery-item:hover .gallery-img {
    transform: scale(1.1);
@@ -448,7 +398,6 @@ html:hover {
    cursor: pointer;
    transition: transform 0.4s ease, box-shadow 0.2s ease;
 }
-
 /* Hover effect: Scale up and add an orange shadow */
 .gallery-item:hover .gallery-img {
    transform: scale(1.1);
@@ -456,7 +405,6 @@ html:hover {
    cursor: pointer;
    transition: transform 0.4s ease, box-shadow 0.2s ease;
 }
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -469,28 +417,21 @@ html:hover {
   box-sizing: border-box;
   border-radius: 50px;
   background-color: #646e71;
-
   /* --- DROP SHADOW --- */
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); /* Adds depth to the outer border */
-
   /* --- GRADIENT BORDER SOLUTION --- */
-  border: 12px solid transparent; 
-  background-image: 
-    linear-gradient(#646e71, #646e71), 
-    linear-gradient(135deg, #1e1e1e 0%, #f58220 100%); 
+  border: 12px solid transparent;
+  background-image:
+    linear-gradient(#646e71, #646e71),
+    linear-gradient(135deg, #1e1e1e 0%, #f58220 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
-
-
-
 /* Example: How to trigger the fade on hover */
 .gallery:hover {
     border-color: rgba(0, 0, 0, 0); /* Fades black border to transparent */
     box-shadow: inset 0 0 0 8px rgba(204, 109, 30, 0), 0px 10px 30px rgba(0, 0, 0, 0); /* Fades orange and shadow */
 }
-
-
 /* 2. The Item Wrapper & Square Aspect Ratio */
 .gallery-item {
     position: relative;
@@ -500,7 +441,6 @@ html:hover {
     /* Updated to a slightly darker gray than before for better contrast */
     background-color: #ccc;
 }
-
 /* 3. NEW: Make Images Fill Content and Fit Corners */
 .gallery-item img {
     width: 100%;
@@ -509,17 +449,14 @@ html:hover {
     display: block;    /* Removes bottom spacing */
     border-radius: 5px; /* Ensures image covers item corners */
 }
-
-
 /* 3. The Link & Wrapper Fixes */
-.gallery-wrapper, 
+.gallery-wrapper,
 .gallery-wrapper a {
     display: block;
     width: 100%;
     height: 100%;
     position: relative;
 }
-
 .gallery-wrapper img {
     width: 100%;
     height: 100%;
@@ -527,7 +464,6 @@ html:hover {
     display: block;
     transition: transform 0.4s ease;
 }
-
 /* 4. The Overlay (Scrollbar Fix) */
 .gallery-overlay {
     position: absolute;
@@ -537,36 +473,30 @@ html:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Ensures content centers vertically */
-    
     opacity: 0;
     transition: opacity 0.3s ease;
     text-align: center;
     padding: 20px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     overflow-y: auto;
     scrollbar-gutter: stable; /* Prevents layout jump */
 }
-
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
 }
-
 .gallery-item:hover img {
     transform: scale(1.05);
 }
-
 /* 5. Content Centering & Text Handling */
 .gallery-content {
     width: 100%;
 }
-
-.gallery-title, 
-.gallery-creator, 
+.gallery-title,
+.gallery-creator,
 .gallery-meta {
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -575,22 +505,19 @@ html:hover {
     width: 100%;
     color: white;
 }
-
 .gallery-meta {
     font-size: 0.8rem;
     border-top: 1px solid rgba(255,255,255,0.3);
     padding-top: 2px;
     white-space: pre-wrap;
 }
-
-/* Responsive Breakpoints - Ensure it stays 6 wide on big screens, 
+/* Responsive Breakpoints - Ensure it stays 6 wide on big screens,
    but breaks down on smaller screens */
 @media (max-width: 1200px) {
     .gallery {
         grid-template-columns: repeat(4, 1fr); /* 4 items for tablets */
     }
 }
-
 @media (max-width: 768px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr); /* 2 items for phones */
@@ -598,7 +525,6 @@ html:hover {
         padding: 10px;
     }
 }
-
 .book-layout {
   display: flex;
   min-height: 85vh;
@@ -609,7 +535,6 @@ html:hover {
   border-radius: 4px;
   overflow: hidden;
 }
-
 /* Left Page (TOC) */
 .book-left {
   flex: 1;
@@ -618,14 +543,12 @@ html:hover {
   border-right: 1px solid #eaeaea;
   position: relative;
 }
-
 /* Right Page (Content) */
 .book-right {
-  flex: 1.0; 
+  flex: 1.0;
   background-color: #fff;
   padding: 3rem;
 }
-
 /* The "Open Book" Spine Effect */
 .book-spine-gradient {
   position: absolute;
@@ -634,14 +557,11 @@ html:hover {
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%, transparent 100%);
   pointer-events: none;
 }
-
-
 .main-content {
   position: relative; /* Required for absolute positioning of the overlay */
   min-height: 100vh;
   /* Remove the background properties from here if you want them on top */
 }
-
 .main-content::after {
   content: "";
   position: fixed; /* Keeps the background fixed as you scroll */
@@ -654,7 +574,6 @@ html:hover {
   min-height: 100vh;
   /* Remove the background properties from here if you want them on top */
 }
-
 .main-content::after {
   content: "";
   position: fixed; /* Keeps the background fixed as you scroll */
@@ -662,13 +581,11 @@ html:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  
   /* Your image properties */
   background-image: url('/images/open-book.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  
   /* Layering properties */
   z-index: 10; /* Set higher than your text/foreground content */
   pointer-events: none; /* Allows users to still click links/buttons 'behind' the image */
@@ -679,38 +596,28 @@ html:hover {
   pointer-events: none; /* Allows users to still click links/buttons 'behind' the image */
   opacity: 0.5; /* Optional: adjust transparency so foreground content is still visible */
 }
-
 .icon-legend { list-style: none; padding: 0; }
 .icon-legend li { display: flex; align-items: center; margin-bottom: 10px; }
 .icon-legend .icon { margin-right: 10px; height: 1.3em; width: auto; }
 .icon-legend .icon svg { width: 100%; height: 100%; }
-
-
 /* The Bubble Container */
 .image-bubble {
-  position: relative; 
+  position: relative;
   display: inline-block;
   padding: 1.5rem;
   border-radius: 24px;
-  
   /* 1. Add a solid background color here to cover the center gradient */
-  background: white; 
-  
+  background: white;
   /* 2. This keeps the image and text above the border layer */
-  z-index: 1; 
-  
+  z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 /* The Bubble Container */
-
-
 /* Hover effect */
 .image-bubble:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
-
 /* Ensure images inside fit perfectly */
 .image-bubble img {
   display: block;
@@ -719,7 +626,6 @@ html:hover {
   border-radius: 40px; /* Kept from your original code */
   object-fit: cover;
 }
-
 /* Container for the whole legend - Made background more transparent */
 .icon-legend {
   margin-top: 4rem;
@@ -730,7 +636,6 @@ html:hover {
   /* Added transition for smooth effect */
   transition: all 0.3s ease-in-out;
 }
-
 /* --- Added Hover Effect --- */
 .icon-legend:hover {
   background: linear-gradient(to bottom, rgba(245, 130, 0, 0.5), rgba(0, 0, 0, 0.7));
@@ -738,7 +643,6 @@ html:hover {
   transform: translateY(-5px); /* Lifts the whole container */
   box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds shadow */
 }
-
 .icon-legend h3 {
   margin-top: 0;
   font-size: 1.1rem;
@@ -746,7 +650,6 @@ html:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 /* The Container */
 /* FORCE VISIBILITY */
 .icon-legend-grid {
@@ -760,7 +663,6 @@ html:hover {
   overflow: visible;
   background: #aaa;
 }
-
 .icon-item {
   display: flex !important;
   align-items: center !important;
@@ -769,15 +671,12 @@ html:hover {
   /* Fakes the internal grid lines so they never disappear */
     border-right: 1px solid #aaa;
   border-bottom: 2px solid #aaa;
-  box-shadow: none; /* Remove fake line shadow */ 
+  box-shadow: none; /* Remove fake line shadow */
   align-items: flex-start !important;
 }
-
 .icon-item::before, .icon-item::after {
   display: none !important;
 }
-
-
 /* Fix the Hover Effect */
 .icon-item:hover {
   z-index: 10;
@@ -786,7 +685,6 @@ html:hover {
   background: #f0f0f0 !important;
   box-shadow: inset 0 0 0 1px #f58200; /* Adds an inner 'border' highlight instead */
 }
-
 /* Image and Text */
 .icon-item img {
   width: 24px;
@@ -794,7 +692,6 @@ html:hover {
   margin-right: 12px;
   object-fit: contain;
 }
-
 /* Update this specific block in your code */
 .icon-item span {
   font-size: 0.9rem;
@@ -805,69 +702,59 @@ html:hover {
   white-space: normal;
   line-height: 1.2; /* Improves readability on wrapped text */
 }
-
 .page-body p span.inline-icon {
     display: none !important;
 }
-
 .blog-list h2 a {
     font-size: 1.0rem; /* Adjust this number to go smaller (e.g., 0.9rem) */
     font-weight: 500;  /* Optional: makes the text a bit thinner */
     line-height: 1.2;
 }
-
 /* This ensures the H2 container doesn't force a large height */
 .blog-list h2 {
     margin: 0;
-    font-size: inherit; 
+    font-size: inherit;
 }
-
 ul li h2 a {
     font-size: 1.1rem !important; /* Force this size */
 }
-
 .custom-color-block {
   color: orange;
   padding: 1rem;
   border: 1px solid black;
 }
-
 .scroll-bubble-inner {
-  max-height: 340px; 
+  max-height: 340px;
   overflow-y: auto;
   padding: 1.2rem;
   color: black;
   /* Added for better text readability */
   line-height: 1.5;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   scrollbar-width: thin;
   scrollbar-color: orange transparent;
 }
-
 .html-scroll-bubble {
-  max-height: 340px; 
+  max-height: 340px;
   overflow-y: auto;
   padding: 1.2rem;
   color: black;
   /* Added for better text readability */
   line-height: 1.5;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   scrollbar-width: thin;
   scrollbar-color: orange transparent;
 }
-
 /* If a tag is too wide add this to its css */
 .tag {
   max-width: 100%;
   overflow-wrap: break-word; /* Breaks long words if they are wider than the container */
 }
-
 /* Container for the dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 /* The actual menu (hidden by default) */
 .dropdown-content {
   display: none;
@@ -878,7 +765,6 @@ ul li h2 a {
   z-index: 100;
   border-top: 3px solid #f58220; /* Matches your orange accent */
 }
-
 /* Links inside the dropdown */
 .dropdown-content a {
   color: white !important;
@@ -887,30 +773,30 @@ ul li h2 a {
   display: block;
   font-size: 14px;
 }
-
 /* Change color on hover */
 .dropdown-content a:hover {
   background-color: #333;
 }
-
 /* Show the menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 /* Optional: if you want the link to stay underlined */
 .nav-active {
     border-bottom: 2px solid #f58220;
     text-decoration: none;
     background: none !important;
 }
-
 .nav-active b {
     color: #f58220 !important; /* Your theme's orange */
     text-shadow: 0 0 5px rgba(245, 130, 32, 0.3); /* Subtle glow */
 }
-
-
-
-
-
+a img {
+    text-decoration: none;
+    border: none; /* Removes old-school blue borders */
+    display: block; /* Helps remove tiny "descender" gaps under images */
+}
+/* Specifically for your social links */
+a:has(img) {
+    text-decoration: none;
+}
