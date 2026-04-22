@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en"> <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+    <td>
+      <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+      </a>&nbsp;
+    </td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://steampowered.com" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+  <img src="/images/seasonal_banners/bannermh2_spotlight.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p>Current: April 22, 2026</p>
+  <h2>9.3 Modelling JSON file</h2>
+  <div class="page-body">
+The <kbd>modelling.json</kbd> file defines the properties, behavior, and UI configuration of individual modelling targets in MakeHuman 2. Each entry in this file corresponds to a morph target or set of targets that can modify the character's appearance through sliders in the modelling interface.
+<!-- more -->
+This file works in tandem with <kbd>target_cat.json</kbd>, which defines the category hierarchy. While <kbd>target_cat.json</kbd> organizes targets into categories, <kbd>modelling.json</kbd> defines what each target actually does and how it behaves.
+<h2>File Locations and loading order</h2>
+Per mesh there might be 3 different target folders, they are scanned in the following order:
+<table class="contexttab">
+<tr>
+	<td><b>User constant targets</b></td>
+	<td><nobr><kbd>&lt;UserDataDir&gt;/contarget/&lt;basename&gt;/modelling.json</kbd></nobr></td>
+	<td class="explain">This method is used to replace the read-only system-targets, this is used in case of a complete new base in the user folders (the system-targets are read-only. Especially when a mesh is downloaded as a packet. <kbd>modelling.json</kbd> must be manually created.</td>
+<tr>
+<td><b>System targets</b></td>
+<td><kbd>&lt;SystemDir&gt;/target/&lt;basename&gt;/modelling.json</kbd></td>
+<td class="explain">System targets are supplied from MakeHuman team by installation. <kbd>modelling.json</kbd> is part of the installation.</td>
+</tr>
+<tr>
+<td><b>Append user targets</b></td>
+<td><kbd>&lt;UserDataDir&gt;/target/&lt;basename&gt;/modelling.json</kbd></td>
+<td class="explain">Additional user targets, which are added to either system-targets or constant targets. <kbd>modelling.json</kbd> is auto-generated in this case.
+Don't add this manually; the auto-generation will overwrite it anyway.</td>
+</tr>
+</table>
+<p>
+<kbd>&lt;basename&gt;</kbd> is the base mesh identifier (e.g., <kbd>hm08</kbd>, <kbd>mh2bot</kbd>)
+<p>
+To conclude: If <kbd>contarget/&lt;basename&gt;/modelling.json</kbd> exists, the system file is ignored. Otherwise, system and user files are scanned. The user entries are always added in the end.
+<p>
+<h2>File Format</h2>
+<kbd>modelling.json</kbd> is a standard JSON file with a flat structure where each key represents a unique target identifier:
+<p>
+<!-- small example box -->
+<xmp class="smallcode">{
+  "TargetName1": { /* target properties */ },
+  "TargetName2": { /* target properties */ },
+  "TargetName3": { /* target properties */ }
+}
+</xmp>
+<h3>Target Entry Structure</h3>
+Each target entry is a JSON object with various properties that define its behavior:
+<xmp class="smallcode">"TargetName": {
+  "group": "category|subcategory",
+  "name": "Display Name",
+  "tip": "Tooltip description",
+  "incr": "path/to/increase-target",
+  "decr": "path/to/decrease-target",
+  "default": 0.5,
+  "sym": "SymmetricTargetName",
+  "icon": "icon-filename.png",
+  "measure": "measurement-name",
+  "display": {
+    "slot": 1,
+    "text": "Format: {}",
+    "formula": "python expression"
+  },
+  "macro": "macro/path",
+  "macro_influence": [0, 1, 2, 3],
+  "barycentric": ["target1", "target2", "target3"],
+  "barycentric_diffuse": [[r, g, b], [r, g, b], [r, g, b]]
+}
+</xmp>
+<h3>Property Reference</h3>
+Basic Properties:
+<p>
+<table class="contexttab">
+<tr>
+<td>group<p>string, required<br>"category|subcategory"</td>
+<td class="explain">Specifies the category and subcategory for this target, separated by a pipe character.
+The category must match an entry in <kbd>target_cat.json</kbd> to appear in the UI.</td>
+<td><xmp class="smallcode">"group": "face|nose size"
+"group": "main|macro"
+"group": "torso|stomach"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>name<p>string, optional</td>
+<td class="explain">
+	Human-readable display name shown in the UI slider label. <b>If omitted</b>: generated from the entry key by:<br>
+	- Removing the category prefix<br>
+	- Replacing hyphens with spaces<br>
+	- Capitalizing appropriately<br>
+</td>
+<td><xmp class="smallcode">"Nose Width": {
+  "name": "width",  // Displayed as "width"
+  "group": "face|nose size"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>tip<p>string, optional</td>
+<td class="explain">Tooltip text displayed when hovering over the slider. Can include HTML tags for formatting.</td>
+<td><xmp class="smallcode">"tip": "Gender, minimum value is female, maximum value is male."
+"tip": "Age of the human (range from 1 year to 90 years old,
+       with center position 25 years)."
+</xmp>
+</td>
+</tr>
+<tr>
+<td>default<p>number, optional<br>default: 0.5</td>
+<td class="explain">
+Initial slider value when loading a new character. The range is from -1.0 to 1.0 for dual-targets, 0.0 to 1.0 for single targets.
+Internally stored and used as -100 to 100, so 0.5 becomes 50.
+</td>
+<td><xmp class="smallcode">"default": 0.0   // Slider starts at minimum
+"default": 0.5   // Slider starts at center (most common)
+"default": 1.0   // Slider starts at maximum
+</xmp>
+</td>
+</tr>
+<tr>
+<td>incr<p>string, required</td>
+<td class="explain">
+Path to the target file that increases this feature. <b>Format</b>: Relative path from target directory, without <kbd>.target</kbd> extension
+</td>
+<td><xmp class="smallcode">"incr": "armslegs/l-hand-fingers-distance"
+"incr": "head/head-oval"
+"incr": "nose/nose-width-incr"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>decr<p>string, optional</td>
+<td class="explain">
+Path to the target file that decreases this feature. <b>Used for</b>: Bidirectional/dual targets where a feature can increase or decrease.<br>
+<b>Behavior</b>:<br>
+If both <kbd>incr</kbd> and <kbd>decr</kbd> exist: Creates a dual slider with negative and positive ranges<br>
+If only <kbd>incr</kbd> exists: Creates a unidirectional slider (0 to max)
+</td>
+<td><xmp class="smallcode">"Nose Width": {
+  "incr": "nose/nose-width-incr",
+  "decr": "nose/nose-width-decr"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>icon<p>string, optional</td>
+<td class="explain">
+Filename of the icon image to display alongside the slider.<br>
+<b>Location</b>: <kbd>data/target/&lt;basename&gt;/icons/</kbd> or user icon directory<br>
+<b>Format</b>: PNG image<br>
+<b>Auto-detection for user targets</b>: If an icon file matches the pattern <kbd>&lt;folder&gt;-&lt;targetname&gt;.png</kbd>, it's automatically linked.
+</td>
+<td><xmp class="smallcode">"icon": "head-oval.png"
+"icon": "breastsize.png"
+"icon": "nose-nostril-flare.png"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>rsym<br>lsym<p>string, optional</td>
+<td class="explain">
+Name of the symmetric counterpart target for left/right symmetry features.
+<b>Used for</b>: Features that exist on both sides of the body
+<b>Behavior</b>: When symmetry mode is enabled in the UI, moving one slider automatically moves its symmetric counterpart.
+</td>
+<td><xmp class="smallcode">"l-eye-height": {
+  "group": "face|left eye",
+  "rsym": "r-eye-height",
+  "incr": "eyes/l-eye-height-incr",
+  "decr": "eyes/l-eye-height-decr"
+},
+"r-eye-height": {
+  "group": "face|right eye",
+  "lsym": "l-eye-height",
+  "incr": "eyes/r-eye-height-incr",
+  "decr": "eyes/r-eye-height-decr"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>measure<p>[array of vertices]</td>
+<td class="explain">
+When values are given, these vertices are connected with lines in MakeHuman2 to indicate what the measurement stands for.
+</td>
+<td><xmp class="smallcode">"ME-Torso NapeWaist": {
+  "name": "Nape to Waist",
+  "group": "measure|torso",
+  "decr": "measure/measure-napetowaist-dist-decr",
+  "incr": "measure/measure-napetowaist-dist-incr",
+  "measure": [1491,4181]
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>macro<p>string, optional</td>
+<td class="explain">
+Path to the macro definition that controls this target's behavior. The macro system loads a definition from <kbd>macro.json</kbd> that specifies which underlying targets to apply and at what intensities based on the slider value and other factors.
+<b>Format</b>: <kbd>folder/MacroName</kbd> (without extension)
+<p>
+<b>Common folders</b>:
+<ul>
+<li><kbd>macro_age/</kbd> - Core macro definitions (Gender, Age, etc.)</li>
+<li><kbd>macro_muscle/</kbd> - Universal macros (Muscle, Weight)</li>
+<li><kbd>macro_height/</kbd> - Height-related macros</li>
+<li><kbd>macro_prop/</kbd> - Proportion macros</li>
+<li><kbd>macro_fembreast/</kbd> - Breast-related macros</li>
+</ul>
+</td>
+<td><xmp class="smallcode">"Gender": {
+  "group": "main|macro",
+  "macro": "macrodetails/Gender",
+  "default": 0.5
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>macro_influence<p>[array of integers], optional</td>
+<td class="explain">
+List of macro component indices that this target influences.
+The macro influence system allows targets to interact and produce combined effects.
+When multiple macro targets are changed, their influences on shared components are calculated together to produce the final character shape.
+The numbers are 0 to 4, each representing a macro component:
+<ul>
+<li><b>0</b>: ethnicity/phenotype</li>
+<li><b>1</b>: age/maturity related</li>
+<li><b>2</b>: proportion related</li>
+<li><b>3</b>: height/scale related</li>
+<li><b>4</b>: gender/sexual characteristics</li>
+</ul>
+</td>
+<td><xmp class="smallcode">"Gender": {
+  "macro": "macrodetails/Gender",
+  "macro_influence": [0, 1, 2, 3, 4]  // Affects all components
+}
+"Height": {
+  "macro": "macrodetails-height/Height",
+  "macro_influence": [3]  // Only affects height component
+}
+"Muscle": {
+  "macro": "macrodetails-universal/Muscle",
+  "macro_influence": [1, 2, 3, 4]  // Affects all except ethnicity
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>barycentric<p>[array of 3 strings], optional</td>
+<td class="explain">
+Three target paths defining the corners of a barycentric triangle.
+Barycentric targets use three-way interpolation between three different states, creating smooth transitions in a triangular coordinate system.
+<b>UI Behavior</b>Creates a triangular slider interface where:
+<ul>
+<li>Each corner represents 100% of one target</li>
+<li>The center represents 33.33% of each target</li>
+<li>Any point inside represents a weighted blend of all three targets</li>
+</ul>
+</td>
+<td><xmp class="smallcode">"Phenotype": {
+  "group": "main|macro",
+  "barycentric": [
+    "macrodetails/African",
+    "macrodetails/Asian",
+    "macrodetails/Caucasian"
+  ],
+  "macro_influence": [0]
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>barycentric_diffuse<p>array of 3 arrays, optional</td>
+<td class="explain">
+Three color values (RGB) to blend along with the barycentric targets.
+As the barycentric slider changes, the diffuse color smoothly transitions between the three specified values, providing visual feedback and realistic skin tone variation.
+</td>
+<td><xmp class="smallcode">"barycentric_diffuse": [
+  [0.207, 0.113, 0.066],  // African skin tone
+  [0.721, 0.568, 0.431],  // Asian skin tone
+  [0.843, 0.639, 0.517]   // Caucasian skin tone
+]
+</xmp>
+</td>
+</tr>
+</table>
+<h3>Display Formula</h3>
+A display formula is an object. It configures a custom text display that shows a calculated value based on the slider position.
+<table class="contexttab">
+<tr>
+<td>slot</td><td>integer</td>
+<td class="explain">Display slot number (1-4) for positioning in the UI</td>
+</tr>
+<tr>
+<td>text</td><td>string</td>
+<td class="explain">Format string with `{}` placeholder for the calculated value</td>
+</tr>
+<tr>
+<td>formula</td><td>string</td>
+<td class="explain">Python expression to calculate the display value which is available as val and represents the current slider.
+Usable are python math operations, conditionals, string operations which will be calculated by using 'eval'.
+</td>
+</tr>
+</table>
+<p>
+<b>Example 1 - Simple Age Display:</b>
+<p>
+<xmp class="smallcode">"display": {
+  "slot": 2,
+  "text": "Age: {}",
+  "formula": "round(1 + val / (0.5/24)) if val < 0.5 else round(25 + (val-0.5) / (0.5/65))"
+}
+</xmp>
+Result: "Age: 1" at 0.0, "Age: 25" at 0.5, "Age: 90" at 1.0
+<p>
+<b>Example 2 - Percentage Display:</b>
+<p>
+<xmp class="smallcode">"display": {
+  "slot": 3,
+  "text": "Muscle: {}%",
+  "formula": "round(val * 100, 2)"
+}
+</xmp>
+Result: "Muscle: 0%" at 0.0, "Muscle: 50%" at 0.5, "Muscle: 100%" at 1.0
+<p>
+<b>Example 3 - Conditional Text:</b>
+<p>
+<xmp class="smallcode">"display": {
+  "slot": 1,
+  "text": "{}",
+  "formula": "'neutral' if 0.49 < val < 0.51 else 'male' if val > 0.99 else 'female' if val < 0.01 else str(round(100.0 - val*100.0)) + '% female, ' + str(round(val*100.0)) + '% male'"
+}
+</xmp>
+Result: Shows text descriptions like "female", "neutral", "male", or percentages like "30% female, 70% male"
+<h2>Target Type Examples</h2>
+<table class="contexttab">
+<tr>
+<td>Simple Unidirectional Target</td>
+<td class="explain">A basic target that only increases a feature (no decrease).<br>
+<b>UI</b>: Single slider from 0 (no effect) to 100 (maximum effect)</td>
+<td><xmp class="smallcode">"Head Oval": {
+  "name": "Oval Shape",
+  "group": "face|head shape",
+  "icon": "head-oval.png",
+  "incr": "head/head-oval"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>Dual Bidirectional Target</td>
+<td class="explain">A target that can increase or decrease a feature.<br>
+<b>UI</b>: Dual slider with:
+Left side (0-50): Applies decr target<br>
+Center (50): Neutral, no effect
+</td>
+<td><xmp class="smallcode">"Nose Width": {
+  "group": "face|nose size",
+  "name": "width",
+  "tip": "Makes the nose wider or narrower",
+  "incr": "nose/nose-width-incr",
+  "decr": "nose/nose-width-decr",
+  "default": 0.5,
+  "icon": "nose-width.png"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>Symmetric Target Pair</td>
+<td class="explain">Two related targets that can move together when symmetry is enabled.<br>
+<b>UI</b>: Two separate sliders that can be:<br>
+- Adjusted independently (normal mode)<br>
+- Adjusted together (symmetry mode enabled)<br>
+</td>
+<td><xmp class="smallcode">"l-eye-height": {
+  "group": "face|left eye",
+  "name": "eye height",
+  "tip": "Raise or lower the left eye",
+  "incr": "eyes/l-eye-height-incr",
+  "decr": "eyes/l-eye-height-decr",
+  "rsym": "r-eye-height",
+  "default": 0.5,
+  "icon": "eye-height.png"
+},
+"r-eye-height": {
+  "group": "face|right eye",
+  "name": "eye height",
+  "tip": "Raise or lower the right eye",
+  "incr": "eyes/r-eye-height-incr",
+  "decr": "eyes/r-eye-height-decr",
+  "lsym": "l-eye-height",
+  "default": 0.5,
+  "icon": "eye-height.png"
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>Macro Target with Display Formula</td>
+<td class="explain">A complex target controlling multiple underlying morphs with custom display.<br>
+<b>UI</b>: Slider with text display showing calculated age in years (1 to 90)</td>
+<td><xmp class="smallcode">"Age": {
+  "group": "main|macro",
+  "tip": "Age of the human (range from 1 year to 90 years,
+        center position is 25 years).",
+  "macro": "macrodetails/Age",
+  "macro_influence": [0, 1, 2, 3, 4],
+  "default": 0.5,
+  "display": {
+    "slot": 2,
+    "text": "Age: {}",
+    "formula": "round(1 + val / (0.5/24)) if val < 0.5
+	     else round(25 + (val-0.5) / (0.5/65))"
+  }
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>Measurement Target</td>
+<td class="explain">A target that updates a body measurement.<br>
+<b>UI</b>; Slider with live measurement update showing neck height in cm or inches</td>
+<td><xmp class="smallcode">"ME-Neck Height": {
+  "name": "Neck Height",
+  "group": "measure|neck",
+  "decr": "measure/measure-neck-height-decr",
+  "incr": "measure/measure-neck-height-incr",
+  "measure": [853,854,855,856,857,858,1496,1491]
+}
+</xmp>
+</td>
+</tr>
+<tr>
+<td>Barycentric Target</td>
+<td class="explain">A three-way interpolation target.<br>
+<b>UI</b>: Triangular map slider where each corner represents one ethnicity, with smooth blending between all three
+</td>
+<td><xmp class="smallcode">"Phenotype": {
+  "group": "main|macro",
+  "tip": "Ethnic characteristics",
+  "barycentric": [
+    "macrodetails/African",
+    "macrodetails/Asian",
+    "macrodetails/Caucasian"
+  ],
+  "barycentric_diffuse": [
+    [0.207, 0.113, 0.066],
+    [0.721, 0.568, 0.431],
+    [0.843, 0.639, 0.517]
+  ],
+  "macro_influence": [0]
+}
+</xmp>
+</td>
+</tr>
+</table>
+<h2>Automatic Generation for User Targets</h2>
+When you add <kbd>.target</kbd> files to the user target directory, MakeHuman automatically generates entries in <kbd>modelling.json</kbd>:
+<ol>
+	<li><b>Scans</b> &lt;UserDataDir&gt;/data/target/&lt;basename&gt; folder for <kbd>.target</kbd> files</li>
+	<li><b>Detects</b> folder structure (subfolders become subcategories)</li>
+	<li><b>Identifies</b> dual target pairs (matching <kbd>-incr</kbd> and <kbd>-decr</kbd> suffixes)</li>
+	<li><b>Links</b> icon files (if they follow naming conventions)</li>
+	<li><b>Generates</b> appropriate JSON entries</li>
+	<li><b>Writes</b> <kbd>modelling.json</kbd> in the user target directory</li>
+</ol>
+Dual Target Detection is done by using file naming conventions:
+<xmp>features/custom-feature-incr.target
+features/custom-feature-decr.target
+</xmp>
+which may result in this:
+<xmp class="smallcode">"Features Custom Feature": {
+  "user": 1,
+  "name": "custom feature",
+  "group": "user|features",
+  "incr": "features/custom-feature-incr",
+  "decr": "features/custom-feature-decr",
+  "icon": "features-custom-feature.png"
+}
+</xmp>
+Targets with missing <kbd>-decr</kbd> are handled as single targets.
+<p>
+Icons must be placed in <kbd>&lt;UserDataDir&gt;/target/&lt;basename&gt;/icons</kbd> folder if they should be automatically linked.
+they need the following pattern:
+<p>
+<kbd>&lt;subfolder&gt;-&lt;targetname&gt;.png</kbd>
+<p>
+Example:
+<xmp>clothes/heels-depth-decr.target
+clothes/heels-depth-incr.target
+icons/clothes-heels-depth.png ← Auto-linked
+</xmp>
+<b>Note</b>: Icon should not include <kbd>-incr</kbd> or <kbd>-decr</kbd> suffix for dual targets.
+The targets are regenerated in user targets when
+<ul>
+<li>A <kbd>.target</kbd> file is added, removed, or modified</li>
+<li>An icon file is added or removed</li>
+<li>The modification time of any file is newer than the existing <kbd>modelling.json</kbd></li>
+</ul>
+This ensures the JSON file stays synchronized with actual target files.
+<h2>Creating Manual Entries to contargets</h2>
+For Custom Base Meshes edit the file <kbd>&lt;UserDir&gt;/contarget/&lt;basename&gt;/modelling.json</kbd>
+<p>
+<b>Typical workflow:</b><p>
+<ol>
+<li>Add target files to appropriate directory</li>
+<li>Create icon (optional)</li>
+<li>Add entry to <kbd>modelling.json</kbd></li>
+<li>Add category to <kbd>target_cat.json</kbd> if needed</li>
+</ol>
+<b>Example:</b>
+<p>
+<xmp class="smallcode">{
+  "CustomHead": {
+    "group": "custom|head",
+    "name": "Custom Head Shape",
+    "tip": "My custom head morph",
+    "incr": "custom-head-incr",
+    "default": 0.5,
+    "icon": "custom-head.png"
+  },
+  "CustomBody": {
+    "group": "custom|body",
+    "name": "Custom Body Shape",
+    "incr": "custom-body-incr",
+    "decr": "custom-body-decr"
+  }
+}
+</xmp>
+<h2>Integration with other files</h2>
+<table class="contexttab">
+<tr>
+<td>Target Files</td>
+<td class="explain">
+<kbd>modelling.json</kbd> references target files in the same directory structure it is placed.<br>
+<b>Format</b>: Binary <kbd>.npz</kbd> (compiled) or ASCII <kbd>.target</kbd> (source)
+</td>
+<td>
+See: [target.md](target.md) for target file format
+</td>
+</tr>
+<tr>
+<td>Category System</td>
+<td class="explain">
+<kbd>modelling.json</kbd> entries must reference categories defined in  <kbd>target_cat.json</kbd>. <b>group field</b> must match a category identifier<br>
+<b>Format</b>: "category|subcategory"
+</td>
+<td>
+	See: <a href="../conf_targetcat">target-categories</a> for category system
+</td>
+</tr>
+<tr>
+<td>Macro System</td>
+<td class="explain">Macro targets reference definitions in <kbd>macro.json</kbd>. <b>macro field</b> must match path to macro definition and <b>macro_influence field</b> describe which components are affected
+</td>
+<td>
+See: <a href="../conf_macro">macros</a> for macro system
+</td>
+</tr>
+<tr>
+<td>Base Configuration</td>
+<td class="explain">Some properties interact with <kbd>base.json</kbd>, if character measurement is presented, these values will be used with <b>measure field</b><br>
+Start values of targets may be overridden by "modifier-presets" in <kbd>base.json</kbd>
+</td>
+<td>
+See: [base-json-format.md](base-json-format.md) for base configuration
+</td>
+</tr>
+<tr>
+<td>Character Files</td>
+<td class="explain">Target values are saved in <kbd>.mhm</kbd> character files using the format "modifier &lt;target-key&gt; &lt;value&gt;"
+values are stored as 0.0-1.0.
+</td>
+<td>
+See: [mhm.md](mhm.md) for character file format
+</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black_hu233145ddc8ae14b164f490727a623b22_5437_50x50_resize_box_3.png" alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
