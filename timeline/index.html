@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+<html lang="en"> <head>
       <meta charset="GLUT_BITMAP_HELVETICA_18">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
@@ -12,10 +12,11 @@
 <body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
 <table width="100%">
   <tr valign="center">
-    <td>
-      <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
-      </a>&nbsp;
-    </td>
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
     <td>
       <a href="/" class=""><b>Home</b></a>
       <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
@@ -78,16 +79,23 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2></h2>
   <div class="page-body">
-    <h1 id="our-mh-1-and-mh-2-timeline">Our MH 1 and MH 2 timeline.</h1>
+    <style>
+  /* SAFE CSS FIX: Changes titles to orange without breaking shortcode logic */
+  .timeline-event h4,
+  .timeline-event-title {
+    color: #f58220 !important;
+  }
+</style>
+<h1 id="span-stylecolor-f58220-the-mh-1-and-mh-2-timelinespan"><span style="color: #f58220;"> The MH 1 and MH 2 timeline.</span></h1>
 <div class="timeline">
 <div class="container">
   <div class="content">
-    <div class="title">Current Position</div>
+    <div class="title">Current Time &amp; Place in History</div>
     <div class="moment"  id="moment" >
     </div>
-    <div class="body"><pre><code>Makehuman 2 Alpha Exe ready. Testing Begins!
-MH 2 Brand New Site Design Starts
-</code></pre>
+    <div class="body"><p>Makehuman 2 Alpha Exe ready. Testing Begins!   <br>
+MH 2 Brand New Site Design Starts.<br>
+<span style="color: white;"><a href="/timeline_pgs/current/">Current Release Alpha 1 MH2</a></span></p>
 </div>
   </div>
   <div class="date">2026</div>
@@ -115,60 +123,118 @@ MH 2 Brand New Site Design Starts
 </script>
 <div class="container">
   <div class="content">
-    <div class="title">From Humble new Beginnings</div>
+    <div class="title">MPFB2 Stable Release</div>
     <div class="moment" >
-        4 years
     </div>
-    <div class="body"><pre><code>Makehuman 2 Planning and developing completely new from the ground up.
-</code></pre>
+    <div class="body"><p>The first stable version of <strong>MPFB2 (2.0.8)</strong> is released.
+It is officially hosted on the new <strong>Blender Extensions</strong> platform, making MakeHuman a native part of the Blender ecosystem.</p>
 </div>
   </div>
   <div class="date">2025</div>
 </div>
 <div class="container">
   <div class="content">
-    <div class="title">The Dark Days</div>
+    <div class="title">From Humble new Beginnings</div>
+    <div class="moment" >
+        4 years
+    </div>
+    <div class="body"><p>The new journey of exploration and development begins with planning, art and coding.   <br>
+Makehuman 2 Planning and developing completely new from the ground up.<br>
+<span style="color: white;"><a href="/timeline_pgs/newbeg/">New Beginning</a></span></p>
+</div>
+  </div>
+  <div class="date">2025</div>
+</div>
+<div class="container">
+  <div class="content">
+    <div class="title">The Birth of MPFB2</div>
+    <div class="moment" >
+        1 year 2 months
+    </div>
+    <div class="body"><p>Development begins on a complete rewrite of the Blender side plugin.
+The goal of Joel Palmius: Move away from a &ldquo;bridge&rdquo; and make MakeHuman run <strong>inside</strong> Blender.
+<strong>MPFB2 Alpha 1</strong> is released March 2022.
+<strong>MC2</strong> released by Punkduck same year.</p>
+</div>
+  </div>
+  <div class="date">2022</div>
+</div>
+<div class="container">
+  <div class="content">
+    <div class="title">The Dark Days of MH 1</div>
     <div class="moment" >
         2 years
     </div>
-    <div class="body"><pre><code>Makehuman 1 Goes through a changing of the guard and decision-making process for the journey forward.
-</code></pre>
+    <div class="body"><p>A period of quiet and contemplation.   <br>
+Makehuman 1 Goes through a changing of the guard and decision-making process for the journey forward.<br>
+<span style="color: white;"><a href="/timeline_pgs/darkdays/">Dark Days</a></span></p>
 </div>
   </div>
   <div class="date">2021</div>
 </div>
 <div class="container">
   <div class="content">
-    <div class="title">The End of an Era</div>
+    <div class="title">MPFB1 and Socket Integration</div>
     <div class="moment" >
-        1 year 11 months
     </div>
-    <div class="body"><pre><code>Makehuman 1 is Largely declared abandonware by its remaining founding team in favor of plugins for Blender.
-</code></pre>
+    <div class="body"><p><strong>MPFB1</strong> (MakeHuman Plugin for Blender) is introduced with MH 1.2.0 Alpha 3.
+This allowed a &ldquo;Live Link&rdquo; via network sockets to sync characters instantly between apps.</p>
 </div>
   </div>
   <div class="date">2019</div>
 </div>
 <div class="container">
   <div class="content">
-    <div class="title">The Renaissance </div>
+    <div class="title">The End of an Era &amp; MHX2</div>
     <div class="moment" >
-        17 years
+        3 years
     </div>
-    <div class="body"><pre><code>Makehuman 1 Develops a following in the form of artists and creators and code writers with mutual love for open source software.
-</code></pre>
+    <div class="body"><p>The Tides Start to Turn.
+<strong>MHX2 (MakeHuman eXchange 2)</strong> becomes the standard for high-quality export to Blender.
+Makehuman 1 is largely declared abandonware by its founding team in favor of Blender plugins.<br>
+<span style="color: white;"><a href="/timeline_pgs/eraend/">End of Era</a></span></p>
 </div>
   </div>
-  <div class="date">2017</div>
+  <div class="date">2019</div>
 </div>
 <div class="container">
   <div class="content">
-    <div class="title">The Beginning of Makehuman</div>
+    <div class="title">Rise of the Community Plugins</div>
     <div class="moment" >
-        1 year 11 months
+        4 years
     </div>
-    <div class="body"><pre><code>Makehuman 1 is Released to the public.
-</code></pre>
+    <div class="body"><p>A golden era for the Blender integration suite:</p>
+<ul>
+<li><strong>MHX / MHX2:</strong> The primary high-quality exchange format.</li>
+<li><strong>MakeWalk:</strong> The specialized tool for retargeting BVH animations to MH rigs.</li>
+<li><strong>MakeClothes &amp; MakeTarget:</strong> Tools that allowed artists to create custom assets for the community library.<br>
+<span style="color: white;"><a href="/timeline_pgs/riseofplugins/">Rise of Plugins</a></span></li>
+</ul>
+</div>
+  </div>
+  <div class="date">2016</div>
+</div>
+<div class="container">
+  <div class="content">
+    <div class="title">The Renaissance</div>
+    <div class="moment" >
+        12 years
+    </div>
+    <div class="body"><p>Makehuman 1 experiences an artistic Renaissance.<br>
+Makehuman 1 Develops a following of artists and code writers with mutual love for open source software.<br>
+<span style="color: white;"><a href="/timeline_pgs/therenaissance/">The Renaissance</a></span></p>
+</div>
+  </div>
+  <div class="date">2012</div>
+</div>
+<div class="container">
+  <div class="content">
+    <div class="title">The Beginning of Makehuman 1</div>
+    <div class="moment" >
+        11 months
+    </div>
+    <div class="body"><p>Makehuman 1 is Released to the public.<br>
+<span style="color: white;"><a href="/timeline_pgs/mh1start/">Makehuman1 Launches</a></span></p>
 </div>
   </div>
   <div class="date">2000</div>
@@ -179,8 +245,8 @@ MH 2 Brand New Site Design Starts
     <div class="moment" >
         11 months
     </div>
-    <div class="body"><pre><code>Bastioni Releases a working MakeHead Program.
-</code></pre>
+    <div class="body"><p>Bastioni Releases a working MakeHead Program.<br>
+<span style="color: white;"><a href="/timeline_pgs/beginning/">The Beginning</a></span></p>
 </div>
   </div>
   <div class="date">1999</div>

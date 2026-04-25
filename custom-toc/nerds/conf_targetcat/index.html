@@ -77,44 +77,133 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.3 JSON Configuration Files</h2>
+  <h2>9.3 Target Category JSON file</h2>
   <div class="page-body">
+<kbd>target_cat.json</kbd> defines the hierarchical structure of target categories displayed in the modeling UI.
+It organizes targets into groups and subgroups, making them easy to browse and discover.
+Together with <kbd>modelling.json</kbd>, these files control how targets appear in the user interface and how they behave when applied to the character model.
+<!-- more -->
+<h2>File Locations and loading order</h2>
+Per mesh there might be 3 different target folders, they are scanned in the following order:
 <table class="contexttab">
 <tr>
-<td><a href="../conf_modelling">Modelling</a></td>
-<td>modelling.json</td>
-<td class="explain">
-This file defines the properties, behavior, and UI configuration of individual modelling targets in MakeHuman 2. Each entry in this file corresponds to a morph target or set of targets that can modify the character's appearance through sliders in the modelling interface.
-</td>
+	<td><b>User constant targets</b></td>
+	<td><nobr><kbd>&lt;UserDataDir&gt;/contarget/&lt;basename&gt;/target_cat.json</kbd></nobr></td>
+	<td class="explain">This method is used to replace the read-only system-targets, this is used in case of a complete new base in the user folders (the system-targets are read-only. Especially when a mesh is downloaded as a packet. <kbd>target_cat.json</kbd> must be manually created.</td>
+<tr>
+<td><b>Append user targets</b></td>
+<td><nobr><kbd>&lt;SystemDir&gt;/target/&lt;basename&gt;/target_cat.json</kbd></nobr></td>
+<td class="explain">Additional user target categories, which are added to either system-targets or constant targets.
+<kbd>target_cat.json</kbd> is auto-generated in this case it always starts with group "user".
+Don't add this manually; the auto-generation will overwrite it anyway.</td>
 </tr>
 <tr>
-<td><a href="../conf_macro">Macro</a></td>
-<td>macro.json</td>
-<td class="explain">
-This file defines MakeHuman2's <b>macro target system</b> - a sophisticated mechanism for applying complex combinations of morphing targets based on hierarchical slider interactions. Macro targets allow a single slider (like "Gender" or "Age") to automatically calculate and apply dozens of underlying targets with appropriate weights.
-</td>
+<td><b>System targets</b></td>
+<td><nobr><kbd>&lt;SystemDir&gt;/target/&lt;basename&gt;/target_cat.json</kbd></nobr></td>
+<td class="explain">System target categories are supplied from MakeHuman team by installation. <kbd>target_cat.json</kbd> is part of the installation.</td>
+</tr>
+</table>
+<p>
+<kbd>&lt;basename&gt;</kbd> is the base mesh identifier (e.g., <kbd>hm08</kbd>, <kbd>mh2bot</kbd>)
+<p>
+To conclude: If <kbd>contarget/&lt;basename&gt;/target_cat.json</kbd> exists, the system file is ignored. Otherwise, system file is scanned. The user entries are always added in the end.
+<p>
+<h2>File Format</h2>
+<xmp class="smallcode">{
+  "CategoryName": {
+    "group": "group-identifier",
+    "items": [
+      {"title": "Display Name", "cat": "internal-category-name"}
+    ]
+  }
+}
+</xmp>
+<h2>Example</h2>
+<xmp class="smallcode">{
+  "Main": {
+    "group": "main",
+    "items": [
+      {"title": "Macro", "cat": "macro"}
+    ]
+  },
+  "Face": {
+    "group": "face",
+    "items": [
+      {"title": "Head shape", "cat": "head shape"},
+      {"title": "Nose size", "cat": "nose size"},
+      {"title": "Nose features", "cat": "nose features"}
+    ]
+  },
+  "Torso": {
+    "group": "torso",
+    "items": [
+      {"title": "Shape", "cat": "shape"},
+      {"title": "Hip", "cat": "hip"},
+      {"title": "Stomach", "cat": "stomach"}
+    ]
+  }
+}
+</xmp>
+<h3>Property Reference</h3>
+Basic Properties:
+<p>
+<table class="contexttab">
+<tr>
+<td>group<p>string</td>
+<td class="explain">Top-Level Category. Internal group identifier used to link targets to this category.</td>
 </tr>
 <tr>
-<td><a href="../conf_targetcat">Target Categories</a></td>
-<td>target_cat.json</td>
-<td class="explain">
-This file defines the hierarchical structure of target categories displayed in the modeling UI.
-It organizes targets into groups and subgroups, making them easy to browse and discover.
-</td>
+<td>items<p>array of subcategory objects</td>
+<td class="explain">Top-Level Category. Each item represents a subcategory that can be selected to show related targets.</td>
 </tr>
 <tr>
-<td><a href="../conf_selectfilter">Selection Filter</a></td>
-<td>selection_filter.json</td>
-<td class="explain">
-The <kbd>selection_filter.json</kbd> file defines the <b>filtering and categorization system</b> for asset libraries in MakeHuman2. It provides a structured way to organize and search through large collections of assets like clothing, hair, poses, expressions, and rigs by defining hierarchical categories, tag mappings, and quick-access shortcuts.
-</td>
+<td>title<p>string</td>
+<td class="explain">Display name shown in the UI</td>
 </tr>
 <tr>
-<td><a href="../conf_makehuman">MakeHuman2 Configuration</a></td>
-<td>makehuman2.conf</td>
+<td>cat<p>string</td>
+<td class="explain">Internal category identifier that matches the <kbd>group</kbd> field in <kbd>modelling.json</kbd></td>
+</tr>
+</table>
+<h2>Auto-Generated User Category Structure</h2>
+When user targets are added to <kbd>&lt;UserDataDir&gt;/target/</kbd>, the system automatically:
+<ol>
+<li>Scans the target folder for <kbd>.target</kbd> files</li>
+<li>Detects them by subfolder structure</li>
+<li>Generates <kbd>target_cat.json</kbd> and <kbd>modelling.json</kbd> in the user target folder</li>
+<li>Appends a "User" category to the system categories at run-time.</li>
+</ol>
+<xmp class="smallcode">{
+  "User": {
+    "group": "user",
+    "items": [
+      {"title": "Subfolder1", "cat": "subfolder1"},
+      {"title": "Subfolder2", "cat": "subfolder2"},
+      {"title": "Unsorted", "cat": "unsorted"}
+    ]
+  }
+}
+</xmp>
+Targets in subfolders are grouped by folder name; targets in the root target directory go into "Unsorted".
+<h2>Summary</h2>
+The <kbd>target_cat.json</kbd> and <kbd>modelling.json</kbd> files work together to create a complete target system:
+<ul>
+	<li><kbd>target_cat.json</kbd> provides the organizational structure (categories and UI layout)</li>
+	<li><kbd>modelling.json</kbd> provides the individual target definitions (behavior and properties)</li>
+</ul>
+For most users, the automatic generation system handles everything - just add your <kbd>.target</kbd> files to the user directory and the system creates appropriate JSON entries. For advanced users creating custom base meshes, manual creation of these files in the `contarget` directory provides complete control over the target system.
+<h2>Integration with other files</h2>
+<table class="contexttab">
+<tr>
+<td>Modelling JSON</td>
 <td class="explain">
-<kbd>makehuman2.conf</kbd> is a JSON based configuration file to store application settings and preferences.
+<kbd>modelling.json</kbd> entries are referencing categories defined in <kbd>target_cat.json</kbd>. <b>group field</b> must match a category identifier<br>
+<b>Format</b>: "category|subcategory"
 </td>
+<td>
+        See: <a href="../conf_modelling">modelling.json</a> for modelling definition
+</td>
+</tr>
 </table>
   </div>
 <style>

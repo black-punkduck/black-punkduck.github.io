@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://steampowered.com" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.3.3 Macro JSON file</h2>
+  <div class="page-body">
+The <kbd>macro.json</kbd> file defines MakeHuman2's <b>macro target system</b> - a sophisticated mechanism for applying complex combinations of morphing targets based on hierarchical slider interactions. Macro targets allow a single slider (like "Gender" or "Age") to automatically calculate and apply dozens or even hundreds of underlying targets with appropriate weights.
+The macro system solves the problem of <b>interdependent character attributes</b> when you change gender, age, muscle, and weight, the system needs to apply different combinations of targets that work together harmoniously. The macro system calculates these combinations automatically.
+<!-- more -->
+<h2>File Locations and loading order</h2>
+Per mesh there might be 3 different target folders, two of them can be used for <kbd>macro.json</kbd> file.
+<table class="contexttab">
+<tr>
+	<td><b>User constant targets</b></td>
+	<td><nobr><kbd>&lt;UserDataDir&gt;/data/contarget/&lt;basename&gt;/macro.json</kbd></nobr></td>
+	<td class="explain">This method is used to replace the read-only system-targets, this is used in case of a complete new base in the user folders (the system-targets are read-only. Especially when a mesh is downloaded as a packet. <kbd>macro.json</kbd> must be manually created.</td>
+<tr>
+<td><b>System targets</b></td>
+<td><nobr><kbd>&lt;SystemDir&gt;/data/target/&lt;basename&gt;/macro.json</kbd></nobr></td>
+<td class="explain">System targets are supplied from MakeHuman team by installation. <kbd>macro.json</kbd> is part of the installation.</td>
+</tr>
+</table>
+<p>
+<kbd>&lt;basename&gt;</kbd> is the base mesh identifier (e.g., <kbd>hm08</kbd>, <kbd>mh2bot</kbd>)
+<p>
+To conclude: If <kbd>contarget/&lt;basename&gt;/macro.json</kbd> exists, the system file is ignored. Otherwise, system files are scanned.
+<p>
+<h2>File Format</h2>
+The <kbd>macro.json</kbd> file consists of two main sections:
+<p>
+<xmp class="smallcode">{
+  "components": {
+    "component-name": {
+      "values": ["value1", "value2", "value3"],
+      "pattern": "target/path/prefix",
+      "steps": [0.0, 0.5, 1.0],
+      "sum": ["Slider1", "Slider2", "Slider3"]
+    }
+  },
+  "macrodef": [
+    {
+      "name": "macro-name",
+      "comp": ["component1", "component2"],
+      "folder": "target_folder",
+      "targets": [
+        {"name": "calculated-name", "t": "actual-target-file"}
+      ]
+    }
+  ]
+}
+</xmp>
+<h3>Components Section</h3>
+The <b>components</b> object defines reusable building blocks that describe how slider values map to target naming patterns. Each component represents a character dimension (gender, age, muscle, etc.).
+<p>
+The component structure is:
+<xmp class="smallcode">"component-name": {
+  "values": ["label1", "label2", "label3"],
+  "pattern": "target-path-prefix",
+  "steps": [0.0, 0.5, 1.0],
+  "sum": ["TargetName1", "TargetName2"]
+}
+</xmp>
+<h3>Property Reference</h3>
+<table class="contexttab">
+<tr>
+<td>values<p>arrays of strings, required</td>
+<td class="explain">List of naming labels for this component's states, it is used to construct target filenames.
+Number of values determines how many states the component has
+</td>
+<td><xmp class="smallcode">Examples:
+["female", "male"]
+["minmuscle", "averagemuscle", "maxmuscle"]
+</xmp>
+</td>
+</tr>
+<tr>
+<td>pattern<p>string, required</td>
+<td class="explain">Path prefix to the target controlling this component, which must match a target defined in <kbd>modelling.json</kbd>. It is used to read current slider values.
+</td>
+<td><xmp class="smallcode">Examples:
+"macrodetails/Gender"
+"macrodetails-universal/Muscle"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>steps<p>array of numbers, optional</td>
+<td class="explain">Defines breakpoints on the slider (0.0 to 1.0 range).  It is used for <b>stepped interpolation</b> between discrete states.The array length must equal <b>values</b> array length. When present, it creates interpolation between adjacent steps.
+</td>
+<td><xmp class="smallcode">Example:
+[0.0, 0.5, 1.0] means value1 at 0%, value2 at 50%, value3 at 100%
+</xmp>
+</td>
+</tr>
+<tr>
+<td>sum<p>array of strings, optional</td>
+<td class="explain">Used for <b>barycentric (3-way) sliders</b> instead of stepped sliders. Lists the target names whose barycentric values sum to determine weights. It is mutually exclusive with <b>steps</b> - use one or the other. It must have exactly 3 entries for barycentric interpolation.
+</td>
+<td><xmp class="smallcode">Example:
+["African", "Asian", "Caucasian"]
+</xmp>
+</td>
+</tr>
+</table>
+<h2>Component Types</h2>
+Stepped component (2 states), example: Gender:
+<xmp class="smallcode">"gender": {
+  "values": ["female", "male"],
+  "steps": [0.0, 1.0],
+  "pattern": "macrodetails/Gender"
+}
+</xmp>
+<b>How it works:</b>
+<p>
+- Slider at 0.0 → 100% <b>female</b>, 0% <b>male</b><br>
+- Slider at 0.5 → 50% <b>female</b>, 50% <b>male</b><br>
+- Slider at 1.0 → 0% <b>female,</b> 100% <b>male</b><br>
+- Linear interpolation between the two states<br>
+<div class="horgradient"></div>
+Stepped component (3 states), example: Muscle:
+<xmp class="smallcode">"muscle": {
+  "values": ["minmuscle", "averagemuscle", "maxmuscle"],
+  "steps": [0.0, 0.5, 1.0],
+  "pattern": "macrodetails-universal/Muscle"
+}
+</xmp>
+<b>How it works:</b>
+<p>
+- Slider 0.0 to 0.5 → interpolate between <b>minmuscle</b> and <b>averagemuscle</b><br>
+- Slider 0.5 to 1.0 → interpolate between <b>averagemuscle</b> and <b>maxmuscle</b><br>
+- At exactly 0.5 → 100% <b>averagemuscle</b><br>
+<div class="horgradient"></div>
+Stepped component (4 states), example Age:
+<xmp class="smallcode">"age": {
+  "values": ["baby", "child", "young", "old"],
+  "steps": [0.0, 0.1875, 0.5, 1.0],
+  "pattern": "macrodetails/Age"
+}
+</xmp>
+<b>How it works:</b>
+<p>
+- Four age ranges with different step sizes<br>
+- 0.0 to 0.1875 → baby to child transition<br>
+- 0.1875 to 0.5 → child to young transition<br>
+- 0.5 to 1.0 → young to old transition<br>
+- Non-uniform steps allow different aging speeds<br>
+<div class="horgradient"></div>
+Barycentric component (sum-based), example: Phenotype:
+<xmp class="smallcode">"phenotype": {
+  "values": ["african", "asian", "caucasian"],
+  "pattern": "macrodetails/",
+  "sum": ["African", "Asian", "Caucasian"]
+}
+</xmp>
+<b>How it works:</b>
+<p>
+- Reads three barycentric slider values that sum to 1.0<br>
+- Each corner can be 0% to 100%<br>
+- Pattern + sum entry = full target path (e.g. <b>macrodetails/African</b>)<br>
+- All three values are read simultaneously<br>
+- Example: 60% african, 20% asian, 20% caucasian<br>
+<p>
+<h2>Standard Components</h2>
+Most base meshes use these standard components:
+<table>
+<tr><th>Component</th><th>Values</th><th> Type</th><th> Purpose</th></tr>
+<tr><td>gender</td><td>female, male</td><td>Stepped(2)</td><td>Gender morphing</td></tr>
+<tr><td>age</td><td>baby, child, young, old</td><td>Stepped (4)</td><td> Age progression</td></tr>
+<tr><td>muscle</td><td>minmuscle, averagemuscle, maxmuscle</td><td>Stepped (3)</td><td>Muscle definition</td></tr>
+<tr><td>weight</td><td>minweight, averageweight, maxweight</td><td>Stepped (3)</td><td>Body mass</td></tr>
+<tr><td>phenotype</td><td>african, asian, caucasian</td><td>Barycentric</td><td>Ethnic features</td></tr>
+<tr><td>proportion</td><td>uncommon, none, ideal</td><td>Stepped (3)</td><td>Beauty proportions</td></tr>
+<tr><td>height</td><td>minheight, none, maxheight</td><td>Stepped (3)</td><td>Height adjustment</td></tr>
+<tr><td>cupsize</td><td>mincup, averagecup, maxcup</td><td>Stepped (3)</td><td>Breast size (female)</td></tr>
+<tr><td>firmness</td><td>minfirmness, averagefirmness, maxfirmness </td><td>Stepped (3)</td><td>Breast firmness</td></tr>
+</table>
+<h2>Macrodef Section</h2>
+The <b>macrodef</b> array defines macro target definitions - collections of targets that represent every possible combination of component states.
+<p>
+Macrodef Structure:
+<xmp class="smallcode">{
+  "name": "descriptive-macro-name",
+  "comp": ["component1", "component2", "component3"],
+  "folder": "target-subfolder",
+  "targets": [
+    {"name": "component1-component2-component3", "t": "actual-file-name"}
+  ]
+}
+</xmp>
+<h3>Property Reference</h3>
+<table class="contexttab">
+<tr>
+<td>name<p>string, required</td>
+<td class="explain">Descriptive name for this macro definition, it is used for logging and debugging and should
+indicate which components are involved.
+</td>
+<td><xmp class="smallcode">Example:
+"phenotype-gender-age"
+"gender-age-muscle-weight"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>comp<p>array of strings, required</td>
+<td class="explain">List of component names used in this macro, which must reference components defined in the <b>components</b> section.
+The order matters - determines how target names are constructed.
+</td>
+<td><xmp class="smallcode">Example:
+["gender", "age", "muscle"]
+</xmp>
+</td>
+</tr>
+<tr>
+<td>folder<p>string, required</td>
+<td class="explain">Subdirectory containing the target files for this macro, it is relative to the target directory.
+</td>
+<td><xmp class="smallcode">Examples:
+"macro_age"
+"macro_muscle"
+"macro_breast"
+</xmp>
+</td>
+</tr>
+<tr>
+<td>targets<p>array of objects, required</td>
+<td class="explain">Complete list of all possible target combinations, each entry maps a calculated name to an actual target file,
+it's purpose is to re-use identical target files. Each entry consists of a 'name' based on component value combinations and 't',
+the actual target filename without <kbd>.target</kbd> extension. If 't' is null, it is average, so no target is needed.
+</td>
+<td><xmp class="smallcode">Example:
+{"name": "female-child-averagemuscle-averageweight-uncommon",
+"t": "female-child2old-allmuscle-allweight-uncommon"}
+</xmp>
+</td>
+</tr>
+</table>
+<h2>How Macro Calculation Works</h2>
+When a macro slider changes (like Gender, Age, or Weight), the system:
+<ol>
+<li><b>Reads current values</b> of all relevant sliders</li>
+<li><b>Calculates component weights</b> based on slider positions</li>
+<li><b>Generates target combinations</b> by crossing all component values</li>
+<li><b>Applies interpolation weights</b> for smooth transitions</li>
+<li><b>Maps calculated names</b> to actual target files</li>
+<li><b>Applies targets</b> with appropriate factors to the mesh</li>
+</ol>
+<h2>Step-by-Step Process</h2>
+Step 1: Identify Influenced Macros
+<p>
+Each macro target in <kbd>modelling.json</kbd> has a <b>macro_influence</b> field:
+<xmp class="smallcode">"Gender": {
+  "macro": "macrodetails/Gender",
+  "macro_influence": [0, 1, 2, 3, 4]
+}
+</xmp>
+This indicates which macrodef entries (by index) are affected by this slider.
+<p>
+Step 2: Read Component Values
+<p>
+For each macro definition, read the current slider values for all components:
+<p>
+<xmp class="smallcode"># For macrodef with comp: ["gender", "age", "muscle"]
+gender_value = slider["macrodetails/Gender"].value / 100  # 0.0 to 1.0
+age_value = slider["macrodetails/Age"].value / 100
+muscle_value = slider["macrodetails-universal/Muscle"].value / 100
+</xmp>
+<p>
+Step 3: Calculate Component Weights
+<p>
+For <b>stepped components</b>, interpolate between adjacent values:
+<p>
+<xmp class="smallcode"># Gender with steps [0.0, 1.0] and values ["female", "male"]
+if gender_value <= 0.5:
+    weights = {"female": 1.0 - (gender_value / 0.5), "male": gender_value / 0.5}
+else:
+    weights = {"female": 0.0, "male": 1.0}
+</xmp>
+<p>
+For <b>barycentric components</b>, read the three corner values:
+<p>
+<xmp class="smallcode"># Phenotype with sum ["African", "Asian", "Caucasian"]
+weights = {
+    "african": slider["macrodetails/African"].barycentric[0].value,
+    "asian": slider["macrodetails/Asian"].barycentric[1].value,
+    "caucasian": slider["macrodetails/Caucasian"].barycentric[2].value
+}
+</xmp>
+<p>
+Step 4: Generate Target Combinations
+<p>
+Cross-multiply all component weights to generate every combination:
+<p>
+<xmp class="smallcode"># Example: gender × age × muscle
+combinations = []
+for gender_name, gender_weight in gender_weights.items():
+    for age_name, age_weight in age_weights.items():
+        for muscle_name, muscle_weight in muscle_weights.items():
+            combined_name = f"{gender_name}-{age_name}-{muscle_name}"
+            combined_weight = gender_weight * age_weight * muscle_weight
+	    if combined_weight > 0.01:  # Skip negligible weights
+                combinations.append((combined_name, combined_weight))
+</xmp>
+<p>
+Step 5: Map to Actual Targets
+<p>
+Look up each calculated name in the <b>targetlink</b> dictionary:
+<p>
+<xmp class="smallcode">for calculated_name, weight in combinations:
+    if calculated_name in targetlink:
+        actual_target = targetlink[calculated_name]
+        if actual_target is not None:
+            apply_target(actual_target, weight)
+</xmp>
+<p>
+Step 6: Apply Targets
+<p>
+Add all selected targets to the mesh with their calculated weights:
+<p>
+<xmp class="smallcode">mesh.prepareMacroBuffer()
+for target_path, weight in target_applications:
+    target_data = load_target(target_path)
+    mesh.addTargetToMacroBuffer(weight, target_data)
+mesh.addMacroBuffer()  # Apply all at once
+</xmp>
+<p>
+<h2>Example Calculation</h2>
+<b>Scenario:</b> Slider values are:
+<ul>
+<li>Gender: 0.75 (75% male, 25% female)</li>
+<li>Age: 0.5 (100% young)</li>
+<li>Muscle: 0.25 (50% min, 50% average)</li>
+</ul>
+<b>Component Weights:</b>
+<xmp class="smallcode">gender: {"female": 0.25, "male": 0.75}
+age: {"young": 1.0}
+muscle: {"minmuscle": 0.5, "averagemuscle": 0.5}
+</xmp>
+<p>
+<b>Generated Combinations:</b>
+<xmp class="smallcode">female-young-minmuscle: 0.25 × 1.0 × 0.5 = 0.125
+female-young-averagemuscle: 0.25 × 1.0 × 0.5 = 0.125
+male-young-minmuscle: 0.75 × 1.0 × 0.5 = 0.375
+male-young-averagemuscle: 0.75 × 1.0 × 0.5 = 0.375
+</xmp>
+<p>
+<b>Result:</b> 4 targets applied with weights 12.5%, 12.5%, 37.5%, 37.5%
+<h2>Example Macro Definitions</h2>
+<h4>Simple 2-Component Macro, <b>Gender × Age (24 targets)</b></h4>
+<xmp class="smallcode">{
+  "name": "phenotype-gender-age",
+  "comp": ["phenotype", "gender", "age"],
+  "folder": "macro_age",
+  "targets": [
+    {"name": "african-female-baby", "t": "african-female-baby"},
+    {"name": "african-female-child", "t": "african-female-child"},
+    {"name": "african-female-young", "t": "african-female-young"},
+    {"name": "african-female-old", "t": "african-female-old"},
+    {"name": "african-male-baby", "t": "african-male-baby"},
+    {"name": "african-male-child", "t": "african-male-child"},
+    {"name": "african-male-young", "t": "african-male-young"},
+    {"name": "african-male-old", "t": "african-male-old"},
+    ...
+  ]
+</xmp>
+<p>
+<b>Combinations:</b> 3 phenotypes × 2 genders × 4 ages = 24 targets
+<div class="horgradient"></div>
+<h4>Complex 4-Component Macro, <b>Gender × Age × Muscle × Weight (72 targets per gender)</b></h4>
+<xmp class="smallcode">{
+  "name": "gender-age-muscle-weight",
+  "comp": ["gender", "age", "muscle", "weight"],
+  "folder": "macro_muscle",
+  "targets": [
+    {"name": "female-baby-averagemuscle-averageweight", "t": null},
+    {"name": "female-baby-averagemuscle-maxweight", "t": "female-baby-averagemuscle-maxweight"},
+    {"name": "female-baby-averagemuscle-minweight", "t": "female-baby-averagemuscle-minweight"},
+    {"name": "female-baby-maxmuscle-averageweight", "t": "female-baby-maxmuscle-averageweight"},
+    ...
+  ]
+}
+</xmp>
+<b>Combinations:</b>2 genders × 4 ages × 3 muscles × 3 weights = 72 targets
+<p>
+<b>Note:</b> Some targets may be `null` (base state) or reused across combinations.
+<div class="horgradient"></div>
+<h4>Highly Complex 6-Component Macro, <b>Gender × Age × Muscle × Weight × Cup × Firmness (Female only, 324 targets)</b></h4>
+<xmp class="smallcode">{
+  "name": "gender-age-muscle-weight-cup-firmness",
+  "comp": ["gender", "age", "muscle", "weight", "cupsize", "firmness"],
+  "folder": "macro_breast",
+  "targets": [
+    {"name": "female-young-averagemuscle-averageweight-averagecup-averagefirmness", "t": null},
+    {"name": "female-young-averagemuscle-averageweight-averagecup-maxfirmness", "t": "young-averagemuscle-averageweight-averagecup-maxfirmness"},
+    {"name": "female-young-averagemuscle-averageweight-averagecup-minfirmness", "t": "young-averagemuscle-averageweight-averagecup-minfirmness"},
+    ...
+  ]
+}
+</xmp>
+<b>Combinations:</b> 1 gender × 4 ages × 3 muscles × 3 weights × 3 cups × 3 firmnesses = 324 targets (female only)
+<p>
+<h2>Target File Naming Strategy</h2>
+Systematic Naming: Target files follow the exact naming pattern of component values:
+<xmp class="smallcode">{folder}/{value1}-{value2}-{value3}-{...}.target
+</xmp>
+Example:
+<xmp class="smallcode">macro_muscle/female-young-maxmuscle-minweight.target
+</xmp>
+Reuse and Aliasing: Some combinations can share the same target file to reduce duplication:
+<xmp class="smallcode">{"name": "female-baby-minmuscle-averageweight", "t": "universal-baby-minmuscle-averageweight"},
+{"name": "male-baby-minmuscle-averageweight", "t": "universal-baby-minmuscle-averageweight"}
+</xmp>
+Both map to the same file because baby muscle/weight isn't gender-specific.
+Abbreviated Naming: Target filenames may use abbreviated forms to reduce redundancy:
+<xmp class="smallcode">{"name": "female-young-averagemuscle-averageweight-averagecup-maxfirmness",
+ "t": "young-averagemuscle-averageweight-averagecup-maxfirmness"}
+</xmp>
+Gender prefix omitted when folder is female-specific.
+<p>
+Null Targets: Base state combinations may have <b>null</b> targets (no morph needed):
+<xmp class="smallcode">{"name": "female-young-averagemuscle-averageweight", "t": null}
+</xmp>
+This represents the default state - no morphing applied.
+<h2>Integration with other files</h2>
+<table class="contexttab">
+<tr>
+<td>Base Configuration</td>
+<td class="explain">Start values of targets may be overridden by <b>modifier-presets</b> in <kbd>base.json</kbd>
+</td>
+<td>
+See: <a href="../conf_base">base.json</a> for base configuration
+</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black_hu233145ddc8ae14b164f490727a623b22_5437_50x50_resize_box_3.png" alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
