@@ -15,5 +15,11 @@
 		"t": "Shader Test Wonderwoman",
 		"a": "black-punkduck",
 		"c": "Test in Makehuman2 with complex shaders, animations and animation correction"
+	},
+	"Beatrice Kiddo": {
+		"h": "https://64.media.tumblr.com/bbbe02a1cdb7b3c1e247dba162c01254/275e8d4c1d5c1a60-6b/s1280x1920/ad194a946e0f0317dde62a85445bf4a771c8fd92.pnj",
+		"t": "Beatrice Kiddo posing",
+		"a": "black-punkduck",
+		"c": "Main character from Kill Bill created in Makehuman2"
 	}
 }
