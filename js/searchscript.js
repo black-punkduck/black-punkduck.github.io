@@ -74,3 +74,17 @@ let url_string = window.location.href;
 let url = new URL(url_string);
 let c = url.searchParams.get('q');
 if (c) searchJSON(c);
+
+document.addEventListener("DOMContentLoaded", function() {
+	const container = document.getElementById("tag-overview");
+	if (container != null) {
+		for (const [key, value] of Object.entries(data)) {
+			const lkey = key.toLowerCase();
+			let a = document.createElement('a');
+			a.className = "tag-item";
+			a.href = `/findings/?q=${key}`;
+			a.textContent = key;
+			container.appendChild(a);
+		}
+	}
+});
