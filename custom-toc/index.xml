@@ -6,14 +6,21 @@
     <description>Recent content in toc on Makehuman_2</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://black-punkduck.github.io/custom-toc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>9.3.5 MakeHuman2 Configuration File</title>
+      <link>https://black-punkduck.github.io/custom-toc/nerds/conf_makehuman/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://black-punkduck.github.io/custom-toc/nerds/conf_makehuman/</guid>
+      <description>MakeHuman2 uses JSON-based configuration files to store application settings and preferences. There are two types of configuration files: makehuman2_default.conf: The default system configuration shipped with MakeHuman2 makehuman2.conf: The user&#39;s personal configuration file These files control application behavior, UI preferences, data locations, API settings, and keyboard shortcuts. File Locations and loading order System Default Configuration The default configuration is included with the application: /data/makehuman2_default.conf This file provides the baseline settings when no user configuration exists.</description>
+    </item>
     <item>
       <title>9.3.3 Macro JSON file</title>
       <link>https://black-punkduck.github.io/custom-toc/nerds/conf_macro/</link>
       <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/nerds/conf_macro/</guid>
-      <description>The `macro.json` file defines MakeHuman2&#39;s macro target system - a sophisticated mechanism for applying complex combinations of morphing targets based on hierarchical slider interactions. Macro targets allow a single slider (like &#34;Gender&#34; or &#34;Age&#34;) to automatically calculate and apply dozens or even hundreds of underlying targets with appropriate weights. The macro system solves the problem of interdependent character attributes when you change gender, age, muscle, and weight, the system needs to apply different combinations of targets that work together harmoniously.</description>
+      <description>The macro.json file defines MakeHuman2&#39;s macro target system - a sophisticated mechanism for applying complex combinations of morphing targets based on hierarchical slider interactions. Macro targets allow a single slider (like &#34;Gender&#34; or &#34;Age&#34;) to automatically calculate and apply dozens or even hundreds of underlying targets with appropriate weights. The macro system solves the problem of interdependent character attributes when you change gender, age, muscle, and weight, the system needs to apply different combinations of targets that work together harmoniously.</description>
     </item>
     <item>
       <title>5.0 Materials</title>
@@ -195,7 +202,7 @@
       <link>https://black-punkduck.github.io/custom-toc/nerds/fileform_mhmat/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/nerds/fileform_mhmat/</guid>
-      <description>&#xD;&#xA;Materials are represented in a certain format and placed in .mhmat files.&#xD;&#xA;</description>
+      <description>Materials are represented in a certain format and placed in .mhmat files.&#xD;name ww-corsage&#xD;description Ww_corsage material&#xD;ambientColor 0.517647058824 0.517647058824 0.517647058824&#xD;diffuseColor 1.0 1.0 1.0&#xD;emissiveColor 0.0 0.0 0.0&#xD;metallicFactor 1.0&#xD;roughnessFactor 1.0&#xD;transparent False&#xD;alphaToCoverage True&#xD;backfaceCull False&#xD;diffuseTexture ww_corsage.png&#xD;normalmapTexture ww_corsage_normals.png&#xD;normalmapIntensity 0.36&#xD;aomapTexture ww_corsage_ao.png&#xD;aomapIntensity 1.72&#xD;metallicRoughnessTexture ww_corsage_mr.png&#xD;shader pbr&#xD;Legend&#xD;Colors are used in RGB order, each value has a range of 0.0 to 1.0.&#xD;key&#xD;Description&#xD;tag&#xD;The tags added to the material can be used for filtering.</description>
     </item>
     <item>
       <title>9.3 JSON Configuration Files</title>
@@ -209,21 +216,21 @@
       <link>https://black-punkduck.github.io/custom-toc/nerds/conf_modelling/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/nerds/conf_modelling/</guid>
-      <description>The `modelling.json` file defines the properties, behavior, and UI configuration of individual modelling targets in MakeHuman 2. Each entry in this file corresponds to a morph target or set of targets that can modify the character&#39;s appearance through sliders in the modelling interface. This file works in tandem with `target_cat.json`, which defines the category hierarchy. While `target_cat.json` organizes targets into categories, `modelling.json` defines what each target actually does and how it behaves.</description>
+      <description>The modelling.json file defines the properties, behavior, and UI configuration of individual modelling targets in MakeHuman 2. Each entry in this file corresponds to a morph target or set of targets that can modify the character&#39;s appearance through sliders in the modelling interface. This file works in tandem with target_cat.json, which defines the category hierarchy. While target_cat.json organizes targets into categories, modelling.json defines what each target actually does and how it behaves.</description>
     </item>
     <item>
       <title>9.3 Target Category JSON file</title>
       <link>https://black-punkduck.github.io/custom-toc/nerds/conf_targetcat/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/nerds/conf_targetcat/</guid>
-      <description>`target_cat.json` defines the hierarchical structure of target categories displayed in the modeling UI. It organizes targets into groups and subgroups, making them easy to browse and discover. Together with modelling.json, these files control how targets appear in the user interface and how they behave when applied to the character model. File Locations and loading order Per mesh there might be 3 different target folders, they are scanned in the following order: User constant targets &amp;lt;UserDataDir&amp;gt;/data/contarget/&amp;lt;basename&amp;gt;/target_cat.</description>
+      <description>target_cat.json defines the hierarchical structure of target categories displayed in the modeling UI. It organizes targets into groups and subgroups, making them easy to browse and discover. Together with modelling.json, these files control how targets appear in the user interface and how they behave when applied to the character model. File Locations and loading order Per mesh there might be 3 different target folders, they are scanned in the following order: User constant targets &amp;lt;UserDataDir&amp;gt;/contarget/&amp;lt;basename&amp;gt;/target_cat.</description>
     </item>
     <item>
       <title>9.3.4 Asset Selection Filter JSON file</title>
       <link>https://black-punkduck.github.io/custom-toc/nerds/conf_selectfilter/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/nerds/conf_selectfilter/</guid>
-      <description>The `selection_filter.json` file defines the **filtering and categorization system** for asset libraries in MakeHuman2. It provides a structured way to organize and search through large collections of assets like clothing, hair, poses, expressions, and rigs by defining hierarchical categories, tag mappings, and quick-access shortcuts. This system enables users to efficiently browse and filter assets using a tree-based navigation menu, shortcut buttons, and intelligent tag processing that automatically categorizes assets based on their metadata.</description>
+      <description>The selection_filter.json file defines the filtering and categorization system for asset libraries in MakeHuman2. It provides a structured way to organize and search through large collections of assets like clothing, hair, poses, expressions, and rigs by defining hierarchical categories, tag mappings, and quick-access shortcuts. This system enables users to efficiently browse and filter assets using a tree-based navigation menu, shortcut buttons, and intelligent tag processing that automatically categorizes assets based on their metadata.</description>
     </item>
     <item>
       <title>9.4 Adding to the Tutorials for MH2</title>
@@ -244,14 +251,14 @@
       <link>https://black-punkduck.github.io/custom-toc/getting_started/section-1/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/getting_started/section-1/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is Where to begin. Let&amp;rsquo;s Get you up and going!&lt;/p&gt;</description>
     </item>
     <item>
       <title>System Requirements</title>
       <link>https://black-punkduck.github.io/custom-toc/getting_started/section-11/</link>
       <pubDate>Sun, 29 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/getting_started/section-11/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;MH2 Software System Requirements.&lt;/p&gt;</description>
     </item>
     <item>
       <title>4.0 Customizing Your Model</title>
@@ -300,14 +307,14 @@
       <link>https://black-punkduck.github.io/custom-toc/first_launch/section-23/</link>
       <pubDate>Wed, 25 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/first_launch/section-23/</guid>
-      <description>&lt;p&gt;Using Makehuman 2 to create your first model.&lt;/p&gt;</description>
+      <description>Using Makehuman 2 to create your first model.&#xA;Choose an existing body mesh On the left side of your screen on the main screen(the first screen that loads for you upon opening MH2) You will&#xA;see a panel to select your base mesh. See below: For now there are 2(3)choices.&#xA;HM08-the base mesh from makehuman history&#xA;This is a unisex model suitable for using in any of the usual makehuman character modeling practices including but</description>
     </item>
     <item>
       <title>Download &amp; Install Assets</title>
       <link>https://black-punkduck.github.io/custom-toc/first_launch/section-22/</link>
       <pubDate>Wed, 25 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/first_launch/section-22/</guid>
-      <description>&lt;p&gt;From within Makehuman 2 Download &amp;amp; Install your Assets!&lt;/p&gt;</description>
+      <description>Download From within Makehuman 2 you can download the assets you need to build a standard human and much more!&#xA;Please see the Photo below as a reference!&#xA;To begin- Visit the download asset page by clicking the download icon in function panel.&#xA;Once this page loads you will see options on the left to download assets and open up the asset browser window.&#xA;Select your downloads link from the drop down menu/for example: Makehuman System Assets CCO.</description>
     </item>
     <item>
       <title>Exporting &amp; Loading Your Model with MH2</title>
@@ -349,7 +356,7 @@
       <link>https://black-punkduck.github.io/custom-toc/first_launch/section-21/</link>
       <pubDate>Wed, 25 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/first_launch/section-21/</guid>
-      <description>&lt;p&gt;Your Basic UI Orientation&lt;/p&gt;</description>
+      <description>Your Basic Character Orientation: There are a series of new icons depicting the directions you can face your character with one click.&#xA;the legend is as follows:&#xA;Icons: Page Layout </description>
     </item>
     <item>
       <title>Linux Installation</title>
@@ -363,7 +370,7 @@
       <link>https://black-punkduck.github.io/custom-toc/getting_started/section-14/</link>
       <pubDate>Wed, 25 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/getting_started/section-14/</guid>
-      <description>&lt;p&gt;here is your guide to install on mac system.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Here is your guide to install on Mac systems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Fantasy Base Mesh**</title>
@@ -391,7 +398,7 @@
       <link>https://black-punkduck.github.io/custom-toc/getting_started/section-12/</link>
       <pubDate>Wed, 25 Mar 2026 01:35:49 -0600</pubDate>
       <guid>https://black-punkduck.github.io/custom-toc/getting_started/section-12/</guid>
-      <description>##here is your guide to install on a Windows 10 and Windows 11 system.&#xA;Introduction Welcome to the article.&#xA;Section 1 Content for section 1.&#xA;Section 1.1 More detailed information here.&#xA;Section 1.2 Sub-section content.&#xA;Section 2 Content for section 2.</description>
+      <description>Your guide to install on a Windows 10 and Windows 11 operating systems.&#xA;Introduction It has never been easier to participate in Makehuman 2! There is a ready to use download available here:&#xA;Windows 10 &amp;amp; 11 Download&#xA;Section 1-Check your version! Standard Windows installation for win 10 &amp;amp; 11 os.&#xA;Section 1.1-Installation Once you download the exe from this link you can simply double click it. You will likely be instructed,</description>
     </item>
   </channel>
 </rss>
