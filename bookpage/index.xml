@@ -6,56 +6,56 @@
     <description>Recent content in blogs on Makehuman_2</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 02:21:29 -0600</lastBuildDate>
     <atom:link href="https://black-punkduck.github.io/bookpage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elvs Dev Blog #2</title>
+      <link>https://black-punkduck.github.io/blogs/third/</link>
+      <pubDate>Thu, 07 May 2026 02:21:29 -0600</pubDate>
+      <guid>https://black-punkduck.github.io/blogs/third/</guid>
+      <description>&lt;p&gt;(May of 2026)&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Greetings again Community!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt; I am so happy to be writing to you again-as it has been a very long week of changes and development for MH2!&lt;br&gt;&#xA;We managed to polish the pbr shader &amp;amp; fix the directionality on normal maps so that they work seamlessly with any lighting&lt;br&gt;&#xA;conditions! Thank you to a very helpful git issue reporter(always stay stubborn). We enhanced and added to our gltf exporter&lt;br&gt;&#xA;so it is closer to creating studio and game ready characters at export!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Punkducks Dev Blog #1</title>
       <link>https://black-punkduck.github.io/blogs/second/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
       <guid>https://black-punkduck.github.io/blogs/second/</guid>
-      <description>So here after a long time a few sentences from my side. MakeHumans old version 1 had a pretty good concept.&#xA;But it was limited to a certain mesh. One of my ideas was to make that flexible. Long ago I added wings inside old makehuman. I changed the base mesh (just put other helpers at the end). It worked. But after that the old version did not really run.</description>
+      <description>&lt;p&gt;So here after a long time a few sentences from my side.&#xA;MakeHumans old version 1 had a pretty good concept.&lt;/p&gt;&#xA;&lt;p&gt;But it was limited to a certain mesh. One of my ideas was to make that flexible.&#xA;Long ago I added wings inside old makehuman. I changed the base mesh (just put&#xA;other helpers at the end). It worked. But after that the old version did not really run.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elvs Dev Blog #1</title>
       <link>https://black-punkduck.github.io/blogs/first/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/first/</guid>
-      <description>(April of 2026)&#xA;Greetings,&#xA;It has been quite some time since I(Elvaerwyn) was able to address the people of MH!&#xA;This has been a truly unprecedented few years of development by Punkduck and&#xA;myself. I have truly missed the sense of community, and artistic freedoms-however real life&#xA;along with the reality of the size of the endeavor-has kept me quite busy overall! Working&#xA;with Punk has been a great experience also, and to that end I am grateful</description>
-    </item>
-    <item>
-      <title>testblog</title>
-      <link>https://black-punkduck.github.io/blogs/third/</link>
-      <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
-      <guid>https://black-punkduck.github.io/blogs/third/</guid>
-      <description>Content here</description>
+      <description>&lt;p&gt;(April of 2026)&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Greetings,&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt; It has been quite some time since I(Elvaerwyn) was able to address the people of MH!&lt;br&gt;&#xA;This has been a truly unprecedented few years of development by Punkduck and&lt;br&gt;&#xA;myself. I have truly missed the sense of community, and artistic freedoms-however real life&lt;br&gt;&#xA;along with the reality of the size of the endeavor-has kept me quite busy overall! Working&lt;br&gt;&#xA;with Punk has been a great experience also, and to that end I am grateful&lt;br&gt;&#xA;once again for our ability to work together and meet one anothers team needs&lt;br&gt;&#xA;without the necessity for leadership in general.  Both of us are responsible and goal oriented&lt;br&gt;&#xA;and found it easy to not lose track of the needs of this project!&lt;/p&gt;</description>
     </item>
     <item>
       <title>testblog2</title>
       <link>https://black-punkduck.github.io/blogs/fourth/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/fourth/</guid>
-      <description>Content here to test 2</description>
+      <description>&lt;p&gt;Content here to test&#xA;2&lt;/p&gt;</description>
     </item>
     <item>
       <title>testblog3</title>
       <link>https://black-punkduck.github.io/blogs/fifth/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/fifth/</guid>
-      <description>Content here to test 3</description>
+      <description>&lt;p&gt;Content here  to test&#xA;3&lt;/p&gt;</description>
     </item>
     <item>
       <title>testblog3</title>
       <link>https://black-punkduck.github.io/blogs/sixth/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/sixth/</guid>
-      <description>Content here to test Do you see me Last&amp;hellip;? I am number 6</description>
+      <description>&lt;p&gt;Content here  to test&#xA;Do you see me&#xA;Last&amp;hellip;? I am number 6&lt;/p&gt;</description>
     </item>
     <item>
       <title>testblog4</title>
       <link>https://black-punkduck.github.io/blogs/seventh/</link>
       <pubDate>Tue, 14 Apr 2026 02:21:29 -0600</pubDate>
       <guid>https://black-punkduck.github.io/blogs/seventh/</guid>
-      <description>Content here to test again My name is 7 Do you see me?</description>
+      <description>&lt;p&gt;Content here&#xA;to test again My name is 7&#xA;Do you see me?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

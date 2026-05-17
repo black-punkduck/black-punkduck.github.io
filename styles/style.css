@@ -399,7 +399,7 @@ html:hover {
     gap: 10px;
     flex-wrap: wrap;
     padding: 15px;
-    min-height: 180px;
+    min-height: 320px;
     align-items: center;
     /* 1. Set the thick border and rounded corners */
     border: 10px solid transparent;
