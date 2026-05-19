@@ -78,7 +78,10 @@ if (c) searchJSON(c);
 document.addEventListener("DOMContentLoaded", function() {
 	const container = document.getElementById("tag-overview");
 	if (container != null) {
-		for (const [key, value] of Object.entries(data)) {
+		const sortedObject = Object.fromEntries(
+			Object.entries(data).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+		);
+		for (const [key, value] of Object.entries(sortedObject)) {
 			const lkey = key.toLowerCase();
 			let a = document.createElement('a');
 			a.className = "tag-item";
