@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/gMj7FSprt4" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://steampowered.com" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>The Skeleton</h2>
+  <div class="page-body">
+    This context provides the possibility to add a skeleton or rig to the character.
+<p>
+<img src="/images/screen/skeleton_form.png">
+<p>
+MakeHuman works with an own standard skeleton which is always present. So even without a skeleton it is possible to pose or animate
+the character. Nevertheless for an export into another system a skeleton is needed.
+<p>
+<i>A skeleton can only be used once and can be replaced by another skeleton.</i>
+<p>
+The currently selected skeleton is marked with a yellow frame. A green frame means, that the skeleton is used.
+<p>
+<h3>Change Skeleton Draw Mode</h3>
+<p>
+<table><tr><td>
+<img src="/images/screen/skeleton_actdiamond.png">
+</td><td>
+To activate diamond draw mode for skeleton, simply activate it with the menu. Default is a draw mode using lines.
+<p>The colors indicate the mode
+<ul>
+<li>red: no skeleton is applied and internal skeleton is used</li>
+<li>blue: a skeleton is applied</li>
+<li>orange: internal skeleton is used in pose mode</li>
+</ul>
+</td></tr></table>
+<p>
+<h3>Filtering</h3>
+As long as tags are provided, skeletons can be filtered in different ways. Skeletons with no tags are always
+shown.  These are the possibilities to filter on the left side:
+<ul>
+<li>By expanding the item <b>Skeleton</b>, then select a type.</li>
+<p>
+<li>By using a text filter, the text filter works on all tags presented in the <b>Tags</b> field after a skeleton is selected.</li>
+</ul>
+<p>
+Hint: If the program shows too many items on right side, it is possible to supply a skeleton
+with extra tags, these tags are then used instead of the tags provided in the skeleton files.
+<p>
+<h3>Loading</h3>
+To load skeleton, select it from the right column with a single click. Now the information is
+displayed on left side. To put it on the character, press the checkmark button on the right side. A double click on an unselected
+skeleton will load it as well.
+<p>
+<h3>Drop Skeleton</h3>
+It is possible to drop the skeleton or simply select another skeleton and replace old one.
+<p>
+<h3>Change Information</h3>
+<p>
+Select a skeleton before. Press <img src="/images/icons/information.png" class="icon"> to open asset editor.
+<table><tr><td>
+<img src="/images/screen/skeleton_infoedit.png">
+</td><td>
+You can now change the information:
+<ul>
+<li><img src="/images/icons/camera.png" class="icon"> takes a screenshot to be used as a thumbnail. Best to switch off skybox with <img src="/images/icons/skybox.png" class="icon">
+and use a one-colored background. Under "<u>S</u>ettings" change light and scene and select a
+background color with contrast. It has to be done in skeleton view before. We also recommend diamond draw mode.</li>
+<li>If you want to use own tags, you can either copy tags to tag editor and change the tags there or
+create new ones by using the standard tags (recommended for filtering). A standard tag can be
+inserted by selecting it from the list and press the <img src="/images/icons/plus.png" class="icon"> button.
+You can also delete a tag row or delete all tags by pressing <img src="/images/icons/sweep.png" class="icon"></li>
+</ul>
+In the end you need to save the asset information.
+<p><i>Hint: the tags are saved in the database, the original tags in the files are not changed. The icon
+however will replace the old one.</i>
+</td></tr></table>
+<p>
+<span class="inline-icon">
+  <img class="icon" src="/icons/sweep.png" alt="Reset all filters, all items are shown on right side." >
+</span>
+<span class="inline-icon">
+  <img class="icon" src="/icons/use.png" alt="Use the &lt;b&gt;selected&lt;/b&gt; skeleton. Can only be used if a skeleton is selected." >
+</span>
+<span class="inline-icon">
+  <img class="icon" src="/icons/delete.png" alt="Drop &lt;b&gt;selected&lt;/b&gt; skeleton." >
+</span>
+<span class="inline-icon">
+  <img class="icon" src="/icons/information.png" alt="Change the information of the &lt;b&gt;selected&lt;/b&gt; skeleton." >
+</span>
+<span class="inline-icon">
+  <img class="icon" src="/icons/resize.png" alt="Resíze the icons on right side. Size changes between 48, 64, 96 and 128 pixel." >
+</span>
+<span class="inline-icon">
+  <img class="icon" src="/icons/rescan.png" alt="Reload the skeleton folder. This is needed if you add a skeleton after makehuman was started." >
+</span>
+  </div>
+<section class="icon-legend" style="margin-top: 2rem;">
+  <h3 style="font-weight: bold; text-decoration: underline;">Icon Legend</h3>
+  <div style="display: table; width: 100%; border-collapse: collapse;">
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/delete.png" alt="Drop &lt;b&gt;selected&lt;/b&gt; skeleton." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Drop <b>selected</b> skeleton.
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/information.png" alt="Change the information of the &lt;b&gt;selected&lt;/b&gt; skeleton." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Change the information of the <b>selected</b> skeleton.
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/rescan.png" alt="Reload the skeleton folder. This is needed if you add a skeleton after makehuman was started." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Reload the skeleton folder. This is needed if you add a skeleton after makehuman was started.
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/resize.png" alt="Resíze the icons on right side. Size changes between 48, 64, 96 and 128 pixel." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Resíze the icons on right side. Size changes between 48, 64, 96 and 128 pixel.
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/sweep.png" alt="Reset all filters, all items are shown on right side." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Reset all filters, all items are shown on right side.
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px 10px 0; border-bottom: 4px solid #ddd; border-right: 4px solid #ddd; width: 40px;">
+           <img src="/images/icons/use.png" alt="Use the &lt;b&gt;selected&lt;/b&gt; skeleton. Can only be used if a skeleton is selected." style="height: 2em; display: block;">
+        </div>
+        <div style="display: table-cell; vertical-align: middle; padding: 10px 15px; border-bottom: 4px solid #ddd;">
+           Use the <b>selected</b> skeleton. Can only be used if a skeleton is selected.
+        </div>
+      </div>
+  </div>
+</section>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
