@@ -57,7 +57,7 @@
       <font color="#000000">Join us on...&nbsp;</font>
     </td>
     <td>
-      <a href="https://discord.gg/gMj7FSprt4" style="text-decoration: none;">
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
           <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
       </a>
     </td>
@@ -80,7 +80,64 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>7.1 Using your existing MH1 Model in MH2</h2>
   <div class="page-body">
-    <p>Getting beyond the main stuff with MH 1 Model importing in MH 2</p>
+    <p>Usually an .mhm file from MakeHuman 1 should also load in MakeHuman 2, especially when you use standard morphs (.targets) or assets.
+You should be aware where your user home folder (abbreviated as <em>USERHOME</em>) is, you can check that in preferences if needed.
+Anyway it is best to check the missing files while loading by either run the program with a debug option from CLI or switch on debug messages
+for file access and check log messages.</p>
+<ul>
+<li>
+<p>Some commands no longer supported, e.g.</p>
+<ul>
+<li>clothesHideFaces</li>
+<li>subdivide</li>
+<li>background commands for images</li>
+</ul>
+</li>
+<li>
+<p>missing assets</p>
+<p>A message: <em>asset</em> is neither available in user or system path will occur for a missing asset.
+You can copy that asset into the appropriate folder.</p>
+<p>Given your asset <em>mycloth</em> is in a makehuman1 folder named:</p>
+<p><em>myuserDocs</em>/makehuman/v1py3/data/clothes/<em>mycloth</em></p>
+<p>You can copy that folder to:</p>
+<p><em>USERHOME</em>/data/clothes/hm08/<em>mycloth</em></p>
+<p>Usually the copied folder contains a .thumb file, .obj file, .mhclo file, .mhmat file and textures.
+Please delete .mhpxy and .npz file, these were the old pregenerated binary files for quicker access.
+MakeHuman 2 works similar, it will generate an .mhbin file for .obj and .mhclo file when you supply asset first time.</p>
+</li>
+<li>
+<p>materials and default shader</p>
+<p>Old MakeHuman 1 was written for openGL shaders up to version 1.2. The new version supports PBR shading.
+Some of the most common errors will be missing litspheres. In case of a missing litsphere MakeHuman 2 uses phong shading.
+It is also possible to work with litspheres, these can be added from the additional assets, but we recommend PBR shaders
+because these allow better materials.</p>
+<p>Another common problem is the ambient occlusion color. Old materials had often be saved with a dark grey value. Simply change this to a light white.</p>
+</li>
+<li>
+<p>missing morphs (targets)</p>
+<p>Missing morphs or targets can be found in information menu. Select memory info and missing targets.
+<div class="image-bubble"
+     style="width: 500px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+  <img src="/images/bubbles/screenshots/missing_morphs.png" alt="Missing morphs" style="height: auto; width: 100%;">
+</div>
+</p>
+<p>Normally these are the targets from the former MakeHuman 1 custom folder. The path is still named custom, but this is just a hint for the program.
+MakeHuman2 searches these targets in <em>USERHOME</em>/data/target/hm08, so in your user targets. So just copy the targets or also folders containing targets straight into
+this folder.</p>
+<p><em>Hint: Do NOT use the contarget folder for your targets (this would be the system target folder for base meshes completely in user space)!</em></p>
+</li>
+</ul>
   </div>
 <style>
   #footer-links-container:hover span {
