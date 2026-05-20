@@ -80,10 +80,58 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>4.4 Eyes &amp; Eye Colour</h2>
   <div class="page-body">
-    <p>Information for Customization</p>
-<h2 id="eyes-mesh-high-vs-low-poly">Eyes mesh high vs low poly</h2>
-<h2 id="included-eye-colours">Included Eye colours</h2>
+    <p>Information for customization of eyes and eye-materials.</p>
+<h2 id="eyes-meshes-high-versus-low-poly">Eyes meshes, high versus low poly</h2>
+<p>MakeHuman2 uses two different eye-meshes. A low polygon mesh with only one layer, usually sufficient for games and a
+version with an extra layer (cornea). With no extra layer the eyes should have no roughness, but the reflections
+of light are limited as shown on the next picture:
+<div class="image-bubble"
+     style="width: auto;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/eyes_blender_nolayer.png" alt="Single Layer Eyes" style="height: auto; width: 100%;">
+</div>
+</p>
+<p>The high poly eyes have an extra layer which is fully transparent, so it would also work in a game engine,
+but it would not show any effect.</p>
+<p>It will show the full effect, when the cornea is used with a different material
+in e.g. Blender cycles to allow extra reflections with a kind of a thin-glass shader (a mix of 10% glass and 90%
+transparency) then rest of the eye is created with a normal PBR shader with low roughness:
+<div class="image-bubble"
+     style="width: auto;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/eyes_blender_reflections.png" alt="Cornea and Reflections" style="height: auto; width: 100%;">
+</div>
+</p>
+<h2 id="eye-colours">Eye colours</h2>
+<p>To use the MakeHuman2 eye colours you need to download the standard asset pack. It also creates the eye-meshes in user
+folder, which are used instead of the system ones then. The folder <em>materials</em> in <em>USERHOME</em>/data/eyes/hm08 will
+contain the eye materials and textures. Hint: the MakeHuman1 materials mostly had been made with litspheres,
+so when using PBR or phong shaders one has to change AO color to white.</p>
+<p>When you create your own eye textures, you should use the textures as a template. Be aware that the png files need to have
+a transparent layer which is used by the cornea for high poly eyes.</p>
 <h2 id="custom-eyes">Custom Eyes</h2>
+<p>It is possible to change the mesh. This mesh must be modelled on the eye helper to work properly. A similar
+UV unwrapping would allow to re-use eye textures.</p>
   </div>
 <style>
   #footer-links-container:hover span {
