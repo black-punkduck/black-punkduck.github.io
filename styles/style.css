@@ -768,12 +768,17 @@ ul li h2 a {
  overflow-y: scroll;
  overflow-x: scroll;
  color: black;
- background-color: #7a877b;
  margin: 10px 50px 20px 10px;
  padding: 1.2rem;
  word-wrap: break-word;
  scrollbar-width: thin;
  scrollbar-color: orange transparent;
+ border-radius: 15px;
+ border: 8px solid transparent;
+ background-image: linear-gradient(to right, #c0c0c0, #505050),
+                   linear-gradient(to left top, orange, #1e1e1e);
+ background-origin: border-box;
+ background-clip: padding-box, border-box;
 }
 /* If a tag is too wide add this to its css */
 .tag {

@@ -78,12 +78,78 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>4.5 Targets &amp; Body Morphing</h2>
+  <h2>4.5 Body Morphing (Targets)</h2>
   <div class="page-body">
-    <p>Targets &amp; Body Morphing</p>
-<h2 id="targets-explained">Targets Explained</h2>
-<h2 id="using-targets-in-mh2">Using Targets in MH2</h2>
-<h2 id="making--using-custom-targets">Making &amp; Using Custom Targets</h2>
+    <p>Mechanism of body morphing (Targets) explained.</p>
+<h2 id="morphing">Morphing</h2>
+<p>There are several ways to explain what morphing means, usually a morphism is a structure-preserving map between
+e.g. algebraic structures. In MakeHuman2 the number of vertices and there relations to neighbouring vertices
+are preserved. There are different terms for this feature: Blender calls morphs shape-keys, in old MakeHuman1 the morphs are named targets.</p>
+<p>The technical correct term would be morphing. Using the initial mesh
+M<sub>1</sub>
+ and the deformed morphed mesh
+M<sub>2</sub>
+, a parameter t in the range [0..1] describes how much the
+initial and deformed morph are used by linear interpolation.</p>
+M<sub>Result</sub> = (1-t) * M<sub>1</sub> + t * M<sub>2</sub>
+<p>All morphs work like this, however the combination of different but related morphs create a larger variety of possibilities.</p>
+<h2 id="combination-of-related-morphs-in-mh2">Combination of related Morphs in MH2</h2>
+<p>Most morphs are bidirectional, so there is a <em>decrease</em> morph and an <em>increase</em> morph of a certain feature and a neutral
+position where none of these are used (example for hm08: leg size). So slider ranges from -100 to 100 which internally
+represents -1 to 1 and all negative values are used for <em>decreasing</em>.</p>
+<p>The known target opposites are mentioned in the base.json file, for an hm08 mesh the opposites are:
+<xmp class="html-scroll-bubble">"decr": "incr",
+"down": "up",
+"in": "out",
+"backward":"forward",
+"concave": "convex",
+"compress": "uncompress",
+"pointed": "triangle",
+"square": "round"
+</xmp>
+Unidirectional morphs one can find for e.g. head shapes, they are also most common for user morphs.</p>
+<p>Macro morphs are more complicated, they use a certain percentage from a number of features. For the hm08 base mesh
+the influence of the muscle slider will combine age, proportion, height and gender characteristics and will involve
+these morphs. Therefore it will use a certain percentage of a number of predefined morphs using the following name
+pattern:</p>
+<p>&lt;gender&gt;-&lt;age&gt;-&lt;muscle&gt;-&lt;weight&gt;</p>
+<p>using:</p>
+<ul>
+<li>gender: male, female</li>
+<li>age: baby, child, young, old</li>
+<li>muscle: minmuscle, averagemuscle, maxmuscle</li>
+<li>weight: minweight, averageweight, maxweight</li>
+</ul>
+<p>Example: a female aged between child and young with approximately 70% of muscle and 75% of weight would result in
+using the following morphs:</p>
+<xmp class="html-scroll-bubble">23% female-child-averagemuscle-maxweight
+17% female-child-maxmuscle-averageweight
+17% female-child-maxmuscle-maxweight
+6% female-young-averagemuscle-maxweight
+4% female-young-maxmuscle-averageweight
+4% female-young-maxmuscle-maxweight
+</xmp>
+<p><em>Hint: missing percentage is from female-child-averagemuscle-averageweight and female-young-averagemucle-averageweight,
+which are the standard values for each age</em></p>
+<h2 id="making--using-custom-morphs">Making &amp; Using Custom Morphs</h2>
+<p>Custom morphs can be made with maketarget version 2. You need a standard base mesh like the hm08 one with exactly the
+same vertex numbers as the internal base inside MakeHuman 2. These bases are usually available in makeclothes 2.</p>
+<p>Name your morph meaningfully and press &ldquo;add new target&rdquo;. You will get the Basis and a new shape key named like
+your morph. After modifying this shape key save it as a target. Own targets must be placed in your USERHOME folder,
+so e.g. for the hm08 base it would be placed in:</p>
+<pre tabindex="0"><code>USERHOME/target/hm08
+</code></pre><p>If you work with a lot of own morphs and want to keep it structured, best to use yor own subfolders, like</p>
+<pre tabindex="0"><code>USERHOME/target/hm08/head
+</code></pre><p>There is also a limited way to create bidirectional morphs by naming conventions. Morphs in same folder named like:</p>
+<pre tabindex="0"><code>USERHOME/target/hm08/head/mymorph-decr.target
+USERHOME/target/hm08/head/mymorph-incr.target
+</code></pre><p>will result in a bidirectional morph.</p>
+<p>It is also possible to equip the morphs with icons (png files only). The icons must be placed in the folder:</p>
+<pre tabindex="0"><code>USERHOME/target/hm08/icons
+</code></pre><p>They are named as the morph including the subfolder connected by &lsquo;-&rsquo;. In case of a bidirectional morph the
+name should not contain &ldquo;-decr&rdquo; or &ldquo;-incr&rdquo;. So an image:</p>
+<pre tabindex="0"><code>USERHOME/target/hm08/icons/head-mymorph.png
+</code></pre><p>should display the <em>head-mymorph.png</em> icon instead of the generic one.</p>
   </div>
 <style>
   #footer-links-container:hover span {
