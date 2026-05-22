@@ -27,5 +27,23 @@
 		"t": "And now something completely different",
 		"a": "black-punkduck",
 		"c": "Monty Python Gumby (very british)"
+	},
+	"Talking to a Banyan": {
+		"h": "https://64.media.tumblr.com/89d0abb44edc24b8b9bf2a6d2bfed1df/7f4836b1a774ea45-33/s1280x1920/eaa85864287050b54c407e4f877fa6b456794d81.pnj",
+		"t": "Talking to a Banyan",
+		"a": "Elvaerwyn",
+		"c": "Created with Blender"
+	},
+	"Canada Swimming": {
+		"h": "https://64.media.tumblr.com/c2dd161be383ce5e1fae47e99b3f7c5e/1efbb27da2c16502-bb/s1280x1920/a132072e46109055d427018b368307c6c118d61a.pnj",
+		"t": "Canada Swimming",
+		"a": "Elvaerwyn",
+		"c": "Created in Makehuman2"
+	},
+	"Testing the Fantasy Basemesh": {
+		"h": "https://64.media.tumblr.com/a9e43fbd02e11551a61273d601a0ced6/6f1706484b09779f-e3/s1280x1920/70f098eff6864c1bd8e88b1f02b306763ce7dc79.jpg",
+		"t": "Testing the fantasy basemesh",
+		"a": "black-punkduck",
+		"c": "Created in Makehuman2"
 	}
 }
