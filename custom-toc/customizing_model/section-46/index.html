@@ -80,11 +80,45 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>4.6 Proxy Mesh</h2>
   <div class="page-body">
-    <p>Information for the Usage of Proxy Mesh</p>
+    <p>A proxy is a complete mesh using a similar geometry like the base mesh.
+In contrast to clothes, it is also a full replacement of the body or base.</p>
+<p>There are some types of proxies possible:</p>
+<ul>
+<li>anatomic male and female gender proxies</li>
+<li>proxies with less geometry to speed up calculation</li>
+<li>proxies to hide a certain amount of geometry</li>
+</ul>
 <h2 id="attaching-a-proxy">Attaching a Proxy</h2>
+<p>In the Proxy menu (see below) the proxy can be attached.
+In the example (a character similar to Ava from the movie Ex-Machina) the proxy is formed from hands, feet and face, the rest of the mesh (internal and external)
+are clothes. This proxy is used to hide geometry and allows the specific rim of face and the hands, since deletion of vertices would
+e.g. not allow the v-shape form of the neck.</p>
+<div class="image-bubble"
+     style="width: 1200px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/proxy.png" alt="Usage of a proxy." style="height: auto; width: 100%;">
+</div>
 <h2 id="skin--proxy">Skin &amp; Proxy</h2>
+<p>Proxies can either have own textures or use the existent ones. Usually additional geometry for genitals also demands additional
+UVs in the textures. A proxy used only to decrease geometry can also use an existing UV map. Our example works with the same textures as the
+non-robot character.</p>
 <h2 id="skeleton-with-a-proxy-mesh">Skeleton with a Proxy Mesh</h2>
+<p>Usually a proxy should work exactly with a skeleton like the base. However for a proxy using less geometry a simpler skeleton would be used.
+Additional geometry like genitals you can only animate if bones are available. In the standard base mesh there are no such bones.</p>
 <h2 id="proxy-mesh-with-clothing-attachments--props">Proxy Mesh with Clothing, Attachments &amp; Props</h2>
+<p>As long as a proxy has no &ldquo;extra parts&rdquo; like the male anatomic mesh clothing would work as expected.
+So the female anatomic proxy would work exactly the same way as the non-anatomic one.
+For characters wearing clothes however we recommend to use the version with less unvisible vertices.</p>
   </div>
 <style>
   #footer-links-container:hover span {
