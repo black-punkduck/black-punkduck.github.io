@@ -80,11 +80,74 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>4.7 Posing in MH2</h2>
   <div class="page-body">
-    <p>Information for Customization</p>
-<h2 id="facial-poses">Facial Poses</h2>
-<h2 id="body-poses">Body Poses</h2>
+    <p>Create and use poses and animations. Grouped by body poses and facial expressions.</p>
+<h2 id="using-predefined-poses">Using predefined poses</h2>
+<p>Predefined poses and expressions are available in menu &ldquo;Load Poses&rdquo; and &ldquo;Expressions&rdquo;.
+These poses also work without a skeleton assigned since they always use the internal skeleton.</p>
+<p>To load a pose double click the icon with the pose. The character will be displayed posed.
+Filters allow to search for certain poses.</p>
+<p>An expression is loaded the same way.</p>
+<p>Poses and expressions are made with the skeleton, so no morphs are applied.</p>
+<h2 id="editing-poses">Editing poses.</h2>
+<p>Pose and expression editor are used in a similar way. Select the part you want to change.</p>
+<div class="image-bubble"
+     style="width: 1200px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/pose_edit.jpg" alt="Usage of the pose editor." style="height: auto; width: 100%;">
+</div>
+<p>For example select the left arm in pose editor like shown and rotate arm horizontally. It is possible to create a
+symmetric pose by clicking the left to right button (front view).</p>
+<p>If you need the changes as an overlay for an exsting pose or animation, click on the bone button.</p>
+<p>It is possible to save or load a pose as an mhpose file (not bvh).</p>
 <h2 id="customizing--altering-poses-in-mh2">Customizing &amp; Altering Poses in MH2</h2>
+<p>We added some poses and animations to start with. Some of these poses may have intersecting limbs because of different bone lengths.
+This might result in a pose like this:
+<div class="image-bubble"
+     style="width: 800px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/pose_corrections1.jpg" alt="Pose corrections before correction." style="height: auto; width: 100%;">
+</div>
+</p>
+<p>Turning the arms slightly and changing left hand and fingers, also turning head a little towards viewer and changing the direction of the eyes
+will change the image to this pose:</p>
+<div class="image-bubble"
+     style="width: 800px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/pose_corrections2.jpg" alt="Pose corrections after correction." style="height: auto; width: 100%;">
+</div>
 <h2 id="exporting-your-model-with-poses">Exporting your Model with Poses</h2>
+<p>Posed characters can be exported in STL, GLTF, Blender (mh2b) and BVH.</p>
+<p>Animations can be exported in GLTF and Blender (mh2b).</p>
   </div>
 <style>
   #footer-links-container:hover span {
