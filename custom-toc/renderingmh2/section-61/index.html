@@ -80,8 +80,33 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>6.1 Setting up to Render</h2>
   <div class="page-body">
-    <p>More Rendering Information Here</p>
-<p>Setting up</p>
+    <p>Rendering inside Makehuman 2 mostly is used to create screen shots with all the available assets including floor and cubemap.</p>
+<p>A second way to only get the character for a paint program on a unicolored or transparent background is also provided.</p>
+<p>Select the render mode from the drop down menu. Select width and height of your image. Foreground render is mostly limited to a certain size provided
+by PySide6. For background render also a screen of e.g. 8192 x 8192 pixel may work. Although it may take some time.</p>
+<div class="image-bubble"
+     style="width: 500;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/rendermenu.png" alt="Usage of a proxy." style="height: auto; width: 100%;">
+</div>
+<p>If a pose is loaded or an animation is supplied, you can select a certain frame and also decide if you use overlay corrections.</p>
+<p>The &ldquo;Smooth&rdquo; button starts the Loop method for subdivision surfaces for triangular meshes.
+The mesh is smoothed, but partly texture problems may be visible. Especially seams will be a problem.
+(A replacement might be the interpolating butterfly algorithm in future).
+Subdividing the mesh will take some time.</p>
+<p>&ldquo;Render&rdquo; will start the render process. To see the result either press the scenic button or switch on &ldquo;show results automatically&rdquo;.
+The scenic button will always show the last rendered image.</p>
+<p>Press save button to save the image to disc. The &ldquo;render&rdquo; folder is preselected.</p>
   </div>
 <style>
   #footer-links-container:hover span {
