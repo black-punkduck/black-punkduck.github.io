@@ -80,7 +80,48 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>6.2 Backgrounds</h2>
   <div class="page-body">
-    <p>Backgrounds</p>
+    <p>Backgrounds in MakeHuman2 are used to interact with certain materials, usually with mirroring or metallic effects. When started first time MakeHuman2 is supplied with a neutral studio setup.</p>
+<div class="image-bubble"
+     style="width: 500;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/background_reflections.jpg" alt="Background Reflections." style="width: 700px; height: auto;">
+</div>
+<p>The background is a so-called cubemap or skybox, that means 6 planes are grouped together to create a 3 dimensional room.
+The origin of the unposed character is in the middle of this cubemap. All planes of the cube are created in an openGL mode so that they seem to be
+behind all assets.</p>
+<p>In orthogonal mode no background is available because there is no depth.</p>
+<p>The backgrounds are placed in one of the shader directories, either in system space or user space. The following names are accepted:</p>
+<pre tabindex="0"><code>data/shaders/skybox/&lt;skyboxname&gt;/&lt;orientation&gt;.jpg
+- or -
+data/shaders/skybox/&lt;skyboxname&gt;/&lt;orientation&gt;.png
+orientations: negx  negy  negz  posx  posy  posz
+</code></pre><p>
+<div class="image-bubble"
+     style="width: 1024;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/screen/cubemap.png" alt="6 images of a cubemap." style="width: 1024px; height: auto;">
+</div>
+<p>We supplied some backgrounds in an extra asset pack as a download (Makehuman2 additional Cube-Maps).</p>
   </div>
 <style>
   #footer-links-container:hover span {
