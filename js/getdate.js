@@ -19,7 +19,7 @@ if (day == 1 && month == 0) {			// months start with 0
 } else if (day == 5 && month == 3) {
 	img = "bannermh2_spotlight.png" // easter 2026
 } else if (day == 22 && month == 3) {
-	img = "bannermh2_spotlight.png"
+	img = "bannermh2_earthday.png"
 } else if (day == 28 && month == 5) { // pride day
 	img = "bannermh2_pride.png"
 } else if (day == 1 && month == 6) { // canada day
@@ -33,8 +33,10 @@ if (day == 1 && month == 0) {			// months start with 0
 } else if (day == 12 && month == 9) { // thanksgiving CA
 	img = "bannermh2_spotlight.png"
 } else if (day == 31 && month == 9) {
-	img = "bannermh2_november.png"
+	img = "bannermh2_halloween.png"
 } else if ((day == 1 || day ==2 ) && month == 10) { // Day of the Dead
+	img = "bannermh2_halloween.png"
+} else if (month == 10) {
 	img = "bannermh2_november.png"
 } else if (day == 25 && month == 11) {
 	img = "bannermh2_xmas1.png"
