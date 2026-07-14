@@ -15,6 +15,10 @@
    "l": "blogs/second"
   },
   {
+   "h": "Elvs Dev Blog #2",
+   "l": "blogs/third"
+  },
+  {
    "h": "Elvs Dev Blog #1",
    "l": "blogs/first"
   }
@@ -35,6 +39,10 @@
   {
    "h": "Stable Release of Alpha 1",
    "l": "news/stablerelease1"
+  },
+  {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
   },
   {
    "h": "Alpha2 Release",
@@ -79,6 +87,10 @@
   {
    "h": "First Alpha 1 Teaser on Youtube",
    "l": "news/youtubeteaser"
+  },
+  {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
   }
  ],
  "Release": [
@@ -89,6 +101,10 @@
   {
    "h": "Stable Release of Alpha 1",
    "l": "news/stablerelease1"
+  },
+  {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
   },
   {
    "h": "Alpha2 Release",
@@ -105,6 +121,10 @@
    "l": "news/stablerelease1"
   },
   {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
+  },
+  {
    "h": "Alpha2 Release",
    "l": "news/alpha2"
   }
@@ -119,6 +139,10 @@
   {
    "h": "First Alpha 1 Teaser on Youtube",
    "l": "news/youtubeteaser"
+  },
+  {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
   }
  ],
  "Site": [
@@ -137,6 +161,30 @@
   {
    "h": "Skybox Potential Fix!",
    "l": "news/merge_request_skybox"
+  }
+ ],
+ "merge request": [
+  {
+   "h": "Skybox Potential Fix!",
+   "l": "news/merge_request_skybox"
+  }
+ ],
+ "pull": [
+  {
+   "h": "Skybox Potential Fix!",
+   "l": "news/merge_request_skybox"
+  }
+ ],
+ "skybox": [
+  {
+   "h": "Skybox Potential Fix!",
+   "l": "news/merge_request_skybox"
+  }
+ ],
+ "Steam": [
+  {
+   "h": "Steam Makehuman 2 Release",
+   "l": "news/steam_release"
   }
  ],
  "Alpha2": [
@@ -165,6 +213,26 @@
   {
    "h": "4.0 Customizing Your Model",
    "l": "custom-toc/customizing_model/section-4"
+  },
+  {
+   "h": "4.7 Posing in MH2",
+   "l": "custom-toc/customizing_model/section-47"
+  },
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  },
+  {
+   "h": "4.6 Proxy Mesh",
+   "l": "custom-toc/customizing_model/section-46"
+  },
+  {
+   "h": "4.8 Animations",
+   "l": "custom-toc/customizing_model/section-48"
+  },
+  {
+   "h": "4.5 Body Morphing (Targets)",
+   "l": "custom-toc/customizing_model/section-45"
   },
   {
    "h": "Exporting & Loading Your Model with MH2",
@@ -429,6 +497,12 @@
    "l": "custom-toc/renderingmh2/section-61"
   }
  ],
+ "Create Render": [
+  {
+   "h": "6.3 Creating and Exporting Renders",
+   "l": "custom-toc/renderingmh2/section-63"
+  }
+ ],
  "Export": [
   {
    "h": "6.3 Creating and Exporting Renders",
@@ -515,6 +589,10 @@
    "l": "custom-toc/nerds/conf_files"
   },
   {
+   "h": "9.3.6 Base JSON file",
+   "l": "custom-toc/nerds/conf_base"
+  },
+  {
    "h": "9.3.5 MakeHuman2 Configuration File",
    "l": "custom-toc/nerds/conf_makehuman"
   },
@@ -543,6 +621,10 @@
   {
    "h": "9.3 JSON Configuration Files",
    "l": "custom-toc/nerds/conf_files"
+  },
+  {
+   "h": "9.3.6 Base JSON file",
+   "l": "custom-toc/nerds/conf_base"
   },
   {
    "h": "9.3.5 MakeHuman2 Configuration File",
@@ -607,6 +689,20 @@
    "l": "custom-toc/first_launch/section-22"
   }
  ],
+ "Base": [
+  {
+   "h": "9.3.6 Base JSON file",
+   "l": "custom-toc/nerds/conf_base"
+  },
+  {
+   "h": "Alternative Base/Body mesh",
+   "l": "custom-toc/first_launch/section-27"
+  },
+  {
+   "h": "Human Base Body Mesh",
+   "l": "custom-toc/first_launch/section-24"
+  }
+ ],
  "Script": [
   {
    "h": "9.1 Digging into the Code",
@@ -621,6 +717,12 @@
   {
    "h": "9.4 Adding to the Tutorials for MH2",
    "l": "custom-toc/nerds/section-94"
+  }
+ ],
+ "Assets": [
+  {
+   "h": "9.5 Contributing to the Asset Repository",
+   "l": "custom-toc/nerds/section-95"
   }
  ],
  "Repository": [
@@ -657,8 +759,28 @@
    "l": "custom-toc/customizing_model/section-4"
   },
   {
+   "h": "4.7 Posing in MH2",
+   "l": "custom-toc/customizing_model/section-47"
+  },
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  },
+  {
+   "h": "4.6 Proxy Mesh",
+   "l": "custom-toc/customizing_model/section-46"
+  },
+  {
+   "h": "4.8 Animations",
+   "l": "custom-toc/customizing_model/section-48"
+  },
+  {
    "h": "4.4 Eyes & Eye Colour",
    "l": "custom-toc/customizing_model/section-44"
+  },
+  {
+   "h": "4.5 Body Morphing (Targets)",
+   "l": "custom-toc/customizing_model/section-45"
   },
   {
    "h": "5.0 Materials",
@@ -705,8 +827,58 @@
    "l": "custom-toc/customizing_model/section-4"
   },
   {
+   "h": "4.8 Animations",
+   "l": "custom-toc/customizing_model/section-48"
+  },
+  {
    "h": "The Skeleton",
    "l": "manuals/skeleton"
+  }
+ ],
+ "Animation": [
+  {
+   "h": "4.7 Posing in MH2",
+   "l": "custom-toc/customizing_model/section-47"
+  }
+ ],
+ "Pose": [
+  {
+   "h": "4.7 Posing in MH2",
+   "l": "custom-toc/customizing_model/section-47"
+  },
+  {
+   "h": "The Skeleton",
+   "l": "manuals/skeleton"
+  }
+ ],
+ "Clothing": [
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  }
+ ],
+ "Attachment": [
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  }
+ ],
+ "Prop": [
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  }
+ ],
+ "MC2": [
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
+  }
+ ],
+ "Makeclothes2": [
+  {
+   "h": "4.9 Hair, Clothing & Attachments",
+   "l": "custom-toc/customizing_model/section-49"
   }
  ],
  "Poly Count": [
@@ -733,12 +905,36 @@
    "l": "custom-toc/customizing_model/section-42"
   },
   {
+   "h": "4.6 Proxy Mesh",
+   "l": "custom-toc/customizing_model/section-46"
+  },
+  {
+   "h": "The Fantasy Base Mesh**",
+   "l": "custom-toc/first_launch/section-29"
+  },
+  {
    "h": "Alternative Base/Body mesh",
    "l": "custom-toc/first_launch/section-27"
   },
   {
    "h": "The Robot Base Mesh",
    "l": "custom-toc/first_launch/section-28"
+  }
+ ],
+ "Proxy": [
+  {
+   "h": "4.6 Proxy Mesh",
+   "l": "custom-toc/customizing_model/section-46"
+  }
+ ],
+ "Animations": [
+  {
+   "h": "4.8 Animations",
+   "l": "custom-toc/customizing_model/section-48"
+  },
+  {
+   "h": "8.3 Animations",
+   "l": "custom-toc/limitations/section-83"
   }
  ],
  "Eyes": [
@@ -757,6 +953,18 @@
   {
    "h": "4.4 Eyes & Eye Colour",
    "l": "custom-toc/customizing_model/section-44"
+  }
+ ],
+ "Targets": [
+  {
+   "h": "4.5 Body Morphing (Targets)",
+   "l": "custom-toc/customizing_model/section-45"
+  }
+ ],
+ "Morph": [
+  {
+   "h": "4.5 Body Morphing (Targets)",
+   "l": "custom-toc/customizing_model/section-45"
   }
  ],
  "Colours": [
@@ -921,12 +1129,6 @@
    "l": "custom-toc/limitations/section-82"
   }
  ],
- "Animations": [
-  {
-   "h": "8.3 Animations",
-   "l": "custom-toc/limitations/section-83"
-  }
- ],
  "Unsupported File Extensions": [
   {
    "h": "8.1 File Extensions Not Supported",
@@ -1009,7 +1211,7 @@
    "l": "custom-toc/first_launch/section-26"
   },
   {
-   "h": "Human Base/Body Mesh",
+   "h": "Human Base Body Mesh",
    "l": "custom-toc/first_launch/section-24"
   }
  ],
@@ -1023,6 +1225,10 @@
    "l": "custom-toc/first_launch/section-26"
   },
   {
+   "h": "The Fantasy Base Mesh**",
+   "l": "custom-toc/first_launch/section-29"
+  },
+  {
    "h": "Alternative Base/Body mesh",
    "l": "custom-toc/first_launch/section-27"
   },
@@ -1031,7 +1237,7 @@
    "l": "custom-toc/first_launch/section-28"
   },
   {
-   "h": "Human Base/Body Mesh",
+   "h": "Human Base Body Mesh",
    "l": "custom-toc/first_launch/section-24"
   }
  ],
@@ -1095,20 +1301,28 @@
    "l": "custom-toc/first_launch/section-21"
   }
  ],
- "Base": [
+ "Fantasy": [
   {
-   "h": "Alternative Base/Body mesh",
-   "l": "custom-toc/first_launch/section-27"
-  },
+   "h": "The Fantasy Base Mesh**",
+   "l": "custom-toc/first_launch/section-29"
+  }
+ ],
+ "Future": [
   {
-   "h": "Human Base/Body Mesh",
-   "l": "custom-toc/first_launch/section-24"
+   "h": "The Fantasy Base Mesh**",
+   "l": "custom-toc/first_launch/section-29"
   }
  ],
  "Robot": [
   {
    "h": "The Robot Base Mesh",
    "l": "custom-toc/first_launch/section-28"
+  }
+ ],
+ "HM08": [
+  {
+   "h": "Human Base Body Mesh",
+   "l": "custom-toc/first_launch/section-24"
   }
  ],
  "Downloads": [
@@ -1135,40 +1349,42 @@
    "l": "resources/seventh"
   }
  ],
- "Pose": [
-  {
-   "h": "The Skeleton",
-   "l": "manuals/skeleton"
-  }
- ],
  "Blogs": [
   {
-   "h": "testblog4",
-   "l": "blogs/seventh"
-  },
-  {
-   "h": "testblog3",
-   "l": "blogs/fifth"
+   "h": "Elvs Fantasy release Blog 2026",
+   "l": "blogs/fantasyblog"
   },
   {
    "h": "Punkducks Dev Blog #1",
    "l": "blogs/second"
   },
   {
-   "h": "testblog",
+   "h": "Elvs Dev Blog #2",
    "l": "blogs/third"
   },
   {
-   "h": "testblog3",
-   "l": "blogs/sixth"
-  },
-  {
-   "h": "testblog2",
+   "h": "Elvs Quick Blog May 16 2026",
    "l": "blogs/fourth"
   },
   {
    "h": "Elvs Dev Blog #1",
    "l": "blogs/first"
+  }
+ ],
+ "release": [
+  {
+   "h": "Elvs Fantasy release Blog 2026",
+   "l": "blogs/fantasyblog"
+  },
+  {
+   "h": "Elvs Quick Blog May 16 2026",
+   "l": "blogs/fourth"
+  }
+ ],
+ "fantasy": [
+  {
+   "h": "Elvs Fantasy release Blog 2026",
+   "l": "blogs/fantasyblog"
   }
  ],
  "Help": [
