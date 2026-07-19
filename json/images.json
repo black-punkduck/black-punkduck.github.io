@@ -45,5 +45,17 @@
 		"t": "Testing the fantasy basemesh",
 		"a": "black-punkduck",
 		"c": "Created in Makehuman2"
+	},
+	"Mermaid from Below": {
+		"h": "https://64.media.tumblr.com/47748d14a756e3e3f372a996240dad6c/9be419945f7a7dae-26/s1280x1920/d65d57bf163df20847e952bb529fa9aad28e7bc4.jpg",
+		"t": "Mermaid from Below",
+		"a": "Elvaerwyn",
+                "c": "Created in Makehuman2"
+	},
+	"Mermaid posed in Makehuman2": {
+		"h": "https://64.media.tumblr.com/20493ce515543a58fe8c95fccc7fd481/dc46794b00eb232e-ec/s2048x3072/7187dfee176d468cf2f7a93b9a6ab80509485842.pnj",
+		"t": "Mermaid posed in Makehuman2",
+		"a": "Elvaerwyn",
+                "c": "Created in Makehuman2"
 	}
 }

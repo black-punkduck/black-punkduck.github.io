@@ -78,34 +78,25 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>Download &amp; Install Assets</h2>
+  <h2>Assets, Information and Filtering</h2>
   <div class="page-body">
-    <h2 id="download">Download</h2>
-<p>From within Makehuman 2 you can download the assets you need to build a standard human and much more!<br>
-Please see the Photo below as a reference!</p>
-<p>To begin- Visit the download asset page by clicking the download icon in function panel.<br>
-Once this page loads you will see options on the left to download assets and open up the asset browser window.</p>
-<p><em>Hint: The download is normally bound to a mesh (except for skybox or background), so you currently will only see
-a list files when you select base hm08 or a mesh has a parameter parentmesh=&ldquo;hm08&rdquo; in the base.json file (e.g. fantasy mesh)</em></p>
-<p>To get a full overview of the available assets and asset packs, you need to download the asset list once.
-We recommend doing that, although a few links are already inserted by default.</p>
-<p>Select your downloads link from the drop down menu. We recommend the download of:</p>
-<ul>
-<li>MakeHuman System Assets CC0 (the old MakeHuman 1 standard assets)</li>
-<li>MakeHuman2 additional Assets CC0 (poses, animations and litspheres)</li>
-<li>MakeHuman2 additional Cube-Maps CC0 (cubemaps for skybox)</li>
-</ul>
-<p>Click on download asset packs.</p>
-<p>Alternatively you can open the asset browser window, find your items here and click download here as need be.</p>
-<h2 id="install">Install</h2>
-<p>Once you have your content downloaded, in the same window you can then extract the items to their respective<br>
-files where you chose to install your CC.</p>
-<h2 id="cleanup">Cleanup</h2>
-<p>As an extra measure, clean your unused zip files by clicking cleanup button at bottom of the same window.<br>
-This is essentially not needed anymore but if you may choose to leave these for a backup if you intend to work<br>
-offline.</p>
+    <p>Especially when you work with Makehuman 2 very often and use a lot of user assets or assets out of asset-packs filtering
+will be very helpful. If the assets are made with a later version of Makeclothes, there are some standard tags,
+which should be used. But since each creator can add own tags and is not urged to use existent ones, filtering of assets can be
+a problem.</p>
+<p>This can be solved by using the Information editor.</p>
+<h2 id="the-repository">The Repository</h2>
+<p>When started, information about your assets is placed in a SQLite database which then is used as a repository. The database file can be
+found in your user folder according to the mesh. Information gathered will populate the table &ldquo;filecache&rdquo; in the database.</p>
+<pre tabindex="0"><code>&lt;userfolder&gt;/data/dbcache/&lt;mesh&gt;/repository.db
+</code></pre><p>The information editor can create a new thumbnail and new tags. While the existing thumbnail will be overwritten, the tags will be saved in
+the same SQLite database using the table &ldquo;userinformation&rdquo;.</p>
+<p>Both tables are connected by the same uuid. Rescanning your assets will not destroy the table &ldquo;userinformation&rdquo;.
+Deleting the repository will do that. You can, however, backup the user information to a file and load it worst case.</p>
+<h2 id="information-editor">Information Editor</h2>
+<p>The information editor will be opened by selecting an assets and pressing the button     <img src="/images/icons/information.png#idouble" alt="Information"></p>
 <div class="image-bubble"
-     style="width: 400x;
+     style="width: 360px;
             --border-width: 20px;
             background: white;
             border: var(--border-width) solid transparent;
@@ -117,8 +108,64 @@ offline.</p>
             background-origin: border-box;
             background-clip: padding-box, border-box;
             color: black;">
-<img src="/images/bubbles/screenshots/downloads.png" alt="Description" style="height: auto; width: 100%;">
+<img src="/images/bubbles/screenshots/informationeditor.png" alt="Information Editor">
 </div>
+<p>Thumbnail can be changed with a screenshot. Click on     <img src="/images/icons/camera.png#idouble" alt="Camera">    . The new image
+will appear in the view. Best to switch off skybox (the globe) and use a one-colored background.
+Under &ldquo;Settings&rdquo; change light and scene and select a background color with contrast.</p>
+<p>If you want to use own tags, you can either copy original tags to tag
+editor with     <img src="/images/icons/redo.png#idouble" alt="Copy">      and change these tags
+or you can create new ones by using the standard tags (recommended for filtering).</p>
+<p>A standard tag can be inserted by selecting it from the list and press the     <img src="/images/icons/plus.png#idouble" alt="Plus">      icon. You can also delete a tag row or delete all tags by pressing the     <img src="/images/icons/sweep.png#idouble" alt="Sweep">     icon.</p>
+<p>Save the information with save button or cancel the tool.</p>
+<p><em>When you select another asset while editor is open, this selected asset will populate the information editor</em></p>
+<h2 id="filtering">Filtering</h2>
+<p>As long as tags are provided, assets can be filtered in numerous ways. Assets with no tags are always shown.
+The filtering panel is displayed on left side:</p>
+<div class="image-bubble"
+     style="width: 360px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/filtering.png" alt="Filtering">
+</div>
+<p>These are the methods used (clothes example):</p>
+<ul>
+<li>By expanding the items, like <strong>Slot</strong>, then <strong>Top-Torso</strong>, then <strong>Layer 1</strong>. The more it gets detailed, the less icons will
+be on right side. The top-level items (<strong>Gender-Age</strong>, <strong>Era</strong>, <strong>Occasion</strong>, <strong>Slot</strong>) work like &lsquo;and&rsquo;,
+so you can select Layer 2 clothes like Sweater only for females. Sublayers are combined with &lsquo;or&rsquo;, so clicking on
+<strong>Tanktop</strong> in <strong>Layer 1</strong> and <strong>Shirt</strong> in <strong>Layer 2</strong> will present shirts and tanktops.</li>
+<li>By clicking on an icon below the selection. These icons create a combined filter. So the lingerie item activates gender <strong>Female</strong>
+and <strong>Bra</strong> from <strong>Top-Torso Layer 1</strong> with additional <strong>Panties</strong> from <strong>Bottom Layer 1</strong></li>
+<li>By using a text filter, the text filter works on all tags presented in the Tags field after a piece of clothing is selected.</li>
+</ul>
+<p><em>Hint: If the program shows too many items on right side, it is possible to supply all clothes with extra tags,
+these tags are then used instead of the tags provided in the clothes files. (see above)</em></p>
+<p>In the end it is individual how one deals with filtering. My current collection looks like this, when I click on &ldquo;dress&rdquo;:
+<div class="image-bubble"
+     style="width: 620px;
+            --border-width: 20px;
+            background: white;
+            border: var(--border-width) solid transparent;
+            border-radius: 60px;
+            padding: 10px;
+            display: inline-block;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(to bottom right, orange, black);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: black;">
+<img src="/images/bubbles/screenshots/dresses.png" alt="Filtering">
+</div>
+</p>
   </div>
 <style>
   #footer-links-container:hover span {
