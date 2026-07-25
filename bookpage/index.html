@@ -91,6 +91,13 @@
         <ul>
             <li>
               <h2>
+                <a href="https://black-punkduck.github.io/blogs/punkduckfantasy/" class="preview-trigger" data-id="blog-614ce1aafe0f7691b15a9261035472aa">
+                    Punkduck&#39;s Fantasy release Blog 2026
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
                 <a href="https://black-punkduck.github.io/blogs/fantasyblog/" class="preview-trigger" data-id="blog-edc81bc9b94be666876fae8d3e9958de">
                     Elv&#39;s Fantasy release Blog 2026
                 </a>
@@ -117,13 +124,6 @@
                 </a>
               </h2>
             </li>
-            <li>
-              <h2>
-                <a href="https://black-punkduck.github.io/blogs/fourth/" class="preview-trigger" data-id="blog-3504fcc5016ecdec0f8c98551cf254bf">
-                    Elvs Quick Blog May 16 2026
-                </a>
-              </h2>
-            </li>
         </ul>
       </div>
     </div>
@@ -136,6 +136,51 @@
   </div>
 </div>
 <div id="blog-database" style="display: none;">
+    <div class="blog-entry"
+         id="blog-614ce1aafe0f7691b15a9261035472aa"
+         data-title="Punkduck&#39;s Fantasy release Blog 2026"
+         data-url="https://black-punkduck.github.io/blogs/punkduckfantasy/">
+      <p>Hey everybody!</p>
+<p>A few words from my side considering the fantasy version.</p>
+<p>The idea of expanding our normal hm08 mesh to a new mesh including some features
+like a fishtail or wings was something which I tried years ago. The mesh I
+used was of course not identical but at least similar.</p>
+<p>Doing that broke old makehuman of course and a lot did no longer work. This
+was the main reason for a new more flexible version of makehuman. As you may have noticed
+the program can also be used for completely different characters like the small
+robot which was more or less our proof of concept.</p>
+<p>With the fantasy version we now are able to add parts like wings which can also
+be animated. That fantasy mesh has a parameter called &ldquo;parentmesh&rdquo; in base.json,
+this indicates you can also use all assets made for hm08 (except hm08 skeletons, that would make no sense).
+We have a tool converting morphs (targets) to the new mesh. Like all the other tools we
+will upload these to the git repository for those who want to convert their own old hm08 morphs.</p>
+<p>We struggled both with some problems putting a version on Steam which is stable.
+We started with pynsist which creates a self-extracting .exe file. Then we found
+pyInstaller. pyInstaller itself creates code which was not as stable as we hoped.
+Pyside6 and pyOpenGL created a bunch of dependencies which are not easy to understand. Also the
+use of &ldquo;half-deprecated&rdquo; (not directly supported) openGL features in pySide6 is still a
+mess (the display of the wireframe mesh is an example, it does not always work, especially mesa implementations might have
+problems).  For pyInstaller especially the macro-targets crashed
+the system. So we needed to find methods which are more stable. The reason that the macro-targets are
+now calculated the same way as the normal ones and not in an own parallel thread.</p>
+<p>A few things will be changed in near future, ideas are: for that wireframe mesh I want to use an own shader and
+we will also add a method to reduce the skeleton to the bones used on export etc.</p>
+<p>There will be also a method to add plugins but be aware that the Windows and Steam version will only work
+with these plugins directly included (because that code is binary).</p>
+<p>For those not using Steam: the .exe will be available and also the debian package. Also the source
+code will be always available. The alpha3 version is identical with fantasy version except that
+the fantasy-mesh is not included. It will be possible to use the alpha3 version and download that mesh
+to user space as well. My first idea was to only add the fantasy-packet to Steam and go on with alpha3.
+But it is easier for most of the people to use it by downloading the complete version.
+However the concept of Makehuman2 is, that the user can put everything also in user space, so add his
+own base mesh including a bunch of config files without changing the code.</p>
+<p>I hope most will work &hellip; but hey, I am a programmer and we all know Murphy, so I am sure there will be work left :)</p>
+<p>If you have experiences with e.g. putting a native Linux on Steam, we would be happy. pyInstaller itself works for
+Linux. For those doing experiments, check our build folder on github, the python scripts ppabuild, winbuild and pyinbuild
+are the scripts we use for debian package, windows exe and pyinstaller package.</p>
+<p>Greetings</p>
+<p>Black-Punkduck</p>
+    </div>
     <div class="blog-entry"
          id="blog-edc81bc9b94be666876fae8d3e9958de"
          data-title="Elv&#39;s Fantasy release Blog 2026"
