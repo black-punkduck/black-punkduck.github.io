@@ -82,10 +82,50 @@
   <div class="page-body">
     <p>Coming soon and Whats is New:</p>
 <p>Features added, bugs fixed, other recent changes to MH2</p>
-<p>~PBR Shader quality upgrades and graphical fixes(alpha 2 release)</p>
-<p>~gltf Exporter improvements and upgrades.(alpha 2 release)</p>
-<p>~Normal map repairs and improvements! (alpha 2 release)</p>
-<p>~User interface quality of life improvements and theme upgrades. (alpha 2 release).</p>
+<p>What Is New?:</p>
+<p>The July 25 Fantasy release patch/changenotes:</p>
+<p>✨New Features:</p>
+<pre><code>glass shader pbr
+normals for phong shader
+fantasy base mesh for MH2
+fantasy helpers for blender MC2
+fantasy skeleton MH2 and exportable in base mesh with parts.
+basic parts for fantasy mesh in MH2
+obj exporter now works with posed character and accepts specular color
+changes in renderer to also allow foreground render
+ability to load assetpacks using a parent mesh
+</code></pre>
+<p>🔋Quality of life improvements:</p>
+<pre><code>first installation: test if user area is writable
+material-editor: mhmat file loader button, possibility to modify specular color
+cache clearing button in preferences.
+double clicking for selections
+sqlite reload (cached database) can be triggered from menu
+file selector to make search easier when an asset-pack zip file is already downloaded
+small changes for single asset download to allow more materials to be put in correct folder
+splitter sliders added.
+fixed pathnames for default assets
+the default skeleton now is packaged with build
+</code></pre>
+<p>🐞Bugfixes:</p>
+<pre><code>normals for pbr shader corrected
+avoid showing mesh bugs when loading character (it froze system)
+obj exporter now should not do artifacts, fixed specular vs. emission, it also allows materials of same name
+gltf, mh2b should work with corrections
+changed behaviour to use mhpose file similar as bvh file (correction of bones, using it in renderer etc)
+ability to correct bones in animation NOT used in bvh files
+saving model: use a different method for MHM file caching, since neither name nor uuid had to be changed.
+(this resulted in only one visible file)
+eye-materials only in user folder, meshes in system folder (materials were not found)
+proxy vs. basemesh. After changing material, materialeditor crashed
+character info: when mesh was changed, character info window was messed up
+</code></pre>
+<p>What is Upcoming?:</p>
+<p>The October 25th Tentative Patch/Expansion for MH2</p>
+<p>This content is currently under wraps, however we are working on yet another content &amp; feature expansion/patch for MH2.<br>
+Our prospective timeline is release at the end of October of 2026, this is flexible at present-Stay tuned for more news<br>
+and information coming soon*ish!</p>
+<p>The MH2 Team</p>
   </div>
 <style>
   #footer-links-container:hover span {
