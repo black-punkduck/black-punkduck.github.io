@@ -78,9 +78,179 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.1 Digging into the Code</h2>
+  <h2>9.1.1 Code of core/globenv.py</h2>
   <div class="page-body">
-    <p>Digging into the Code</p>
+<kbd>core/globenv</kbd> provides <b>all common global elements</b>. These can be used everwhere in the program.
+<!-- more -->
+<h2>class globalObjects</h2>
+It is the main class to contain "real globals", so variables which might be referenced everywhere.
+<p>
+If we need further, they will be defined here. To be sure they exist, the value will either be None, a certain number, an
+empty string or an empty dictionary or list. Variables must be mentioned here and should never be injected to avoid
+clashes. It is also easier to understand code. The elements are either added in __init__ or in reset(), the function
+called by init and which can be called, when system e.g. loads different mesh.
+<p>
+Classical this class is referenced with the parameter glob. It is mostly a parameter of all modules to make it accessible.
+<p>
+A hasattr is not needed for all mentioned elements.
+<h3>Available Variables Reference</h3>
+<table class="contexttab">
+<tr>
+<td>env</td>
+<td class="explain">a pointer to environment, allows e.g. to access glob.env.logLine or access of all environment paramters and functions. env.last_error was the error of last load function etc.
+</td>
+</tr>
+<tr>
+<td>app</td>
+<td class="explain">pointer to QApplication
+</td>
+</tr>
+<tr>
+<td>shaderInit</td>
+<td class="explain">a dictionary containing all shader pre-definitons filled from a shader file data/shaders/shader.json
+</td>
+</tr>
+<tr>
+<td>subwindows</td>
+<td class="explain">a dictionary of opened subwindows
+</td>
+</tr>
+<tr>
+<td>MainWindow</td>
+<td class="explain">pointer to mainwindow (which is the global window with the 3 columns)
+</td>
+</tr>
+<tr>
+<td>openGLWindow</td>
+<td class="explain">pointer to QOpenGLWidget defined in opengl/main.py, our "canvas". Here you will find all graphical objects.
+<ul>
+<li>camera</li>
+<li>light</li>
+<li>objects</li>
+<li>scene</li>
+<li>shaders</li>
+<li>and a function to redraw all buffers is done with Tweak()</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>openGLBlock</td>
+<td class="explain">global bool to avoid openGL output e.g. when texture is deleted etc. It is blocked while loading etc.
+</td>
+</tr>
+<tr>
+<td>openGLWinUpdate</td>
+<td class="explain">global bool to allow only openGL update, should avoid double updates
+</td>
+</tr>
+<tr>
+<td>midColumn</td>
+<td class="explain">pointer to mid column mostly used for some changes like poseView(bool)
+</td>
+</tr>
+<tr>
+<td>centralWidget</td>
+<td class="explain">is the whole widget used for e.g. Warnings and Errorboxes, a pyside6 problem, that these boxes
+cannot be connected to subwindows.
+</td>
+</tr>
+<tr>
+<td>baseClass</td>
+<td class="explain">the current baseclass
+</td>
+</tr>
+<tr>
+<td>closing</td>
+<td class="explain">bool value, application is closing (exit yes/no) needs that not to stay in infinite loop
+</td>
+</tr>
+<tr>
+<td>textureRepo</td>
+<td class="explain">the repository of the loaded textures
+</td>
+</tr>
+<tr>
+<td>apiSocket</td>
+<td class="explain">contains the connected socket or is none
+</td>
+</tr>
+<tr>
+<td>wireframemode</td>
+<td class="explain">contains the mode the wireframe is painted
+</td>
+</tr>
+<tr>
+<td>project_changed</td>
+<td class="explain">is true when sth. has changed
+</td>
+</tr>
+</tr>
+<tr>
+<td>cachedInfo</td>
+<td class="explain">the complete current cache
+</td>
+</tr>
+</tr>
+<tr>
+<td>Targets</td>
+<td class="explain">pointer to all targets
+</td>
+</tr>
+</tr>
+<tr>
+<td>targetCategories</td>
+<td class="explain">contains the category object
+</td>
+</tr>
+</tr>
+<tr>
+<td>targetMacros</td>
+<td class="explain">contains macrodefinitions (JSON structure, if available)
+</td>
+</tr>
+</tr>
+<tr>
+<td>targetRepo</td>
+<td class="explain">contains a dictionary of available targets
+</td>
+</tr>
+</tr>
+<tr>
+<td>macroRepo</td>
+<td class="explain">contains a dictionary of available macros
+</td>
+</tr>
+</tr>
+<tr>
+<td>missingTargets</td>
+<td class="explain">contains a list of missing targets after load
+</td>
+</tr>
+</tr>
+<tr>
+<td>parallel</td>
+<td class="explain">for parallel processing. Should avoid more than one process at the time is running in parallel
+</td>
+</tr>
+</tr>
+<tr>
+<td>lastdownload</td>
+<td class="explain">will contain the filename of last downloaded file
+</td>
+</tr>
+</tr>
+<tr>
+<td>textSlot</td>
+<td class="explain">array of text slots for graphical window, like size age etc.
+</td>
+</tr>
+</tr>
+<tr>
+<td>custom_props_list</td>
+<td class="explain">extension for "studio" assets
+</td>
+</tr>
+</table>
   </div>
 <style>
   #footer-links-container:hover span {
