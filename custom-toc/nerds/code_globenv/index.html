@@ -80,9 +80,15 @@
 <p id="datestring">Current: Month Day, Year</p>
   <h2>9.1.1 Code of core/globenv.py</h2>
   <div class="page-body">
-<kbd>core/globenv</kbd> provides <b>all common global elements</b>. These can be used everwhere in the program.
+<kbd>core/globenv</kbd> provides <b>all common global elements and functions</b>. These can be used everwhere in the program.
+The file contains 3 classes:
+<ul>
+<li>globalObjects</li>
+<li>cacheRepoEntry</li>
+<li>programInfo</li>
+</ul>
 <!-- more -->
-<h2>class globalObjects</h2>
+<h2>Class globalObjects</h2>
 It is the main class to contain "real globals", so variables which might be referenced everywhere.
 <p>
 If we need further, they will be defined here. To be sure they exist, the value will either be None, a certain number, an
@@ -93,16 +99,16 @@ called by init and which can be called, when system e.g. loads different mesh.
 Classical this class is referenced with the parameter glob. It is mostly a parameter of all modules to make it accessible.
 <p>
 A hasattr is not needed for all mentioned elements.
-<h3>Available Variables Reference</h3>
+<h3>Variables</h3>
 <table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
 <tr>
 <td>env</td>
-<td class="explain">a pointer to environment, allows e.g. to access glob.env.logLine or access of all environment paramters and functions. env.last_error was the error of last load function etc.
-</td>
+<td class="explain">a reference to environment, allows e.g. to access glob.env.logLine or access of all environment paramters and functions. env.last_error was the error of last load function etc.</td>
 </tr>
 <tr>
 <td>app</td>
-<td class="explain">pointer to QApplication
+<td class="explain">reference to QApplication
 </td>
 </tr>
 <tr>
@@ -117,12 +123,12 @@ A hasattr is not needed for all mentioned elements.
 </tr>
 <tr>
 <td>MainWindow</td>
-<td class="explain">pointer to mainwindow (which is the global window with the 3 columns)
+<td class="explain">reference to mainwindow (which is the global window with the 3 columns)
 </td>
 </tr>
 <tr>
 <td>openGLWindow</td>
-<td class="explain">pointer to QOpenGLWidget defined in opengl/main.py, our "canvas". Here you will find all graphical objects.
+<td class="explain">reference to QOpenGLWidget defined in opengl/main.py, our "canvas". Here you will find all graphical objects.
 <ul>
 <li>camera</li>
 <li>light</li>
@@ -135,120 +141,440 @@ A hasattr is not needed for all mentioned elements.
 </tr>
 <tr>
 <td>openGLBlock</td>
-<td class="explain">global bool to avoid openGL output e.g. when texture is deleted etc. It is blocked while loading etc.
-</td>
+<td class="explain">global bool to avoid openGL output e.g. when texture is deleted etc. It is blocked while loading etc.</td>
 </tr>
 <tr>
 <td>openGLWinUpdate</td>
-<td class="explain">global bool to allow only openGL update, should avoid double updates
-</td>
+<td class="explain">global bool to allow only openGL update, should avoid double updates</td>
 </tr>
 <tr>
 <td>midColumn</td>
-<td class="explain">pointer to mid column mostly used for some changes like poseView(bool)
-</td>
+<td class="explain">reference to mid column mostly used for some changes like poseView(bool)</td>
 </tr>
 <tr>
 <td>centralWidget</td>
 <td class="explain">is the whole widget used for e.g. Warnings and Errorboxes, a pyside6 problem, that these boxes
-cannot be connected to subwindows.
-</td>
+cannot be connected to subwindows.</td>
 </tr>
 <tr>
 <td>baseClass</td>
-<td class="explain">the current baseclass
-</td>
+<td class="explain">the current baseclass</td>
 </tr>
 <tr>
 <td>closing</td>
-<td class="explain">bool value, application is closing (exit yes/no) needs that not to stay in infinite loop
-</td>
+<td class="explain">bool value, application is closing (exit yes/no) needs that not to stay in infinite loop</td>
 </tr>
 <tr>
 <td>textureRepo</td>
-<td class="explain">the repository of the loaded textures
-</td>
+<td class="explain">the repository of the loaded textures</td>
 </tr>
 <tr>
 <td>apiSocket</td>
-<td class="explain">contains the connected socket or is none
-</td>
+<td class="explain">contains the connected socket or is none</td>
 </tr>
 <tr>
 <td>wireframemode</td>
-<td class="explain">contains the mode the wireframe is painted
-</td>
+<td class="explain">contains the mode the wireframe is painted</td>
 </tr>
 <tr>
 <td>project_changed</td>
-<td class="explain">is true when sth. has changed
-</td>
+<td class="explain">is true when sth. has changed</td>
 </tr>
 </tr>
 <tr>
 <td>cachedInfo</td>
-<td class="explain">the complete current cache
-</td>
+<td class="explain">the complete current cache</td>
 </tr>
 </tr>
 <tr>
 <td>Targets</td>
-<td class="explain">pointer to all targets
-</td>
+<td class="explain">reference to all targets</td>
 </tr>
 </tr>
 <tr>
 <td>targetCategories</td>
-<td class="explain">contains the category object
-</td>
+<td class="explain">contains the category object</td>
 </tr>
 </tr>
 <tr>
 <td>targetMacros</td>
-<td class="explain">contains macrodefinitions (JSON structure, if available)
-</td>
+<td class="explain">contains macrodefinitions (JSON structure, if available)</td>
 </tr>
 </tr>
 <tr>
 <td>targetRepo</td>
-<td class="explain">contains a dictionary of available targets
-</td>
+<td class="explain">contains a dictionary of available targets</td>
 </tr>
 </tr>
 <tr>
 <td>macroRepo</td>
-<td class="explain">contains a dictionary of available macros
-</td>
+<td class="explain">contains a dictionary of available macros</td>
 </tr>
 </tr>
 <tr>
 <td>missingTargets</td>
-<td class="explain">contains a list of missing targets after load
-</td>
+<td class="explain">contains a list of missing targets after load</td>
 </tr>
 </tr>
 <tr>
 <td>parallel</td>
-<td class="explain">for parallel processing. Should avoid more than one process at the time is running in parallel
-</td>
+<td class="explain">for parallel processing. Should avoid more than one process at the time is running in parallel</td>
 </tr>
 </tr>
 <tr>
 <td>lastdownload</td>
-<td class="explain">will contain the filename of last downloaded file
-</td>
+<td class="explain">will contain the filename of last downloaded file</td>
 </tr>
 </tr>
 <tr>
 <td>textSlot</td>
-<td class="explain">array of text slots for graphical window, like size age etc.
-</td>
+<td class="explain">array of text slots for graphical window, like size age etc.</td>
 </tr>
 </tr>
 <tr>
 <td>custom_props_list</td>
-<td class="explain">extension for "studio" assets
+<td class="explain">extension for "studio" assets</td>
+</tr>
+</table>
+<h3>Functions:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>reset</td>
+<td>None</td><td>None</td>
+<td class="explain">Reset all global parameters, used for start and when mesh is changed.</td>
+</tr>
+<tr><td>showSubwindow</td>
+<td>name: unique name<p>parent: parent window<p>mclass: own class<p>*params: params needed for class</td>
+<td>reference to window</td>
+<td class="explain">Show a subwindow, if it is already there it is raised only.
+	<p>Example:<kbd>glob.showSubwindow("materialedit", self.parent, MHMaterialEditor, obj)</kbd>
 </td>
+</tr>
+<tr><td>getSubwindow</td>
+<td>name: unique name</td>
+<td>reference to window</td>
+<td class="explain">get reference to a named subwindow. None if not available.
+	<p>Example:<kbd>mw = glob.getSubwindow("material")</kbd>
+</td>
+</tr>
+<tr><td>closeSubwindow</td>
+<td>name: unique name<p>destroy: bool</td>
+<td>None</td>
+<td class="explain">close a named subwindow. Destroy window if needed otherwise it can be re-used.
+	<p>Example:<kbd>glob.closeSubwindow("measure", True)</kbd>
+</td>
+</tr>
+<tr><td>getCacheData</td>
+<td>None</td><td>None</td>
+<td class="explain">gets data from cache, user-settings will overwrite standard tags. The internal
+info is resetted and the list of cache entries is read. Entries are appended to self.cachedInfo.
+In case of double entries the first one is taken. Since the user folders are read first, an
+entry in system folder will not be added if already there.
+</td>
+</tr>
+<tr><td>noAssetsUsed</td>
+<td>None</td><td>None</td>
+<td class="explain">Sets elem.used in cache repo to False for all possible assets. This is called while
+loading a character.
+</td>
+</tr>
+<tr><td>getAssetByFilename</td>
+<td>path: absolute path of asset</td><td>reference to elem</td>
+<td class="explain">returns a elem matched by a pathname. None if not available
+</td>
+</tr>
+<tr><td>hasAssetFolder</td>
+<td>folder: name of the folder</td><td>boolean</td>
+<td class="explain">returns if an asset folder is in cache. <i>function is not used atm.</i>
+</td>
+</tr>
+<tr><td>rescanAssets</td>
+<td>asset_type: type of asset<p>force: boolean</td><td>reference to cached info</td>
+<td class="explain">rescan all assets to create a new cache. The image-selector usually only rescan
+their own assets. After download syncRepositories in mainwindow is called and all assets are rescanned
+with force option. When basemesh is changed, there is also a rescan.
+	<p>Example:<kbd>cache = glob.rescanAssets(force=True)</kbd>
+</td>
+</tr>
+<tr><td>markAssetByFileName</td>
+<td>path: absolute path of asset</td><td>None</td>
+<td class="explain">searches for asset name in repo and set it to "used".
+</td>
+</tr>
+<tr><td>unmarkAssetByFileName</td>
+<td>path: absolute path of asset</td><td>None</td>
+<td class="explain">searches for asset name in repo and set it to "not used".
+</td>
+</tr>
+<tr><td>gen_uuid</td>
+<td>None</td><td>uuid</td>
+<td class="explain">Simply generates a UUID4 and returns it as a string.</td>
+</tr>
+<tr><td>readShaderInitJSON</td>
+<td>None</td><td>shaderInit dictionary</td>
+<td class="explain">reads JSON file &lt;system&gt;/data/shaders/shader.json and returns dictionary.</td>
+</tr>
+<tr><td>setApplication</td>
+<td>app</td><td>None</td>
+<td class="explain">setter for self.app</td>
+</tr>
+<tr><td>setMainWindow</td>
+<td>window</td><td>None</td>
+<td class="explain">setter for self.MainWindow</td>
+</tr>
+<tr><td>setTextSlot</td>
+<td>num: number of line<p>target: text</td><td>None</td>
+<td class="explain">sets one of the 5 textslots for e.g. age or gender.</td>
+</tr>
+<tr><td>generateBaseSubDirs</td>
+<td>basename: name of the base</td><td>okay: boolean</td>
+<td class="explain">generates all folders in user-data for a certain base. These are the base folders
+mentioned in the environment and "exports", "skins", "models", "target", "contarget", "dbcache", "downloads".
+If mkdir fails False is returned.</td>
+</tr>
+</table>
+<h2>Class cacheRepoEntry</h2>
+This class is used to create cacheRepo entries. It is just a constructor to have variables in form of
+attributes.
+<h3>Variables</h3>
+These variables are all preset by __init__ unless mentioned.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>name</td>
+<td class="explain">Asset name.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td class="explain">uuid generated for this asset (can also be pathname)</td>
+</tr>
+<tr>
+<td>folder</td>
+<td class="explain">Name of the folder (clothes, skins etc.)</td>
+</tr>
+<tr>
+<td>path</td>
+<td class="explain">Absolute path of the asset</td>
+</tr>
+<tr>
+<td>thumbfile</td>
+<td class="explain">Pathname of the thumb-file</td>
+</tr>
+<tr>
+<td>author</td>
+<td class="explain">Name of the author</td>
+</tr>
+<tr>
+<td>tag</td>
+<td class="explain">list of tags connected</td>
+</tr>
+<tr>
+<td>used</td>
+<td class="explain">boolean value if asset is used, preset to false</td>
+</tr>
+<tr>
+<td>obj_file</td>
+<td class="explain">Path of .obj wavefront file, create from dirname of path if obj_file is not none</td>
+</tr>
+<tr>
+<td>mhbin_file</td>
+<td class="explain">in case path ends with .mhclo, it is the alternative  pathname with mhbin</td>
+</tr>
+</table>
+<h2>Class programInfo</h2>
+This class should contain 'global environment parameters', usually referenced as self.env. Especially
+all pathnames and os-specific information.
+Functions are converter functions, JSON reader/writer and integrity test.
+<h3>Variables</h3>
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>mhclofolders</td>
+<td class="explain">list of all foldernames with mhclo like content, like  "clothes", "eyebrows.</td>
+</tr>
+<tr>
+<td>basefolders</td>
+<td class="explain">list of all foldernames for a base, like  "clothes", "poses".</td>
+</tr>
+<tr>
+<td>basename</td>
+<td class="explain">Name of the current base, like "hm08".</td>
+</tr>
+<tr>
+<td>fileCache</td>
+<td class="explain">Reference to fileCache.</td>
+</tr>
+<tr>
+<td>last_error</td>
+<td class="explain">Last error, can be used for all purposes, e.g while reading json.</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td class="explain">from args.verbose level of debugging</td>
+</tr>
+<tr>
+<td>admin</td>
+<td class="explain">from args.admin, admin mode allows to also write system files.</td>
+</tr>
+<tr>
+<td>noalphacover</td>
+<td class="explain">from args.nomultisampling, usage of alpha to coverage</td>
+</tr>
+<tr>
+<td>noskybox</td>
+<td class="explain">from args.noskybox, usage of the skybox</td>
+</tr>
+<tr>
+<td>recreate_repo</td>
+<td class="explain">from args.repository, forced recreate the repo on startup</td>
+</tr>
+<tr>
+<td>uselog</td>
+<td class="explain">from args.l, force to write to logfile. If frozen, the uselog is set.</td>
+</tr>
+<tr>
+<td>frozen</td>
+<td class="explain">set by pyInstaller etc. Frozen mode does not allow all features.</td>
+</tr>
+<tr>
+<td>oldsysstdout</td>
+<td class="explain">to keep the old stdout channel, used when for pyInstaller.</td>
+</tr>
+<tr>
+<td>oldsysstderr</td>
+<td class="explain">to keep the old stderr channel, used when for pyInstaller.</td>
+</tr>
+<tr>
+<td>path_sys</td>
+<td class="explain">directory name of application (makehuman.py or .exe).</td>
+</tr>
+<tr>
+<td>uenv</td>
+<td class="explain">reference to user-environment module.</td>
+</tr>
+<tr>
+<td>sys_platform</td>
+<td class="explain">value of sys.platform</td>
+</tr>
+<tr>
+<td>osindex</td>
+<td class="explain">0: windows, 1: linux, 2: MacOS</td>
+</tr>
+<tr>
+<td>ostype</td>
+<td class="explain">named platform, so "Windows", "Linux" or "MacOS"</td>
+</tr>
+<tr>
+<td>platform_version</td>
+<td class="explain">value of platform.win32_ver, platform.mac_ver or linux distribution</td>
+</tr>
+<tr>
+<td>platform_machine</td>
+<td class="explain">value of platform.machine()</td>
+</tr>
+<tr>
+<td>platform_processor</td>
+<td class="explain">value of platform.processor()</td>
+</tr>
+<tr>
+<td>platform_release</td>
+<td class="explain">value of platform.uname()[2]</td>
+</tr>
+<tr>
+<td>path_userconf</td>
+<td class="explain">absolute pathname of user configuration file</td>
+</tr>
+<tr>
+<td>path_usersession</td>
+<td class="explain">absolute pathname of user session file (to keep last session)</td>
+</tr>
+<tr>
+<td>encodings</td>
+<td class="explain">array of locale.getpreferredencoding(), sys.getdefaultencoding(), sys.getfilesystemencoding()</td>
+</tr>
+<tr>
+<td>sys_path</td>
+<td class="explain">value of sys.path</td>
+</tr>
+<tr>
+<td>bin_path</td>
+<td class="explain">value of environment variable PATH</td>
+</tr>
+<tr>
+<td>sys_executable</td>
+<td class="explain">value of sys.executable</td>
+</tr>
+<tr>
+<td>sys_version</td>
+<td class="explain">value of sys.version (no linefeeds)</td>
+</tr>
+<tr>
+<td>numpy_version</td>
+<td class="explain">current numpy version</td>
+</tr>
+<tr>
+<td>QT_Info</td>
+<td class="explain">value of PySide6/QT</td>
+</tr>
+<tr>
+<td>GL_Info</td>
+<td class="explain">value of openGL version</td>
+</tr>
+<tr>
+<td>fhelp</td>
+<td class="explain">reference to FileHelper (own class to read different filetypes)</td>
+</tr>
+</table>
+<h3>Functions:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>setVerboseBit</td>
+<td>bit: bit-number</td><td>None</td>
+<td class="explain">set self.verbose to specific bit, in case of 0 all bits are set.</td>
+</tr>
+<tr><td>resetVerboseBit</td>
+<td>bit: bit-number</td><td>None</td>
+<td class="explain">reset self.verbose to specific bit, in case of 0 all bits are reset.</td>
+</tr>
+<tr><td>helpVerbose</td>
+<td>None</td><td>verbosedefinition</td>
+<td class="explain">return an array of tuple of bit number and text for each verbose option</td>
+</tr>
+<tr><td>showVersion</td>
+<td>None</td><td>None</td>
+<td class="explain">Output of option -V</td>
+</tr>
+<tr><td>formatPath</td>
+<td>path</td><td>path</td>
+<td class="explain">formats path to unicode and replaces all backslashes</td>
+</tr>
+<tr><td>fullPath</td>
+<td>path</td><td>path</td>
+<td class="explain">Converts path including environment and all converted to a standard format (no backslashes).</td>
+</tr>
+<tr><td>normalizeName</td>
+<td>path</td><td>path</td>
+<td class="explain">change a name to lower case, only allow a-z 0-9 - + _ =, it is used to create filenames compatible for Windows and Linux</td>
+</tr>
+<tr><td>developmentPyCacheCleanup</td>
+<td>None</td><td>purged_paths<p>errors</td>
+<td class="explain">deletes pyCaches, will change recreate caches on next start, return list of deleted paths and errors, if any.</td>
+</tr>
+<tr><td>mkdir</td>
+<td>folder</td><td>success (boolean)</td>
+<td class="explain">save creation of a directory. possible errors are in last_error, returns boolean value for success. Accepts existent folder and also creates a special message when new folder is an existent file</td>
+</tr>
+<tr><td>copyfile</td>
+<td>source<p>dest</td><td>success (boolean)</td>
+<td class="explain">save copy of a file, possible errors are in last_error, returns boolean value for success.</td>
+</tr>
+<tr><td>readJSON</td>
+<td>path</td><td>json_object</td>
+<td class="explain">read a json file, possible errors are in last_error. In case of error, output is None.</td>
+</tr>
+<tr><td>writeJSON</td>
+<td>path<p>json_object</td><td>success (boolean)</td>
+<td class="explain">write a json file, possible errors are in last_error. ereturns boolean value for success.</td>
 </tr>
 </table>
   </div>
