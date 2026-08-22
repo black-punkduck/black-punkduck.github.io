@@ -244,24 +244,24 @@ cannot be connected to subwindows.</td>
 <td class="explain">Reset all global parameters, used for start and when mesh is changed.</td>
 </tr>
 <tr><td>showSubwindow</td>
-<td>name: unique name<p>parent: parent window<p>mclass: own class<p>*params: params needed for class</td>
+<td>name: unique name<br>parent: parent window<br>mclass: own class<br>*params: params needed for class</td>
 <td>reference to window</td>
 <td class="explain">Show a subwindow, if it is already there it is raised only.
-	<p>Example:<kbd>glob.showSubwindow("materialedit", self.parent, MHMaterialEditor, obj)</kbd>
+	<p><kbd>glob.showSubwindow("materialedit", self.parent, MHMaterialEditor, obj)</kbd>
 </td>
 </tr>
 <tr><td>getSubwindow</td>
 <td>name: unique name</td>
 <td>reference to window</td>
 <td class="explain">get reference to a named subwindow. None if not available.
-	<p>Example:<kbd>mw = glob.getSubwindow("material")</kbd>
+	<p><kbd>mw = glob.getSubwindow("material")</kbd>
 </td>
 </tr>
 <tr><td>closeSubwindow</td>
-<td>name: unique name<p>destroy: bool</td>
+<td>name: unique name<br>destroy: bool</td>
 <td>None</td>
 <td class="explain">close a named subwindow. Destroy window if needed otherwise it can be re-used.
-	<p>Example:<kbd>glob.closeSubwindow("measure", True)</kbd>
+	<p><kbd>glob.closeSubwindow("measure", True)</kbd>
 </td>
 </tr>
 <tr><td>getCacheData</td>
@@ -288,12 +288,12 @@ loading a character.
 <td class="explain">returns if an asset folder is in cache. <i>function is not used atm.</i>
 </td>
 </tr>
-<tr><td>rescanAssets</td>
-<td>asset_type: type of asset<p>force: boolean</td><td>reference to cached info</td>
+<tr><td bgcolor=orange>rescanAssets</td>
+<td>asset_type: type of asset<br>force: boolean</td><td>reference to cached info</td>
 <td class="explain">rescan all assets to create a new cache. The image-selector usually only rescan
 their own assets. After download syncRepositories in mainwindow is called and all assets are rescanned
 with force option. When basemesh is changed, there is also a rescan.
-	<p>Example:<kbd>cache = glob.rescanAssets(force=True)</kbd>
+	<p><kbd>cache = glob.rescanAssets(force=True)</kbd>
 </td>
 </tr>
 <tr><td>markAssetByFileName</td>
@@ -323,7 +323,7 @@ with force option. When basemesh is changed, there is also a rescan.
 <td class="explain">setter for self.MainWindow</td>
 </tr>
 <tr><td>setTextSlot</td>
-<td>num: number of line<p>target: text</td><td>None</td>
+<td>num: number of line<br>target: text</td><td>None</td>
 <td class="explain">sets one of the 5 textslots for e.g. age or gender.</td>
 </tr>
 <tr><td>generateBaseSubDirs</td>
@@ -397,7 +397,7 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td class="explain">list of all foldernames for a base, like  "clothes", "poses".</td>
 </tr>
 <tr>
-<td>basename</td>
+<td bgcolor=orange>basename</td>
 <td class="explain">Name of the current base, like "hm08".</td>
 </tr>
 <tr>
@@ -405,7 +405,7 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td class="explain">Reference to fileCache.</td>
 </tr>
 <tr>
-<td>last_error</td>
+<td bgcolor=orange>last_error</td>
 <td class="explain">Last error, can be used for all purposes, e.g while reading json.</td>
 </tr>
 <tr>
@@ -445,7 +445,7 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td class="explain">to keep the old stderr channel, used when for pyInstaller.</td>
 </tr>
 <tr>
-<td>path_sys</td>
+<td bgcolor=orange>path_sys</td>
 <td class="explain">directory name of application (makehuman.py or .exe).</td>
 </tr>
 <tr>
@@ -457,7 +457,7 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td class="explain">value of sys.platform</td>
 </tr>
 <tr>
-<td>osindex</td>
+<td bgcolor=orange>osindex</td>
 <td class="explain">0: windows, 1: linux, 2: MacOS</td>
 </tr>
 <tr>
@@ -544,37 +544,215 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td>None</td><td>None</td>
 <td class="explain">Output of option -V</td>
 </tr>
-<tr><td>formatPath</td>
+<tr><td bgcolor=orange>formatPath</td>
 <td>path</td><td>path</td>
-<td class="explain">formats path to unicode and replaces all backslashes</td>
+<td class="explain">formats path to unicode and replaces all backslashes.
+<p><kbd>matpath = env.formatPath(self.skinMaterialName)</kbd></td>
 </tr>
 <tr><td>fullPath</td>
 <td>path</td><td>path</td>
 <td class="explain">Converts path including environment and all converted to a standard format (no backslashes).</td>
 </tr>
-<tr><td>normalizeName</td>
+<tr><td bgcolor=orange>normalizeName</td>
 <td>path</td><td>path</td>
-<td class="explain">change a name to lower case, only allow a-z 0-9 - + _ =, it is used to create filenames compatible for Windows and Linux</td>
+<td class="explain">change a name to lower case, only allow a-z 0-9 - + _ =, it is used to create filenames compatible for Windows and Linux.
+<p><kbd>name = "{}_{:03d}".format(env.normalizeName(raw_name), material_cnt)</kbd></td>
 </tr>
 <tr><td>developmentPyCacheCleanup</td>
 <td>None</td><td>purged_paths<p>errors</td>
 <td class="explain">deletes pyCaches, will change recreate caches on next start, return list of deleted paths and errors, if any.</td>
 </tr>
-<tr><td>mkdir</td>
+<tr><td bgcolor=orange>mkdir</td>
 <td>folder</td><td>success (boolean)</td>
-<td class="explain">save creation of a directory. possible errors are in last_error, returns boolean value for success. Accepts existent folder and also creates a special message when new folder is an existent file</td>
+<td class="explain">safe creation of a directory. possible errors are in last_error, returns boolean value for success. Accepts existent folder and also creates a special message when new folder is an existent file.
+<p><kbd>if env.mkdir(folder) is False:<br>&nbsp;&nbsp;&nbsp;MessageBox(env.last_error)</kbd></td>
 </tr>
 <tr><td>copyfile</td>
-<td>source<p>dest</td><td>success (boolean)</td>
-<td class="explain">save copy of a file, possible errors are in last_error, returns boolean value for success.</td>
+<td>source<br>dest</td><td>success (boolean)</td>
+<td class="explain">safe copy of a file, possible errors are in last_error, returns boolean value for success.</td>
 </tr>
-<tr><td>readJSON</td>
+<tr><td bgcolor=orange>readJSON</td>
 <td>path</td><td>json_object</td>
-<td class="explain">read a json file, possible errors are in last_error. In case of error, output is None.</td>
+<td class="explain">read a json file, possible errors are in last_error. In case of error, output is None.
+<p><kbd>if env.readJSON(path) is None:<br>&nbsp;&nbsp;&nbsp;MessageBox(env.last_error)</kbd></td>
 </tr>
 <tr><td>writeJSON</td>
 <td>path<p>json_object</td><td>success (boolean)</td>
-<td class="explain">write a json file, possible errors are in last_error. ereturns boolean value for success.</td>
+<td class="explain">write a json file, possible errors are in last_error. Returns boolean value for success.</td>
+</tr>
+<tr><td>environment</td>
+<td>None</td><td>success (boolean)</td>
+<td class="explain">read the environment (conf-files) using the DOCUMENTS folder or home folder according to registry (Windows) or XDG-file (Linux).
+Returns True (all okay) or False (system cannot start)</td>
+</tr>
+<tr><td>generateFolders</td>
+<td>None</td><td>success (boolean)</td>
+<td class="explain">Create folders user folders and subfolder inside user folder (also openGL shader folders), returns false if problem, write results to logfile, in case of error set last_error.</td>
+</tr>
+<tr><td>initFileCache</td>
+<td>None</td><td>None</td>
+<td class="explain">Initializes file cache (database dbcache/repository.db in user folder)</td>
+</tr>
+<tr><td>reDirect</td>
+<td>log: forced by option -l</td><td>None</td>
+<td class="explain">Redirects standard error and standard output and keeps old values in oldsysstdout and oldsysstderr.</td>
+</tr>
+<tr><td bgcolor=orange>stdSysPath</td>
+<td>asset category<br>asset filename</td><td>path</td>
+<td class="explain">Returns absolut path of an asset and category with the help of the basename in system folder.
+If filename is not given, the asset folder is returned. If category is not given, path_sysdata is returned.
+Without basename, the returned result is None.
+<p><kbd>path = env.stdSysPath(type, "selection_filter.json")</kbd></td>
+</tr>
+<tr><td>stdUserPath</td>
+<td>asset category<br>asset filename</td><td>path</td>
+<td class="explain">Returns absolut path of an asset and category with the help of the basename in user folder.
+If filename is not given, the asset folder is returned. If category is not given, path_userdata is returned.
+Without basename, the returned result is None</td>
+</tr>
+<tr><td>stdLogo</td>
+<td>None</td><td>path</td>
+<td class="explain">Returns the path to the system icon</td>
+</tr>
+<tr><td>isSourceFileNewer</td>
+<td>destination<br>source</td><td>isnewer (bool)</td>
+<td class="explain">Function used to test if compilation is needed. If destination is not available, True is returned.
+In case of a non-existing source file, false is returned. Otherwise the modification dates of souce and destination
+are compared, and True is returnen, when source file is newer.
+</tr>
+<tr><td>getFileList</td>
+<td>dirname<br>pattern</td><td>list of strings</td>
+<td class="explain">Returns a list of files with a certain pattern</td>
+</tr>
+<tr><td bgcolor=orange>getDataFileList</td>
+<td>extension<br>*subdirs</td><td>filebase (dictionary)</td>
+<td class="explain">Searches in system and user path for certain files with an extension, then creates an dictionary
+using the filename as key and the path as value.
+<p><kbd>floorlist = env.getDataFileList("png", "shaders", "floor")</kbd></td>
+</tr>
+<tr><td bgcolor=orange>getDataDirList</td>
+<td>search<br>*subdirs</td><td>filebase (dictionary)</td>
+<td class="explain">Searches in system and user path for certain files, then creates an dictionary
+using the filename as key and the path as value. Also scan directories in the folder.
+<p><kbd>skyboxlist = env.getDataDirList(None, "shaders", "skybox")</kbd></td>
+</tr>
+<tr><td>getParentDirName</td>
+<td>name</td><td>parent directory</td>
+<td class="explain">return parent directory name. Also replaces backslash. Returns empty string when less than 3
+components.</td>
+</tr>
+<tr><td bgcolor=orange>existDataFile</td>
+<td>names</td><td>absolute pathname</td>
+<td class="explain">Joins names to a path and checks in user and system folder if file exists. If that is
+the case, the absolute filename is returned. User folder is checked first. None is returned in case it is not
+found and last_error contains the name of the missing file.
+<p><kbd>pose_skelpath = env.existDataFile("rigs", env.basename, skelname)</kbd></td>
+</tr>
+<tr><td>existFileInBaseFolder</td>
+<td>base<br>subfolder<br>objpath<br>filename</td><td>absolute pathname</td>
+<td class="explain">The typical asset check. Calculate parent directory name from objpath as parentobj and checks if
+file is found in (subfolder, base, parentobj, filename) with existDataFile. If that yields None, check for "/" in
+filename and without first layer again using (subfolder, base, filename). This is the typical asset check.</td>
+</tr>
+<tr><td bgcolor=orange>existDataDir</td>
+<td>names</td><td>absolute pathname</td>
+<td class="explain">Joins names to a path and checks in user and system folder if directory exists. If that is
+the case, the absolute directory name is returned. User folder is checked first. None is returned in case it is not
+found and last_error contains the name of the missing directory.
+<p><kbd>shaderpath = env.existDataDir("shaders", "skybox", skyboxname)</kbd></td>
+</kbd></td>
+</tr>
+<tr><td>getDataDirs</td>
+<td>names</td><td>list of directories</td>
+<td class="explain">Joins names to a path and checks in user and system folder if directory exists. All matching
+absolute paths will be returned.</td>
+</tr>
+<tr><td>latestDate</td>
+<td>old latest timestamp<br>filename</td><td>new latest timestamp</td>
+<td class="explain">Tests filename and if newer, latest is changed to modification time.</td>
+</tr>
+<tr><td>testFilesWithBinExtension</td>
+<td>files<br>current folder<br>category<br>ascext<br>binext<br>latest<br>filenames</td><td>latest</td>
+<td class="explain">Checks in current folder if a file with binary-extension exists. Then the ascii alternative is tested.
+If the ascii file is available and newer it will be appended to filenames, otherwise the binary file is appended.
+ASCII files without a binary files will be also appended to filenames. The latest date will be changed, when newer
+and is returned</td>
+</tr>
+<tr><td>testFilesWithExtension</td>
+<td>files<br>current folder<br>category<br>extension<br>latest<br>filenames</td><td>latest</td>
+<td class="explain">Checks in current folder if a file has a certain extension. In that case it will be appended to filenames. The latest date will be changed, when newer and is returned</td>
+</tr>
+<tr><td>getFilesFromAssetFolders</td>
+<td>ascext<br>subdir<br>binext</td><td>latest<br>filenames</td>
+<td class="explain">Check either all asset folders or a specific one, when subdir is not None.
+Collects all files with the ASCII extension ascext using name and date. All folders for objects are allowed
+to have one subfolder. If a binary extension is allowed, check is done with testFilesWithBinExtension, otherwise with
+testFilesWithExtension. The complete list and the latest date is returned.</td>
+</tr>
+<tr><td>fileScanFolders</td>
+<td>subdir</td><td>None</td>
+<td class="explain">Function to scan all folers for assets and put assets into fileCache. If subdir is given only a
+certain folder is scanned. In case of a lastest date newer than date of the repository, the repository itself is recreated.
+For this the fhelp functions are used.</td>
+</tr>
+<tr><td>getCacheData</td>
+<td>None</td><td>None</td>
+<td class="explain">Gets data from database repository, user-settings, if available will overwrite standard tags.</td>
+</tr>
+<tr><td bgcolor=orange>getAvailableBases</td>
+<td>None</td><td>list of base names</td>
+<td class="explain">Returns a list of bases, base.obj or base.mhbin will be accepted.
+<p><kbd>baselist = env.getAvailableBases()</kbd></td>
+</tr>
+<tr><td bgcolor=orange>relMatFileName</td>
+<td>path<br>itype</td><td>path</td>
+<td class="explain">Create a relativ pathname from material. It is URI based and used in mhm file. According to
+itype it works different. 'base' of 'proxy' will yield in a material for 'skins', a common path materials is allowed as well.
+<p><kbd>asset.materialsource = env.relMatFileName(matelem.filename, obj.type)</kbd></td>
+</tr>
+<tr><td>manualScanFolder</td>
+<td>type<br>suffix<br>cache_ref<br>tags</td><td>None</td>
+<td class="explain">A file-list scanner for folders, will be used for props to create cache entries. Atm. only user folder
+is accepted.</td>
+</tr>
+<tr><td>dictFillGaps</td>
+<td>standard<br>testdict</td><td>changed (bool)</td>
+<td class="explain">Recursively add elements from standard if dictionaries have missing data. Allows additional lines
+for configuration files in future editions without need to re-enter all user information.</td>
+</tr>
+<tr><td>toUnit</td>
+<td>value<br>inchonly</td><td>size</td>
+<td class="explain">Calculate size using inches and feet (or only inches) when config["units"] is imperial. Otherwise
+value is in centimeters.</td>
+</tr>
+<tr><td bgcolor=orange>logLine</td>
+<td>level<br>line</td><td>None</td>
+<td class="explain">Write line to logfile when verbose matched level bitwise.
+<p><kbd>env.logLine(1, name + " does not exist, no reload.")</kbd></td>
+</tr>
+<tr><td>logTime</td>
+<td>ctime<br>line</td><td>None</td>
+<td class="explain">Used to log filetimes and printed when verbose level has 3rd bit.</td>
+</tr>
+<tr><td>dateFileName</td>
+<td>prefix<br>postfix</td><td>name</td>
+<td class="explain">Creates a filename with a date. Used for grab: <kbd>env.dateFileName("grab-", ".png")</kbd></td>
+</tr>
+<tr><td>loadSession</td>
+<td>None</td><td>None</td>
+<td class="explain">Load last saved session when config["remember_session"] is set. Otherwise session is set to 1200x800</td>
+</tr>
+<tr><td>saveSession</td>
+<td>None</td><td>None</td>
+<td class="explain">Save last session (if desired)</td>
+</tr>
+<tr><td>convertToRichFile</td>
+<td>filename</td><td>text</td>
+<td class="explain">Converts a file to a rich file. Lines starting with "==" are converted to links.</td>
+</tr>
+<tr><td>cleanup</td>
+<td>None</td><td>None</td>
+<td class="explain">Cleanup the context. Logfiles are closed and sys.stdout and sys.stderr are resetted to old values.</td>
 </tr>
 </table>
   </div>
