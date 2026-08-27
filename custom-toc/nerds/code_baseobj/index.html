@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.1 Code of core/baseobj.py</h2>
+  <div class="page-body">
+<kbd>core/baseobj</kbd> provides <b>all common global elements and functions</b> to work with base object (the main mesh). These can be used everwhere in the program.
+The file contains 3 classes:
+<ul>
+<li>MakeHumanModel</li>
+<li>loadEquipment</li>
+<li>baseClass</li>
+</ul>
+<!-- more -->
+<h2>Class MakeHumanModel</h2>
+This class is used to create mhm file. It is just a constructor to have variables in form of attributes.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>name</td>
+<td class="explain">Name of the model, preset to None.</td>
+</tr>
+<tr>
+<td>author</td>
+<td class="explain">author of the model, preset to "unknown".</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td class="explain">Generated UUID, preset to None.</td>
+</tr>
+<tr>
+<td>version</td>
+<td class="explain">Makehuman version. Preset to None.</td>
+</tr>
+<tr>
+<td>skinMaterial</td>
+<td class="explain">Name of skinMaterial, preset to None.</td>
+</tr>
+<tr>
+<td>skeleton</td>
+<td class="explain">Name of the skeleton, preset to None.</td>
+</tr>
+<tr>
+<td>modifiers</td>
+<td class="explain">List of modifiers, preset to empty list.</td>
+</tr>
+<tr>
+<td>attached</td>
+<td class="explain">List of attached objects, preset to empty list.</td>
+</tr>
+<tr>
+<td>materials</td>
+<td class="explain">List of materials, preset to empty list.</td>
+</tr>
+<tr>
+<td>tags</td>
+<td class="explain">list of tags, preset to empty list.</td>
+</tr>
+</table>
+<hr>
+<h2>Class loadEquipment</h2>
+This class is used while loading mhm to calculate absolute pathes and materials
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>type</td>
+<td class="explain">the type of the asset.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">the name of the asset.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td class="explain">the uuid of the asset.</td>
+</tr>
+<tr>
+<td>path</td>
+<td class="explain">the absolute path of the asset.</td>
+</tr>
+<tr>
+<td>material</td>
+<td class="explain">the absolute path of the material.</td>
+</tr>
+<tr>
+<td>relmaterial</td>
+<td class="explain">a relative path of the material.</td>
+</tr>
+</table>
+<hr>
+<h2>Class baseClass</h2>
+This class should contain all functions and variables to handle the baseclass.
+The init also set env.basename to a new baseClass name, when it is changed.
+Functions are attach and detach functions and load, save functions
+<h3>Variables</h3>
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to globalObjects</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment (class programInfo)</td>
+</tr>
+<tr>
+<td bgcolor=orange>baseMesh</td>
+<td class="explain">reference to baseMesh object3d.</td>
+</tr>
+<tr>
+<td bgcolor=orange>baseInfo</td>
+<td class="explain">dictionary created from base.json file.</td>
+</tr>
+<tr>
+<td bgcolor=orange>attachedAssets</td>
+<td class="explain">list of attached assets.</td>
+</tr>
+<tr>
+<td>pose_skeleton</td>
+<td class="explain">Pose skeleton used.</td>
+</tr>
+<tr>
+<td>default_skeleton</td>
+<td class="explain">Default skeleton. Preset by baseInfo.</td>
+</tr>
+<tr>
+<td>floorCalcMethod</td>
+<td class="explain">Method number to calculate floor. Preset to 0.</td>
+</tr>
+<tr>
+<td>mhmfilename</td>
+<td class="explain">last loaded mhm file</td>
+</tr>
+<tr>
+<td>skinMaterialName</td>
+<td class="explain">Name of the last loaded skin material</td>
+</tr>
+<tr>
+<td>skinMaterial</td>
+<td class="explain">Reference to last loaded skin material</td>
+</tr>
+<tr>
+<td bcolor="orange">proxy</td>
+<td class="explain">Reference to proxy object.</td>
+</tr>
+<tr>
+<td>tags</td>
+<td class="explain">Tags of the last loaded mhm file / new tags.</td>
+</tr>
+<tr>
+<td>photo</td>
+<td class="explain">Icon created for character.</td>
+</tr>
+<tr>
+<td>author</td>
+<td class="explain">Author of last mhm file. Default is "unknown".</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td class="explain">UUID of last mhm file.</td>
+</tr>
+<tr>
+<td>skeleton</td>
+<td class="explain">Reference to skeleton.</td>
+</tr>
+<tr>
+<td bgcolor="orange">in_posemode</td>
+<td class="explain">Boolean value if character is in pose mode.</td>
+</tr>
+<tr>
+<td>pose_skelpath</td>
+<td class="explain">Pathname of the pose skeleton.</td>
+</tr>
+<tr>
+<td>bvh</td>
+<td class="explain">Last loaded bvh object or None.</td>
+</tr>
+<tr>
+<td>posemodifier</td>
+<td class="explain">indicates that posemodifiers are used (mhpose file).</td>
+</tr>
+<tr>
+<td>expression</td>
+<td class="explain">indicates that expression are used (mhpose file).</td>
+</tr>
+<tr>
+<td>faceunits</td>
+<td class="explain">reference to faceunits. Indicates that face-units are initalized.</td>
+</tr>
+<tr>
+<td>faceposes</td>
+<td class="explain">List of faceposes used.</td>
+</tr>
+<tr>
+<td>bodyunits</td>
+<td class="explain">reference to bodyunits. Indicates that body-units are initalized.</td>
+</tr>
+<tr>
+<td>faceunitsinfo</td>
+<td class="explain">contains link to face-units dictionary
+.</td>
+</tr>
+<tr>
+<td>bodyunitsinfo</td>
+<td class="explain">contains link to body-units dictionary.</td>
+</tr>
+<tr>
+<td>posecorrections</td>
+<td class="explain">dictionary of values of pose corections for body and face.</td>
+</tr>
+<tr>
+<td>positioncorrection</td>
+<td class="explain">root position correction, initialized with [0.0, 0.0, 0.0].</td>
+</tr>
+<tr>
+<td>bodyposes</td>
+<td class="explain">List of bodyposes used.</td>
+</tr>
+<tr>
+<td>hide_verts</td>
+<td class="explain">Marker to hide vertices.</td>
+</tr>
+</table>
+<h3>Functions:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>reset</td>
+<td>None</td><td>None</td>
+<td class="explain">Reset a number of variables of the baseClass back to standard, also called by __init__.
+Also calls getFaceUnits() and getBodyUnits() to calculate which bones are allowed to be changed in face or body pose editor.</td>
+</tr>
+<tr><td>setPoseMode</td>
+<td>None</td><td>None</td>
+<td class="explain">Sets character to pose mode. Creates a mesh copy for basemesh, does a restPose, precalculates all assets in restpose, calculates new skeleton geometry and prepares the graphical presentation of the skeleton.</td>
+</tr>
+<tr><td>setStandardMode</td>
+<td>None</td><td>None</td>
+<td class="explain">Switches off pose mode. Reset mesh from copy, then calculates restPose and updates assets and prepares the graphical presentation of the skeleton.</td>
+</tr>
+<tr><td>loadMHMFile</td>
+<td>filename<br>verbose-function</td><td>bool-error<br>bool-errortext</td>
+<td class="explain">Function resets character to default, then will load an mhm-file. After load all filenames are absolute paths.
+Objects are marked in use, if found in cache. Materials and assets are attached.
+All targets are applied and skeleton is added, pose skeleton is also
+considered.</td>
+</tr>
+<tr><td>loadMHMTargetsOnly</td>
+<td>filename<br>mode</td><td>bool-error<br>bool-errortext</td>
+<td class="explain">Function loads only targets (mode = 1 all targets, mode =2 only head-targets mentioned in baseInfo["head-pattern"].
+Before these targets are resetted. Pose skeleton is recalculated.</td>
+</tr>
+<tr><td>saveMHMFile</td>
+<td>filename</td><td>bool-error</td>
+<td class="explain">Save the MHM file and keep names in URL encoding (use /).
+Saves all assets, skin material, skeleton and targets.</td>
+</tr>
+<tr><td>calculateDeletedVerts</td>
+<td>None</td><td>None</td>
+<td class="explain">In case hide_verts is False all objects are drawn without
+deleted vertices. Otherwise all attached meshes will be calculated in reverse
+order starting with first layer (no deleted vertices at all). Then each layer
+is tested and may also have deleted vertices. In the end the baseMesh itself
+is tested. Process works with a boolean mask.</td>
+</tr>
+<tr><td>setNoPose</td>
+<td>None</td><td>None</td>
+<td class="explain">resets baseMesh and all attached objects to no pose
+(object3d method).</td>
+</tr>
+<tr><td>recalcLowestPosePos</td>
+<td>None</td><td>None</td>
+<td class="explain">calculates lowest vertex of baseMesh and assets.</td>
+</tr>
+<tr><td>getLowestPos</td>
+<td>posed: boolean</td><td>value (float)</td>
+<td class="explain">Calculates lowest position of whole character for exports and grid.</td>
+</tr>
+<tr><td>setSkinMaterial</td>
+<td>asset: dictionary from ImageSelector</td><td>None</td>
+<td class="explain">Sets skin material. Also handles proxy and marks
+used asset.</td>
+</tr>
+<tr><td>isLinkedByFilename</td>
+<td>filename</td><td>asset</td>
+<td class="explain">Tests all assets if the a given filename will match.
+(attached clothes .. bvh, posemodifier, expression, skeleton, skin)
+and return the asset. If it is not attached None is returned.</td>
+</tr>
+<tr><td>getAttachedByFilename</td>
+<td>filename</td><td>asset</td>
+<td class="explain">Tests only meshes attached by filename and returns the asset if found.</td>
+</tr>
+<tr><td>getAttachedOrBase</td>
+<td>filename</td><td>asset</td>
+<td class="explain">Tests only meshes attached by filename and returns the asset if found. Also may return the basemesh. Function is used to find materials.</td>
+</tr>
+<tr><td>countAttachedByType</td>
+<td>itype</td><td>cnt</td>
+<td class="explain">Function used to enable buttons. Checks if assets of
+a certain type are attached. Number of attached assets is returned.</td>
+</tr>
+<tr><td>markAllAttachedAssets</td>
+<td>None</td><td>None</td>
+<td class="explain">Marks all assets by testing filenames. Used for
+ImageSelector display.</td>
+</tr>
+<tr><td bgcolor="orange">delAsset</td>
+<td>filename</td><td>None</td>
+<td class="explain">Deletes mesh. The used asset is removed. Deleted vertices
+are corrected. If proxy is deleted, proxy is set to None.</td>
+</tr>
+<tr><td bgcolor="orange">addAsset</td>
+<td>path<br>eqtype<br>materialpath<br>materialsource</td><td>attached asset.</td>
+<td class="explain">Adds mesh. In case makehuman2 starts with a character name, the
+program will terminate, if sth. cannot be found. Otherwise errors
+will only appear if a certain level is given and never in parallel mode.
+The loaded asset is marked. If the mesh is a proxy, skin material
+is added from body and proxy is set. Mesh is sorted according to z-depth.
+Deleted vertices are calculated.</td>
+</tr>
+<tr><td>addAndDisplayAsset</td>
+<td>path<br>eqtype<br>multi</td><td>None</td>
+<td class="explain">Adds and displays and asset. In case of multi is False,
+the asset of same type will be deleted (e.g. hair). Otherwise it is created
+in openGL and approximated to baseMesh.</td>
+</tr>
+<tr><td>addSkeleton</td>
+<td>name<br>path<br>verbose</td><td>None</td>
+<td class="explain">Adds a new skeleton from a json file. If it is the same
+pose-skeleton it is simply reused. When loaded with verbose option
+the skeleton name is displayed in requester. Used skeleton is marked.</td>
+</tr>
+<tr><td>modSkeleton</td>
+<td>name<br>path</td><td>None</td>
+<td class="explain">Old skeleton is deleted and new one add. Skeletons
+are marked accordingly and skeleton is prepared for scene.</td>
+</tr>
+<tr><td>delSkeleton</td>
+<td>path</td><td>None</td>
+<td class="explain">Deletes a skeleton (set skeleton to None). It is
+unmarked and the internal pose-skeleton is prepared.</td>
+</tr>
+<tr><td>hasPoses</td>
+<td>None</td><td>bool has pose<br>cnt int</td>
+<td class="explain">returns if poses are available (either bvh or posemodifiers) and returns the number of frames for bvh.</td>
+</tr>
+<tr><td bgclor="orange">restPose</td>
+<td>None</td><td>None</td>
+<td class="explain">Calls skeleton function restPose</td>
+</tr>
+<tr><td>showPose</td>
+<td>frame</td><td>None</td>
+<td class="explain">Shows pose of a certain frame. If frame is none, bvh.currentFrame is used.</td>
+</tr>
+<tr><td>showExpression</td>
+<td>None</td><td>None</td>
+<td class="explain">The expression.blends were presenting by using
+skeleton posebyBlends function with faceunits.bonemask.</td>
+</tr>
+<tr><td>showPoseModifiers</td>
+<td>None</td><td>None</td>
+<td class="explain">The posemodifier.blends were presenting by using
+skeleton posebyBlends function with bodyunits.bonemask.</td>
+</tr>
+<tr><td>showPoseAndExpression</td>
+<td>None</td><td>None</td>
+<td class="explain">A function to show bvh or pose-modifiers for body and
+expression.</td>
+</tr>
+<tr><td bgcolor="orange">addPose</td>
+<td>name<br>path</td><td>bool: loaded</td>
+<td class="explain">Adds a pose from a filename. Existing bvh or
+posemodifier are unmarked and restPose is called.
+The file is loaded depending to suffix (bvh, mhpose).
+Pose and expression are shown. File is marked.
+For a pose-ḿodifier a one time bvh animation is calculated.</td>
+</tr>
+<tr><td bgcolor="orange">delPose</td>
+<td>path</td><td>None</td>
+<td class="explain">set bvh and posemodifier to none, unmarkes pose.
+Set character to restPose and shows Pose and expression. Set all
+to no pose.</td>
+</tr>
+<tr><td>getFaceUnits</td>
+<td>None</td><td>None</td>
+<td class="explain">In case faceunits are not yet loaded, they are loaded
+from face-poses.json.</td>
+</tr>
+<tr><td>getBodyUnits</td>
+<td>None</td><td>None</td>
+<td class="explain">In case bodyunits are not yet loaded, they are loaded
+from body-poses.json.</td>
+</tr>
+<tr><td bgcolor="orange">addExpression</td>
+<td>name<br>path</td><td>None</td>
+<td class="explain">For this function a pose-skeleton and faceunits must
+be available. If an expression is already there it is deleted.
+Otherwise the pose is loaded, converted (old MakeHuman has different
+poses for increase, decrease, here it is summarized). The Expression is
+shown and marked.</td>
+</tr>
+<tr><td bgcolor="orange">delExpression</td>
+<td>path</td><td>None</td>
+<td class="explain">The expression is set to None and unmarked. Character
+is set to restPose and shown.</td>
+</tr>
+<tr><td>prepareClass</td>
+<td>modelfile</td><td>bool success</td>
+<td class="explain">This is the big command to change the baseClass. The
+program tests for an existing class of the env.basename. It creates
+missing subfolders, test for base.json, inits the new filecache.
+Then it either loads an mhbin or obj file.<p>
+Then old targets are destroyed and new loaded. Assets are re-scanned.
+New pose-skeleton is added. The the modifier-presets create the default
+character and the modelfile standard base.mhm is loaded.</td>
+</tr>
+<tr><td>getInitialCopyForSlider</td>
+<td>factor<br>decr<br>incr</td><td>None</td>
+<td class="explain">calls identical function for baseMesh</td>
+</tr>
+<tr><td>updateNormals</td>
+<td>None</td><td>None</td>
+<td class="explain">Updates all normals on baseMesh and all assets.</td>
+</tr>
+<tr><td>updateAttachedAssets</td>
+<td>None</td><td>None</td>
+<td class="explain">All attached assets are approximated to baseMesh.</td>
+</tr>
+<tr><td>precalculateAssetsInRestPose</td>
+<td>None</td><td>None</td>
+<td class="explain">All attached assets are approximated to baseMesh in restPose.</td>
+</tr>
+<tr><td>poseAttachedAssets</td>
+<td>None</td><td>None</td>
+<td class="explain">All attached assets are skinned to skeleton. If they have
+no weights, an approxToBasemesh is done (should not be the case).</td>
+</tr>
+<tr><td>updateByTarget</td>
+<td>factor<br>decr<br>incr</td><td>None</td>
+<td class="explain">The basenesh is updated to a certain target.
+All attached assets are also changed.</td>
+</tr>
+<tr><td>applyAllTargets</td>
+<td>bckproc<br>args</td><td>None</td>
+<td class="explain">Applies all targets and corrects attached assets.
+It is done by resetting mesh to non-macro targets, then doing the
+macroCalculation and updating the assets.</td>
+</tr>
+<tr><td>finishApply</td>
+<td>None</td><td>None</td>
+<td class="explain">Finish function for parallel updater. Simply recalculates
+skeleton.</td>
+</tr>
+<tr><td>parApplyTargets</td>
+<td>None</td><td>None</td>
+<td class="explain">Using a worker thread to apply all targets and adding
+finish function.</td>
+</tr>
+<tr><td>nonParApplyTargets</td>
+<td>None</td><td>None</td>
+<td class="explain">Non-parallel function to apply all targets.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>

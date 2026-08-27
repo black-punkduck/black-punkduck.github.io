@@ -333,6 +333,7 @@ mentioned in the environment and "exports", "skins", "models", "target", "contar
 If mkdir fails False is returned.</td>
 </tr>
 </table>
+<hr>
 <h2>Class cacheRepoEntry</h2>
 This class is used to create cacheRepo entries. It is just a constructor to have variables in form of
 attributes.
@@ -381,9 +382,10 @@ These variables are all preset by __init__ unless mentioned.
 <td class="explain">in case path ends with .mhclo, it is the alternative  pathname with mhbin</td>
 </tr>
 </table>
+<hr>
 <h2>Class programInfo</h2>
 This class should contain 'global environment parameters', usually referenced as self.env. Especially
-all pathnames and os-specific information.
+all pathnames and os-specific information. All parameters are assigned after start. <b>No hasattr() needed</b>.
 Functions are converter functions, JSON reader/writer and integrity test.
 <h3>Variables</h3>
 <table class="contexttab">
@@ -481,12 +483,40 @@ Functions are converter functions, JSON reader/writer and integrity test.
 <td class="explain">value of platform.uname()[2]</td>
 </tr>
 <tr>
+<td bgcolor=orange>config</td>
+<td class="explain">dictionary representation of the configuration.</td>
+</tr>
+<tr>
 <td>path_userconf</td>
 <td class="explain">absolute pathname of user configuration file</td>
 </tr>
 <tr>
 <td>path_usersession</td>
 <td class="explain">absolute pathname of user session file (to keep last session)</td>
+</tr>
+<tr>
+<td bgcolor=orange>path_sysdata</td>
+<td class="explain">absolute pathname of system data folder.</td>
+</tr>
+<tr>
+<td bgcolor=orange>path_userdata</td>
+<td class="explain">absolute pathname of user data folder.</td>
+</tr>
+<tr>
+<td>path_version</td>
+<td class="explain">absolute pathname of makehuman2_version.json file containing all common parameters.</td>
+</tr>
+<tr>
+<td>path_sysconf</td>
+<td class="explain">absolute pathname of makehuman2_default.conf containing presets when no configuration file is there.</td>
+</tr>
+<tr>
+<td bgcolor=orange>path_sysicon</td>
+<td class="explain">absolute pathname of system icons.</td>
+</tr>
+<tr>
+<td>path_home</td>
+<td class="explain">Home path of the user.</td>
 </tr>
 <tr>
 <td>encodings</td>
