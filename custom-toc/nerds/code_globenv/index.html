@@ -292,7 +292,8 @@ loading a character.
 <td>asset_type: type of asset<br>force: boolean</td><td>reference to cached info</td>
 <td class="explain">rescan all assets to create a new cache. The image-selector usually only rescan
 their own assets. After download syncRepositories in mainwindow is called and all assets are rescanned
-with force option. When basemesh is changed, there is also a rescan.
+with force option. When basemesh is changed, there is also a rescan. Without type parameter all assets
+are rescanned.
 	<p><kbd>cache = glob.rescanAssets(force=True)</kbd>
 </td>
 </tr>

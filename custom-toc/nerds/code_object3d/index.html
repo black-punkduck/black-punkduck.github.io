@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.3 Code of obj3d/object3d.py</h2>
+  <div class="page-body">
+<kbd>obj3d/object3d</kbd> provides <b>all common global elements and functions</b> to work with 3d objects (meshes).
+The file contains only one class:
+<ul>
+<li>object3d</li>
+</ul>
+<!-- more -->
+<h2>Class object3d</h2>
+This class is used to work with 3d objects (meshes).
+Functions are used for
+<h3>Variables</h3>
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to globalObjects</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment (class programInfo)</td>
+</tr>
+<tr>
+<td bgcolor=orange>eqtype</td>
+<td class="explain">Equipment-type, like "teeth".</td>
+</tr>
+<tr>
+<td>openGL</td>
+<td class="explain">Reference to openGL functions.</td>
+</tr>
+<tr>
+<td bgcolor=orange>filename</td>
+<td class="explain">filename of the loaded object.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">object name used in Makehuman.</td>
+</tr>
+<tr>
+<td>npGrpNames</td>
+<td class="explain">ordered list of groupnames numpy format.</td>
+</tr>
+<tr>
+<td>prim</td>
+<td class="explain">number of primitives (triangles).</td>
+</tr>
+<tr>
+<td>n_origverts</td>
+<td class="explain">number of vertices after loading</td>
+</tr>
+<tr>
+<td>n_verts</td>
+<td class="explain">number of vertices</td>
+</tr>
+<tr>
+<td>n_faces</td>
+<td class="explain">number of faces</td>
+</tr>
+<tr>
+<td>n_fuvs</td>
+<td class="explain">number of uv-faces</td>
+</tr>
+<tr>
+<td>n_groups</td>
+<td class="explain">number of groups</td>
+</tr>
+<tr>
+<td>z_depth</td>
+<td class="explain">z_depth used for sorting 3d objects.</td>
+</tr>
+<tr>
+<td bgcolor="orange">coord</td>
+<td class="explain">list of positions of vertices, array of float32 for openGL.</td>
+</tr>
+<tr>
+<td>uvs</td>
+<td class="explain">list of coordinates for uvs.</td>
+</tr>
+<tr>
+<td>fverts</td>
+<td class="explain">list of vertices per face, [verts, 3] array of uint32 for openGL &gt. 2.</td>
+</tr>
+<tr>
+<td>n_fverts</td>
+<td class="explain">number of vertices for openGL.</td>
+</tr>
+<tr>
+<td>loadedgroups</td>
+<td class="explain">contains the group after loading from file (also for hidden geometry).</td>
+</tr>
+<tr>
+<td>group</td>
+<td class="explain">list of references to group per face.</td>
+</tr>
+<tr>
+<td>overflow</td>
+<td class="explain">list of vertices or double used vertices [source, dest].</td>
+</tr>
+<tr>
+<td bgcolor="orange">gl_coord</td>
+<td class="explain">list of flattened gl-Buffer (these are coordinates to be changed by program).</td>
+</tr>
+<tr>
+<td>gl_coord_o</td>
+<td class="explain">list of unchanged positions</td>
+</tr>
+<tr>
+<td>gl_coord_w</td>
+<td class="explain">list of unchanged positions (working mode with targets) and for posing.</td>
+</tr>
+<tr>
+<td>gl_coord_mn</td>
+<td class="explain">list of coordinates to work with macro buffers, (all changes except the macros).</td>
+</tr>
+<tr>
+<td>gl_coord_mm</td>
+<td class="explain">list of coordinates to work with macro buffers, (all changes of the macros).</td>
+</tr>
+<tr>
+<td>gl_uvcoord</td>
+<td class="explain">list of flattened gluv-Buffer.</td>
+</tr>
+<tr>
+<td>gl_norm </td>
+<td class="explain">list of flattended normal buffer.</td>
+</tr>
+<tr>
+<td>n_glnorm</td>
+<td class="explain">number of normals for openGL.</td>
+</tr>
+<tr>
+<td bgcolor="orange">gl_icoord</td>
+<td class="explain">list of openGL-Drawarray Index.</td>
+</tr>
+<tr>
+<td bgcolor="orange">gl_hicoord</td>
+<td class="explain">list of openGL-Drawarray used when parts are hidden.</td>
+</tr>
+<tr>
+<td>min_index</td>
+<td class="explain">list of 3 elements containing the index number for lowest value in each direction.</td>
+</tr>
+<tr>
+<td>max_index</td>
+<td class="explain">list of 3 elements containing the index number for highest value in each direction.</td>
+</tr>
+<tr>
+<td>minpose_index</td>
+<td class="explain">list of 3 elements containing the index number for lowest value in each direction in pose-mode.</td>
+</tr>
+<tr>
+<td>maxpose_index</td>
+<td class="explain">list of 3 elements containing the index number for highest value in each direction in pose-mode.</td>
+</tr>
+<tr>
+<td>material</td>
+<td class="explain">reference to material.</td>
+</tr>
+<tr>
+<td>visible</td>
+<td class="explain">contains visible groups for baseinfo, otherwise None.</td>
+</tr>
+<tr>
+<td>is_base</td>
+<td class="explain">boolean set to true in case of basemesh.</td>
+</tr>
+</table>
+<h3>Functions:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td bgcolor="orange">load</td>
+<td>path<br>use_obj (boolean)</td><td>success (boolean)<br>text</td>
+<td class="explain">loads an object using importObjFromFile. Intializes material.</td>
+</tr>
+<tr><td>setZDepth</td>
+<td>z_depth</td><td>None</td>
+<td class="explain">Setter for z-depth.</td>
+</tr>
+<tr><td>initMaterial</td>
+<td>filename or None</td><td>None</td>
+<td class="explain">Uses self.filename if filename is None and creates a material for the object.</td>
+</tr>
+<tr><td>listAllMaterials</td>
+<td>None</td><td>list of materials</td>
+<td class="explain">calls materials.listAllMaterials() with filename and return list, returns empty list if no material is available.</td>
+</tr>
+<tr><td>getMaterialPath</td>
+<td>filename</td><td>materialpath</td>
+<td class="explain">Uses material.class function to get an existent path. Returns None when not successful.</td>
+</tr>
+<tr><td>loadMaterial</td>
+<td>pathname</td><td>success (boolean)</td>
+<td class="explain">Load a material witm material.loadMatFile and return success (True also when no material is available)</td>
+</tr>
+<tr><td>newMaterial</td>
+<td>pathname</td><td>None</td>
+<td class="explain">free an old material if existent (freeTextures) and call material.loadMatFile</td>
+</tr>
+<tr><td>getMaterialFilename</td>
+<td>None</td><td>filename</td>
+<td class="explain">returns the current material filename or None</td>
+</tr>
+<tr><td>exportBinary</td>
+<td>None</td><td>None</td>
+<td class="explain">calculates binary filename from self.filename and calls exportObj3dBinary</td>
+</tr>
+<tr><td>setName</td>
+<td>name</td><td>None</td>
+<td class="explain">If name is None it creates generic_type. This function is the setter for name.</td>
+</tr>
+<tr><td>setGroupNames</td>
+<td>list of names</td><td>None</td>
+<td class="explain">packs the group names to fit for numpy arrays. (sets npGrpNames and n_groups)</td>
+</tr>
+<tr><td bgcolor="orange">getOpenGLIndex</td>
+<td>None</td><td>gindex</td>
+<td class="explain">returns either gl_hicoord or gl_icoord as index depending on hidden vertices.</td>
+</tr>
+<tr><td>notHidden</td>
+<td>None</td><td>None</td>
+<td class="explain">set gl_hicoord to None to mark no hidden vertices.</td>
+</tr>
+<tr><td>createGLVertPos</td>
+<td>pos<br>uvs<br>overflow<br>orig</td><td>None</td>
+<td class="explain">creates self.coord from pos and self.uvs from uvs and sets numberes values, also sets overflow.</td>
+</tr>
+<tr><td>overflowCorrection</td>
+<td>overflow buffer</td><td>None</td>
+<td class="explain">handle overflow buffer after main mesh is corrected.</td>
+</tr>
+<tr><td>calcNormals</td>
+<td>None</td><td>valid (boolean)</td>
+<td class="explain">calculates face-normals and then vertex normals. Returns if geometry is valid (invalid: normal vector cannot be calculated)
+</td>
+</tr>
+<tr><td>calcFaceBufSize</td>
+<td>mask<br>overrideignore (boolean)</td><td>numind<br>numfaces</td>
+<td class="explain">create buffersizes for vertsperface, faceverts buffer. The mask calculates if faces are used.
+overrideignore: normaly used when the helper as invisible group should also be considered. Returns number of indices and faces.</td>
+</tr>
+<tr><td>fillFaceBuffers</td>
+<td>vertsperface<br>faceverts<br>mask<br>overrideignore</td><td>highest</td>
+<td class="explain">fill vertsperface, faceverts buffer. vertsperface is the buffer to put the vertices per face, faceverts is the
+buffer for the face vertex numbers. mask calculates if faces are used and overrideignore is used when the helper as invisible group
+should also be considered. returns highest vertex number.
+</td>
+</tr>
+<tr><td>unUsedVerts</td>
+<td>faceind</td><td>mask</td>
+<td class="explain">creates a table of used vertices (the elements are set to one) like a mask.</td>
+</tr>
+<tr><td>shortenOverflow</td>
+<td>mapping</td><td>newoberflow buffer</td>
+<td class="explain">shortens the overflow table leaving out the non-mapped elements.</td>
+</tr>
+<tr><td>getVisGeometry</td>
+<td>displayhidden (boolean)<br>helper (boolean)</td><td>coord<br>norm<br>gl_uvcoord<br>vertsperface<br>faceverts<br>overflow<br>mapping</td>
+<td class="explain">return flattened vectors with coordinates, norms, uvcoords, vertex-per-face, faces and overflow. All values are
+deduplicated, this function is used for exports.
+</td>
+</tr>
+<tr><td>createGLFaces</td>
+<td>nfaces<br>ufaces<br>prim<br>groups</td><td>boolean</td>
+<td class="explain">Creates fverts, gl_icoord, gl_coord, gl_coord_o (gl_coord_w for base) and gl_uvcoord. Then calculates normals. Also
+sets loadedgroups, prim, n_faces, n_fuvs and group and n_fverts</td>
+</tr>
+<tr><td>getPosition</td>
+<td>num</td><td>x, y, z values</td>
+<td class="explain">get position of vertex num based on gl_coord</td>
+</tr>
+<tr><td>getMeanPosition</td>
+<td>arr</td><td>x, y, z list</td>
+<td class="explain">used for skeleton mainly, mean postion of an array, based on gl_coord</td>
+</tr>
+<tr><td>resetMesh</td>
+<td>None</td><td>None</td>
+<td class="explain">get back the copy from gl_coord_o</td>
+</tr>
+<tr><td>createWCopy</td>
+<td>None</td><td>None</td>
+<td class="explain">create the working copy gl_coord_w</td>
+</tr>
+<tr><td>resetFromCopy</td>
+<td>None</td><td>None</td>
+<td class="explain">reset form gl_coord from gl_coord_w</td>
+</tr>
+<tr><td>hideVertices</td>
+<td>verts</td><td>None</td>
+<td class="explain">calculate new index gl_hicoord from gl_icoord</td>
+</tr>
+<tr><td>hideApproxVertices</td>
+<td>asset<br>base<br>verts</td><td>None</td>
+<td class="explain">hide vertices (recalulate gl_hicoord) by testing reference verts</td>
+</tr>
+<tr><td>hiddenMask</td>
+<td>None</td><td>mask</td>
+<td class="explain">returns a mask what should be hidden or None if nothing should be deleted.</td>
+</tr>
+<tr><td>createMapping</td>
+<td>mask</td><td>mapping<br>fill</td>
+<td class="explain">creates a mapping index reduced by hidden coords, also returns highest value</td>
+</tr>
+<tr><td>optimizeHiddenMesh</td>
+<td>bweights</td><td>gl_index<br>gl_coord<br>gl_uvcoord<br>gl_norm<br>nweights<br>overflow<br>mapping</td>
+<td class="explain">duplicate the mesh for effective saving without hidden vertices, used e.g. for glTF, returns all
+necessary values. None if nothing is hidden</td>
+</tr>
+<tr><td>getInitialCopyForSlider</td>
+<td>factor<br>targetlower<br>targetupper</td><td>None</td>
+<td class="explain">called when starting work with one slider, a copy without the value of this slider is created.
+So this target is substracted. The proportial part of the slider is than added to the initial copy.
+</td>
+</tr>
+<tr><td>updateByTarget</td>
+<td>factor<br>targetlower<br>targetupper</td><td>None</td>
+<td class="explain">updates the mesh when slider is moved. Not used for macro targets.</td>
+</tr>
+<tr><td>setTarget</td>
+<td>factor<br>targetlower<br>targetupper</td><td>None</td>
+<td class="explain">updates from file (all done on basemesh directly, no overflow correction)
+</td>
+</tr>
+<tr><td>resetToNonMacroTargets</td>
+<td>None</td><td>None</td>
+<td class="explain">reset to original mesh + add all changes of non-macrotargets, preparation to deal with macro targets.
+result is in self.gl_coord_mn</td>
+</tr>
+<tr><td>prepareMacroBuffer</td>
+<td>None</td><td>None</td>
+<td class="explain">copy original mesh + add all changes of non-macrotargets. It uses gl_coord_mn and sets gl_coord_mm to zero.</td>
+</tr>
+<tr><td>addTargetToMacroBuffer</td>
+<td>factor<br>target</td><td>None</td>
+<td class="explain">add target to gl_coord_mm</td>
+</tr>
+<tr><td>addMacroBuffer</td>
+<td>None</td><td>None</td>
+<td class="explain">after changing a macro it will be added make sure to write in same buffer (out will avoid to get a new one)
+</td>
+</tr>
+<tr><td>approxToBasemesh</td>
+<td>asset<br>base</td><td>None</td>
+<td class="explain">updates the mesh, barycentric approximation (assets). Uses  weights and offsets from mhclo file and bases gl_coord.</td>
+</tr>
+<tr><td>precalculateApproxInRestPose</td>
+<td>asset<br>base</td><td>None</td>
+<td class="explain">calls approxToBasemesh and copies values to gl_coord_w</td>
+</tr>
+<tr><td>_getMinMaxValues</td>
+<td>coord</td><td>min<br>max</td>
+<td class="explain">calculate numbers of vertices, which are on the outside for later use do that only for visible groups.
+In case of an empty object None is returned.</td>
+</tr>
+<tr><td>precalculateDimension</td>
+<td>None</td><td>None</td>
+<td class="explain">sets min_index and max_index with the help of _getMinMaxValues</td>
+</tr>
+<tr><td>precalculatePosedDimension</td>
+<td>None</td><td>None</td>
+<td class="explain">sets minpose_index, maxpose_index with the help of _getMinMaxValues for posed position.</td>
+</tr>
+<tr><td>boundingBox</td>
+<td>None</td><td>Ax<br>Ay<br>Az<br>Bx<br>By<br>Bz</td>
+<td class="explain">calculate bounding box of an object.
+sets self.min_index and self.max_index, can be None in case of empty object even after precalculation.
+and returns Ax, Ay, Az, Bx, By, Bz, if none it returns all values set to 0.0.
+</td>
+</tr>
+<tr><td>getCenterWidth</td>
+<td>None</td><td>center width</td>
+<td class="explain">returns value center (width), 0.0 if min_index is None.</td>
+</tr>
+<tr><td>getCenterHeight</td>
+<td>None</td><td>center height</td>
+<td class="explain">returns value center (height), 0.0 if min_index is None.</td>
+</tr>
+<tr><td>getCenterDepth</td>
+<td>None</td><td>center depth</td>
+<td class="explain">returns value center (depth), 0.0 if min_index is None.</td>
+</tr>
+<tr><td>getCenter</td>
+<td>None</td><td>list of center width, height, depth</td>
+<td class="explain">returns value center (widht, height, depth).</td>
+</tr>
+<tr><td>getLowestPos</td>
+<td>posed (boolean)</td><td>lowest value</td>
+<td class="explain">Used for floor calculation. returns lowest value either in pose mode or standard mode.</td>
+</tr>
+<tr><td>setNoPose</td>
+<td>None</td><td>None</td>
+<td class="explain">set minpose_index, maxpose_index to None.</td>
+</tr>
+<tr><td>getHeightInUnits</td>
+<td>None</td><td>None</td>
+<td class="explain">returns height in units (0.0 if min_index is None)</td>
+</tr>
+<tr><td>getMeasure</td>
+<td>vindex (list)</td><td>measure<br>coords</td>
+<td class="explain">create a measurement, results in an array of vertices for presentation and the result (length). Length is
+simply calculated by distances. The coords are filled with the coordinates and measure contains total distance.</td>
+</tr>
+<tr><td>calculateAttachedGeom</td>
+<td>faces</td><td>attachedFaces<br>attachedEdges<br>borderneighbour</td>
+<td class="explain">get a dictionary of attached facenumbers and edgenumbers per vertex for borders, get the next border neighbours (used in loop subdivision)
+</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>

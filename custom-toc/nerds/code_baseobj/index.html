@@ -78,7 +78,7 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.1.1 Code of core/baseobj.py</h2>
+  <h2>9.1.2 Code of core/baseobj.py</h2>
   <div class="page-body">
 <kbd>core/baseobj</kbd> provides <b>all common global elements and functions</b> to work with base object (the main mesh). These can be used everwhere in the program.
 The file contains 3 classes:
@@ -460,6 +460,13 @@ For a pose-ḿodifier a one time bvh animation is calculated.</td>
 <td class="explain">set bvh and posemodifier to none, unmarkes pose.
 Set character to restPose and shows Pose and expression. Set all
 to no pose.</td>
+</tr>
+<tr><td bgcolor="orange">detachAssetByName</td>
+<td>path</td><td>None</td>
+<td class="explain">detach a an asset by a given name.
+The path is compared with the filename attribute of
+mesh-assets, skeleton, bvh, expression and posemodfier,
+If the name is found it is detached from the character.</td>
 </tr>
 <tr><td>getFaceUnits</td>
 <td>None</td><td>None</td>
