@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.4 Code of opengl/buffers.py</h2>
+  <div class="page-body">
+<kbd>opengl/buffers</kbd> provides <b>all functions to render openGL objects.</b> These functions can be used to render all kinds of objects.
+The file contains 4 classes:
+<ul>
+<li>OpenGlBuffers</li>
+<li>RenderedObject</li>
+<li>RenderedLines</li>
+<li>RenderedSimple</li>
+</ul>
+<!-- more -->
+<h2>Class OpenGlBuffers</h2>
+This class holds the classical 3 openGL buffers: VertexBuffer, NormalBuffer, TexCoordBuffer. It does the bindings as well and provides a function for
+writing the changed data.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>vert_pos_buffes</td>
+<td class="explain">reference to vertex buffer.</td>
+</tr>
+<tr>
+<td>normal_buffer</td>
+<td class="explain">reference to normal buffer.</td>
+</tr>
+<tr>
+<td>tex_coord_buffer</td>
+<td class="explain">reference to texture coordinates buffer (UV).</td>
+</tr>
+<tr>
+<td>memory_pos</td>
+<td class="explain">memory_pos holds the the value of the source
+numpy array for the verices (gl_coord).</td>
+</tr>
+<tr>
+<td>len_memory</td>
+<td class="explain">length in bytes of the vert_pos_buffer needed</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>VertexBuffer</td>
+<td>pos</td><td>None</td>
+<td class="explain">creates the vertex buffer and puts the vertex-coordinates into that buffer. This buffer is used dynamic.</td>
+</tr>
+<tr><td>NormalBuffer</td>
+<td>pos</td><td>None</td>
+<td class="explain">creates the normal buffer and puts the normals into that buffer.</td>
+</tr>
+<tr><td>TexCoordBuffer</td>
+<td>pos</td><td>None</td>
+<td class="explain">creates the texture coordinates buffer and puts the values into that buffer.</td>
+</tr>
+<tr><td>GetBuffers</td>
+<td>pos<br>norm<br>tpos</td><td>None</td>
+<td class="explain">Calls VertexBuffer, NormalBuffer, TexCoordBuffer with the
+given values.</td>
+</tr>
+<tr><td>BindBuffersToShader</td>
+<td>shader</td><td>None</td>
+<td class="explain">set shader attribute buffer 0, 1 for vertex buffer and
+normal buffer, in case self.tex_coord_buffer this bound to 2.
+shader.enableAttributeArray is called in each case.</td>
+</tr>
+<tr><td>Tweak</td>
+<td>None</td><td>None</td>
+<td class="explain">Tweaks the vertex buffer with new values.</td>
+</tr>
+<tr><td>Delete</td>
+<td>None</td><td>None</td>
+<td class="explain">Deletes (destroys) the vertex, normal and tex_coord buffer.</td>
+</tr>
+</table>
+<hr>
+<h2>Class RenderedObject</h2>
+This class is used to render an object like body or clothes. It can also be used to draw other objects.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>parent</td>
+<td class="explain">parent object, which is used to access multiple functions.</td>
+</tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment object.</td>
+</tr>
+<tr>
+<td>object</td>
+<td class="explain">object to render.</td>
+</tr>
+<tr>
+<td>boundingbox</td>
+<td class="explain">reference to boundingbox.</td>
+</tr>
+<tr>
+<td>glbuffers</td>
+<td class="explain">reference to OpenGlBuffers object.</td>
+</tr>
+<tr>
+<td>position</td>
+<td class="explain">Current position as QVector3D.</td>
+</tr>
+<tr>
+<td>functions</td>
+<td class="explain">OpenGL functions from parent object.</td>
+</tr>
+<tr>
+<td>shaders</td>
+<td class="explain">reference to shaders from parent object.</td>
+</tr>
+<tr>
+<td>texture</td>
+<td class="explain">reference to diffuse texture (preset to None).</td>
+</tr>
+<tr>
+<td>litsphere</td>
+<td class="explain">reference to litsphere texture (preset to None).</td>
+</tr>
+<tr>
+<td>aomap</td>
+<td class="explain">reference to ambient occlusion map (preset to None).</td>
+</tr>
+<tr>
+<td>nomap</td>
+<td class="explain">reference to normal map (preset to None).</td>
+</tr>
+<tr>
+<td>mrmap</td>
+<td class="explain">reference to metal-roughness map (preset to None).</td>
+</tr>
+<tr>
+<td>emmap</td>
+<td class="explain">reference to emission map (preset to None).</td>
+</tr>
+<tr>
+<td>mefac</td>
+<td class="explain">metallic factor (Preset to 0).</td>
+</tr>
+<tr>
+<td>z_depth</td>
+<td class="explain">z-depth of object.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">Name of the object.</td>
+</tr>
+<tr>
+<td>getindex</td>
+<td class="explain">Reference to index function (from object, getOpenGLIndex). Determines if hidden vertices are also used.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td class="explain">Scale of the object. Preset to (1, 1, 1).</td>
+</tr>
+<tr>
+<td>x_rotation</td>
+<td class="explain">Rotation around x axis. Preset to 0.0.</td>
+</tr>
+<tr>
+<td>y_rotation</td>
+<td class="explain">Rotation around y axis. Preset to 0.0.</td>
+</tr>
+<tr>
+<td>z_rotation</td>
+<td class="explain">Rotation around z axis. Preset to 0.0.</td>
+</tr>
+<tr>
+<td>mvp_matrix</td>
+<td class="explain">empty MVP matrix for later use.</td>
+</tr>
+<tr>
+<td>model_matrix</td>
+<td class="explain">empty model matrix for later use.</td>
+</tr>
+<tr>
+<td>normal_matrix</td>
+<td class="explain">empty normal matrix for later use.</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td class="explain">If type is proxy, proxy is linked to basemesh, otherwise it
+is linked to object (this is used for material selection).</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>delete</td>
+<td>None</td><td>None</td>
+<td class="explain">Deletes the glBuffers of the object.</td>
+</tr>
+<tr><td>setMaterial</td>
+<td>material<br>modify (boolean)</td><td>None</td>
+<td class="explain">set shader and creates textures from material according
+to shader type.  All shaders use a diffuse texture, used objects are marked
+by proxy (which is either basemesh or object). Also colorates object.</td>
+</tr>
+<tr><td>setTexture</td>
+<td>texture</td><td>None</td>
+<td class="explain">Setter for diffuse texture.</td>
+</tr>
+<tr><td bgcolor="orange">setPosition</td>
+<td>pos</td><td>None</td>
+<td class="explain">Setter for position.</td>
+</tr>
+<tr><td bgcolor="orange">setScale</td>
+<td>scale</td><td>None</td>
+<td class="explain">Setter for scale.</td>
+</tr>
+<tr><td bgcolor="orange">setXRotation</td>
+<td>rot</td><td>None</td>
+<td class="explain">Setter for x rotation.</td>
+</tr>
+<tr><td bgcolor="orange">setYRotation</td>
+<td>rot</td><td>None</td>
+<td class="explain">Setter for y rotation.</td>
+</tr>
+<tr><td bgcolor="orange">setZRotation</td>
+<td>rot</td><td>None</td>
+<td class="explain">Setter for z rotation.</td>
+</tr>
+<tr><td>geomToShader</td>
+<td>shader<br>proj_view_matrix<br>campos</td><td>None</td>
+<td class="explain">creates the geometry. It first get the uniforms
+uMvpMatrix, uModelMatrix, uNormalMatrix, viewPos from the shaders.
+Then binds the buffers to the shaders, sets model matrix to idendity
+and translates, rotates and scales object. Then the model view
+matrix and normal_matrix ist calculated. All uniform values not being
+-1 are set with setUniformValue.</td>
+</tr>
+<tr><td>glReset</td>
+<td>None</td><td>None</td>
+<td class="explain">resets shader by disabling certain parameters and
+sets glActiveTexture to gl.GL_TEXTURE0.</td>
+</tr>
+<tr><td>drawObject</td>
+<td>None</td><td>None</td>
+<td class="explain">get index from object and calls glDrawElements</td>
+</tr>
+<tr><td bgcolor="orange">draw</td>
+<td>proj_view_matrix<br>campos<br>light<br>xrayed boolean</td><td>None</td>
+<td class="explain">The main draw function. GL_DEPTH_TEST is enabled.
+Then xrayed version is handled first with special shader.
+After that lightWeight is calculated (phong, specular focus).
+Next step is transparency. AlphaCoverage demands samples buffers, so if these are not given
+do not use alphaToCoverage, use BLEND instead. Blend function is set according to transparency.
+After that diffuse texture is always bind. The next steps are
+litsphere, for phong: AOTexture and NOTexture and for pbr all textures and skybox.
+Also glass parameters are set. Then drawObject is called and glReset.</td>
+</tr>
+<tr><td>drawWireframe</td>
+<td>proj_view_matrix<br>campos<br>black<br>white</td><td>None</td>
+<td class="explain">creates a wireframe model, either uses an own shader 'wireframe'
+or the old glPolygonMode function for apple (which is internally a phong shader).
+glPolygonMode is used with glDrawElements twice with white and black.</td>
+</tr>
+</table>
+<hr>
+<h2>Class RenderedLines</h2>
+This class is used to render lines for e.g. grids.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>functions</td>
+<td class="explain">OpenGL functions from parent object.</td>
+</tr>
+<tr>
+<td>shader</td>
+<td class="explain">reference to shader.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">Name of the object.</td>
+</tr>
+<tr>
+<td>infront</td>
+<td class="explain">Paint always in front.</td>
+</tr>
+<tr>
+<td>position</td>
+<td class="explain">Current position as QVector3D.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td class="explain">Scale of the object. Preset to (1, 1, 1).</td>
+</tr>
+<tr>
+<td>y_rotation</td>
+<td class="explain">Rotation around y axis. Preset to 0.0.</td>
+</tr>
+<tr>
+<td>mvp_matrix</td>
+<td class="explain">empty MVP matrix for later use.</td>
+</tr>
+<tr>
+<td>model_matrix</td>
+<td class="explain">empty model matrix for later use.</td>
+</tr>
+<tr>
+<td>normal_matrix</td>
+<td class="explain">empty normal matrix for later use.</td>
+</tr>
+<tr>
+<td>glbuffers</td>
+<td class="explain">reference to OpenGlBuffers object.</td>
+</tr>
+<tr>
+<td>indices</td>
+<td class="explain">array of indices.</td>
+</tr>
+<tr>
+<td>mvp_matrix_location</td>
+<td class="explain">holds value of shader.uniforms["uMvpMatrix"]</td>
+</tr>
+<tr>
+<td>model_matrix_location</td>
+<td class="explain">holds value of shader.uniforms["uModelMatrix"]</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>delete</td>
+<td>None</td><td>None</td>
+<td class="explain">Deletes the glBuffers of the object.</td>
+</tr>
+<tr><td bgcolor="orange">setPosition</td>
+<td>pos</td><td>None</td>
+<td class="explain">Setter for position.</td>
+</tr>
+<tr><td bgcolor="orange">setYRotation</td>
+<td>rot</td><td>None</td>
+<td class="explain">Setter for y rotation.</td>
+</tr>
+<tr><td bgcolor="orange">draw</td>
+<td>proj_view_matrix</td><td>None</td>
+<td class="explain">The main draw function. Creates the geometry and then
+binds the buffers to the shaders, sets model matrix to idendity
+and translates, rotates and scales object. Then the model view
+matrix and normal_matrix ist calculated.
+glDrawElements is called with indices.</td>
+</tr>
+</table>
+<hr>
+<h2>Class RenderedSimple</h2>
+This class is used to render a simple object like floor or a bone
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>functions</td>
+<td class="explain">OpenGL functions from parent object.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">Name of the object.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td class="explain">Scale of the object. Preset to (1, 1, 1).</td>
+</tr>
+<tr>
+<td>mvp_matrix</td>
+<td class="explain">empty MVP matrix for later use.</td>
+</tr>
+<tr>
+<td>model_matrix</td>
+<td class="explain">empty model matrix for later use.</td>
+</tr>
+<tr>
+<td>normal_matrix</td>
+<td class="explain">empty normal matrix for later use.</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td class="explain">rotation matrix.</td>
+</tr>
+<tr>
+<td>position</td>
+<td class="explain">Current position as QVector3D.</td>
+</tr>
+<tr>
+<td>glbuffers</td>
+<td class="explain">reference to OpenGlBuffers object.</td>
+</tr>
+<tr>
+<td>indices</td>
+<td class="explain">array of indices.</td>
+</tr>
+<tr>
+<td>infront</td>
+<td class="explain">Paint always in front.</td>
+</tr>
+<tr>
+<td>transparent</td>
+<td class="explain">Paint object transparent.</td>
+</tr>
+<tr>
+<td>shader</td>
+<td class="explain">Reference to phong shader.</td>
+</tr>
+<tr>
+<td>mvp_matrix_location</td>
+<td class="explain">holds value of shader.uniforms["uMvpMatrix"]</td>
+</tr>
+<tr>
+<td>model_matrix_location</td>
+<td class="explain">holds value of shader.uniforms["uModelMatrix"]</td>
+</tr>
+<tr>
+<td>normal_matrix_location</td>
+<td class="explain">holds value of shader.uniforms["uNormalMatrix"]</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td bgcolor="orange">setPosition</td>
+<td>pos</td><td>None</td>
+<td class="explain">Setter for position.</td>
+</tr>
+<tr><td bgcolor="orange">setScale</td>
+<td>scale</td><td>None</td>
+<td class="explain">Setter for scale.</td>
+</tr>
+<tr><td bgcolor="orange">setRotation</td>
+<td>rot</td><td>None</td>
+<td class="explain">Setter for rotation matrix.</td>
+</tr>
+<tr><td>delete</td>
+<td>None</td><td>None</td>
+<td class="explain">Deletes the glBuffers of the object.</td>
+</tr>
+<tr><td bgcolor="orange">draw</td>
+<td>proj_view_matrix</td><td>None</td>
+<td class="explain">The main draw function. Creates the geometry and then
+binds the buffers to the shaders, sets model matrix to idendity
+and translates, rotates and scales object. Then the model view
+matrix and normal_matrix ist calculated.
+Diffuse and AO-Texture are used. Object is either created in front or (disable depth test)
+or normal. Transparency is handled. glDrawElements is called with indices. Then all
+shaders are resetted.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
