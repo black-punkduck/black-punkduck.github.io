@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.6 Code of opengl/texture.py</h2>
+  <div class="page-body">
+<kbd>opengl/texture</kbd> provides <b>all methods to deal with openGL textures.</b>
+The file only contains 4 classes:
+<ul>
+<li>TextureRepo</li>
+<li>ImageEdit</li>
+<li>MH_Texture</li>
+<li>MH_Thumb</li>
+</ul>
+<!-- more -->
+<h2>Class TextureRepo</h2>
+This class is contains information about loaded textures.  Key is the filename,
+values are: [ openGL texture, usage, filedate, mhtex, reference to object array ]
+if filedate is "0" it is a generated texture.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>textures</td>
+<td class="explain">Dictionary of textures.</td>
+</tr>
+<tr>
+<td>systextures</td>
+<td class="explain">Dictionary of system textures (not to be accidentally deleted.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>getTextures</td>
+<td>None</td><td>dictionary of textures</td>
+<td class="explain">Getter of textures.</td>
+</tr>
+<tr><td>show</td>
+<td>None</td><td>None</td>
+<td class="explain">Command can be used for debugging (it is not used in normal mode).</td>
+</tr>
+<tr><td>add_sys</td>
+<td>path<br>texture (list)</td><td>None</td>
+<td class="explain">Adds a system texture defined by list</td>
+</tr>
+<tr><td bgcolor="orange">add_user</td>
+<td>path<br>texture<br>timestamp<br>mhtex<br>obj</td><td>None</td>
+<td class="explain">Adds a user texture with time stamp and for the object it is used for (if it does
+not yet exist.</td>
+</tr>
+<tr><td>exists</td>
+<td>path</td><td>openGL texture<br>mhtex object</td>
+<td class="explain">If texture path exists it returns openGL texture and texture object.
+Otherwise it returns None</td>
+</tr>
+<tr><td>inc</td>
+<td>path<br>obj</td><td>None</td>
+<td class="explain">Increments usage counter of texture and adds object to list.</td>
+</tr>
+<tr><td bgcolor="orange">delete</td>
+<td>texture<br>obj</td><td>success (bool)</td>
+<td class="explain">find texture path and check if obj is assigned. If so, delete it and decrement counter.
+If counter is zero texture is destroyed and elem deleted from self.textures.</td>
+</tr>
+<tr><td>refresh</td>
+<td>None</td><td>None</td>
+<td class="explain">refresh all textures (to load e.g. a skin under construction.
+No refresh for generated textures. Here the timestamp is checked.</td>
+</tr>
+<tr><td>cleanup</td>
+<td>textype</td><td>None</td>
+<td class="explain">central location to delete textures (systextures only by demand).</td>
+</tr>
+</table>
+<hr>
+<h2>Class ImageEdit</h2>
+Class used for coloration.
+values are: [ openGL texture, usage, filedate, mhtex, reference to object array ]
+if filedate is "0" it is a generated texture.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td bgcolor="orange">modifyToConstantHue</td>
+<td>image<br>r<br>g<br>b</td><td>None</td>
+<td class="explain">modify an image to a constant hue. The image is transformed to a numpy array.
+then the hue is calculated from r, g, b (in degrees). The values are converted to float.
+Then if hue is -1 (r, g, b are identical), hue is set to index 0 and p, q, t are identical to value.
+Otherwise hue p, q, t are calculated by hue formular in 6 different sections depending on index.</td>
+</tr>
+<tr><td bgcolor="orange">noColor</td>
+<td>image</td><td>None</td>
+<td class="explain">desaturates image</td>
+</tr>
+<tr><td>multColor</td>
+<td>image<br>r<br>g<br>b</td><td>None</td>
+<td class="explain">multiplies image with a certain color</td>
+</tr>
+<tr><td bgcolor="orange">greyToColor</td>
+<td>image<br>r<br>g<br>b</td><td>None</td>
+<td class="explain">first desaturates image and then multiplies image with a certain color</td>
+</tr>
+</table>
+<hr>
+<h2>Class MH_Texture</h2>
+Class used for Textures. It uses the global repo.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>obj</td>
+<td class="explain">the object which uses the texture.</td>
+</tr>
+<tr>
+<td>repo</td>
+<td class="explain">reference to global texture repo.</td>
+</tr>
+<tr>
+<td>textype</td>
+<td class="explain">the texture type (user or system).</td>
+</tr>
+<tr>
+<td>image</td>
+<td class="explain">the image (preset to None).</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">the name (preset to None).</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>getImage</td>
+<td>None</td><td>image</td>
+<td class="explain">getter for image</td>
+</tr>
+<tr><td>getName</td>
+<td>None</td><td>name</td>
+<td class="explain">getter for name</td>
+</tr>
+<tr><td>getTexture</td>
+<td>None</td><td>texture</td>
+<td class="explain">getter for texture</td>
+</tr>
+<tr><td>create</td>
+<td>image</td><td>texture</td>
+<td class="explain">create an QOpenGLTexture with minmage filters and wrapmode, set data and return
+texture.</td>
+</tr>
+<tr><td>destroy</td>
+<td>None</td><td>None</td>
+<td class="explain">destroy the texture.</td>
+</tr>
+<tr><td>delete</td>
+<td>None</td><td>None</td>
+<td class="explain">delete the texture (only if type is user) by repo.delete function.</td>
+</tr>
+<tr><td>stdcolor</td>
+<td>None</td><td>texture object</td>
+<td class="explain">Creates a texture object of color [0.5, 0.5, 0.5].</td>
+</tr>
+<tr><td bgcolor="orange">unicolor</td>
+<td>rgb<br>name</td><td>texture object</td>
+<td class="explain">Creates a texture object of a certain rgb color. It returns an existing object
+in case it is already there and increases the counter for that texture and adds obj to list. Otherwise a new
+1 pixel texture is created (either for system or for user) User texture will contain obj in list.</td>
+</tr>
+<tr><td bgcolor="orange">load</td>
+<td>path<br>textype<br>modify (bool)</td><td>texture object</td>
+<td class="explain">checks if a certain user texture already exists. If so, it increases the counter
+and add the object. Otherwise the timestamp of the texture is fetched and a new texture is created
+and added to the repo as system or user texture. The texture is returned (or None if texture cannot be
+loaded).</td>
+</tr>
+<tr><td>save_png</td>
+<td>rgb</td><td>name</td>
+<td class="explain">save image changed by coloration color (in exportfolder with name hex-color name prefix)
+The name created is returned.</td>
+</tr>
+<tr><td>refresh_image</td>
+<td>None</td><td>texture</td>
+<td class="explain">Old image is destroyed and created again. Used when textures are modified.</td>
+</tr>
+<tr><td>refresh</td>
+<td>path</td><td>texture</td>
+<td class="explain">Old image is destroyed and created again with new image path. Texture is returned.</td>
+</tr>
+</table>
+<hr>
+<h2>Class MH_Thumb</h2>
+Class used for Thumbnails.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>maxsize</td>
+<td class="explain">the maximal size of the thumbnail (preset to 128).</td>
+</tr>
+<tr>
+<td>img</td>
+<td class="explain">the image (preset to None).</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>rescale</td>
+<td>name</td><td>None</td>
+<td class="explain">creates a thumbnail from image with  Qt.KeepAspectRatio, Qt.SmoothTransformation
+and saves the image as name.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
