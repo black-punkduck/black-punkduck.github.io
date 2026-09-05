@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.8 Code of core/target.py</h2>
+  <div class="page-body">
+<kbd>core/target</kbd> provides <b>methods to deal with targets or morphs.</b>
+The file contains 4 classes:
+<ul>
+<li>MacroTree</li>
+<li>Modelling</li>
+<li>Morphtarget</li>
+<li>Targets</li>
+</ul>
+<!-- more -->
+<h2>Class MacroTree</h2>
+This class is used as a helper class for phenotype with 3 values.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>names</td>
+<td class="explain">3 names, preset to None.</td>
+</tr>
+<tr>
+<td>values</td>
+<td class="explain">3 values, preset to 0.0.</td>
+</tr>
+<tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>insert</td>
+<td>name<br>value</td><td>None</td>
+<td class="explain">If name is none, a certain value is inserted.</td>
+</tr>
+</table>
+<hr>
+<h2>Class Modelling</h2>
+All values and methods used for dealing with targets.
+<h3>Variables</h3>
+These variables are mostly preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>obj</td>
+<td class="explain">set to baseClass object.</td>
+</tr>
+<tr>
+<td>group</td>
+<td class="explain">current group of morph, set to empty string.</td>
+</tr>
+<tr>
+<td>displayname</td>
+<td class="explain">displayed name.</td>
+</tr>
+<tr>
+<td>default</td>
+<td class="explain">default value.</td>
+</tr>
+<tr>
+<td>incr</td>
+<td class="explain">reference to increment morph, preset to None.</td>
+</tr>
+<tr>
+<td>decr</td>
+<td class="explain">reference to decrement morph, preset to None.</td>
+</tr>
+<tr>
+<td>macro</td>
+<td class="explain">reference to macro morph, preset to None.</td>
+</tr>
+<tr>
+<td>macro_influence</td>
+<td class="explain">macro influences from json file.</td>
+</tr>
+<tr>
+<td>m_influence</td>
+<td class="explain">list of influences, preset empty list.</td>
+</tr>
+<tr>
+<td>barycentric</td>
+<td class="explain">reference to map slider, preset to None.</td>
+</tr>
+<tr>
+<td>barycentric_diffuse</td>
+<td class="explain">sets values to diffuse color.</td>
+</tr>
+<tr>
+<td>opposite</td>
+<td class="explain">dual slider, has an opposite.</td>
+</tr>
+<tr>
+<td>slider</td>
+<td class="explain">reference to slider which gets the values.</td>
+</tr>
+<tr>
+<td>sym</td>
+<td class="explain">name of symmmetric side (left or right).</td>
+</tr>
+<tr>
+<td>isRSide</td>
+<td class="explain">morph is the right side (preset to false).</td>
+</tr>
+<tr>
+<td>measure</td>
+<td class="explain">is measurement needed (preset to None).</td>
+</tr>
+<tr>
+<td>virtual_val</td>
+<td class="explain">changed value by formula for virtual value (a
+text used with eval for e.g age.)</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td class="explain">a search pattern used for e.g opposite morphs.</td>
+</tr>
+<tr>
+<td>tip</td>
+<td class="explain">target tip.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>memInfo</td>
+<td>None</td><td>list of 5 elements</td>
+<td class="explain">this class creates the entries more the memory viewer.
+In case of barycentric it creates a special line with 3 entries,
+in case of a macro, the macro is returned, otherwise
+increment and decrement targets are returned (name and number of changed
+vertices)</td>
+</tr>
+<tr><td>setFromDict</td>
+<td>t<br>argetpath<br>bintargets</td><td>None</td>
+<td class="explain">fills all the initial values using t.
+for decr and incr it loads targetdata via Morphtarget class and
+set references. displayname, group, tip, sym, isRSide are set.
+In case of measurement, values are linked. If target influences
+text slot, it is also set.
+In case of a macro,
+macro and macro_influence are set, barycentric_diffuse is set, when
+available. Default value is multiplied by 100.</td>
+</tr>
+<tr><td>macro_influence</td>
+<td>array</td><td>None</td>
+<td class="explain">appends macro influences to m_influence</td>
+</tr>
+<tr><td>macro_barycentric</td>
+<td>val</td><td>None</td>
+<td class="explain">creates barycentric macro with 3 texts and values.</td>
+</tr>
+<tr><td>resetValue</td>
+<td>None</td><td>None</td>
+<td class="explain">resets a target to default and self.barycentric to
+0.33, 0.33, 0.34</td>
+</tr>
+<tr><td>set_barycentricFromMapSlider</td>
+<td>None</td><td>None</td>
+<td class="explain">set the 3 barycentric values from slider.</td>
+</tr>
+<tr><td>printSlot</td>
+<td>None</td><td>formatted text</td>
+<td class="explain">calculates the formula with eval and sets virtual
+value and returns formated text.</td>
+</tr>
+<tr><td>textSlot</td>
+<td>descr</td><td>None</td>
+<td class="explain">set the textslot via printSlot function.</td>
+</tr>
+<tr><td>search_pattern</td>
+<td>user</td><td>pattern</td>
+<td class="explain">creates a pattern to be found in the target repo,
+for macros it is of a different type, dual targets will be referenced by
+dual patterns, the opposites are defined in base.json.
+Single targets will be referenced by just the name,
+user targets will get a "custom/" in front.</td>
+</tr>
+<tr><td>displayMeasurement</td>
+<td>new (boolean)</td><td>None</td>
+<td class="explain">If it is new, the marker is set the first time,
+otherwise it is modified. Measurement were presented near slider.</td>
+</tr>
+<tr><td>initialize</td>
+<td>None</td><td>None</td>
+<td class="explain">Initialize a slider. Factor is calculated by dividing
+value by 100, marker is deleted, if it is a macro, mesh is resetted to
+all non-macro targets. Otherwise initial copy of slider is fetched and
+if needed measurement is displayed. In case of symmetry the
+copy of the symmetric slider is also fetched.</td>
+</tr>
+<tr><td>generateAllMacroWeights</td>
+<td>targetlist<br>macroname<br>factor<br>weights</td><td>None</td>
+<td class="explain">Recursive function to generate weights.
+Since for example 4 different components will change the character,
+one need to figure out how much each component will be used.
+Therefore one need to consider the components like a tree
+for the leaf the value itself is added, otherwise we do a further recursion.</td>
+</tr>
+<tr><td>macroCalculation</td>
+<td>m_influence list</td><td>None</td>
+<td class="explain">The complete macro calculation.
+The influences are used and a targetlist is created.
+Each component is considered, in case of barycentric macro and a value
+bigger than 0.001 it is inserted. Otherwise the steps are calculated
+and the the values are inserted according to the distance of two steps.
+In the end the weights are generated.
+<p>
+The last step is the optimization: Some weightfiles are not existing.
+So they would be a factor of 0. Sometimes targets are identical.
+All targets are in memory and there are no duplicates. The calculated
+target name will be mapped to the targets (using the value "t")
+So it either add them the new targetname to a list or add the second factor if allready exists.
+After that target will be add to macrobuffer and macro buffer itself
+will be added to basemesh (which only has all non-macro targets atm.)
+</tr>
+<tr><td>macroCalculationLoad</td>
+<td>None list</td><td>None</td>
+<td class="explain">Creates all macro targets when loading.</td>
+</tr>
+<tr><td>changeMacroTarget</td>
+<td>bckproc<br>args</td><td>None</td>
+<td class="explain">Recalculates all Macros and updates assets.</td>
+</tr>
+<tr><td>setBaryCentricDiffuse</td>
+<td>None</td><td>None</td>
+<td class="explain">changes the diffuse color (mixcolor).</td>
+</tr>
+<tr><td>postChange</td>
+<td>None</td><td>None</td>
+<td class="explain">Handles all actions after change: change size,
+change skeleton, mark project as changed.</td>
+</tr>
+<tr><td>finished_bckproc</td>
+<td>None</td><td>None</td>
+<td class="explain">used in parallel mode, does last change and calls
+postChange.</td>
+</tr>
+<tr><td>callback</td>
+<td>None</td><td>None</td>
+<td class="explain">Target  callback function, works different for macros
+(as a thread) when self.env.parslide is used otherwise
+it works normal to avoid pyInstaller problems. Handles Macro, barycentric
+and normal targets.
+</td>
+</tr>
+</table>
+<hr>
+<h2>Class Morphtarget</h2>
+Class to handle a single target.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>name</td>
+<td class="explain">name of the target.</td>
+</tr>
+<tr>
+<td>raw</td>
+<td class="explain">reference to raw data.</td>
+</tr>
+<tr>
+<td>verts</td>
+<td class="explain">vertices changed by target.</td>
+</tr>
+<tr>
+<td>data</td>
+<td class="explain">values for vertices.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to global environment.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>loadTargetData</td>
+<td>path<br>bintargets</td><td>None</td>
+<td class="explain">get Target data either from pre-loaded npz file or from single targets. Set raw, verts and data.</td>
+</tr>
+<tr><td>releaseNumpy</td>
+<td>None</td><td>None</td>
+<td class="explain">releases data explicitely.</td>
+</tr>
+</table>
+<hr>
+<h2>Class Targets</h2>
+Class used for Targets at all:
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global information.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment information.</td>
+</tr>
+<tr>
+<td>modelling_targets</td>
+<td class="explain">List of all targets.</td>
+</tr>
+<tr>
+<td>collection</td>
+<td class="explain">Target collection connected with basename.</td>
+</tr>
+<tr>
+<td>macrodef</td>
+<td class="explain">Macro defintion file.</td>
+</tr>
+<tr>
+<td>target_sysindex</td>
+<td class="explain">Target index set to -1 (will be 0, 1, 2).</td>
+</tr>
+<tr>
+<td>categories</td>
+<td class="explain">categories read from file.</td>
+</tr>
+<tr>
+<td>baseClass</td>
+<td class="explain">reference to baseClass.</td>
+</tr>
+<tr>
+<td>symmetry</td>
+<td class="explain">boolean set to false.</td>
+</tr>
+<tr>
+<td>target_env</td>
+<td class="explain">Target environment, 3 classes of targets paths.</td>
+</tr>
+<tr>
+<td>default_icon</td>
+<td class="explain">reference to empty target.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>getSym</td>
+<td>None</td><td>None</td>
+<td class="explain">getter for symmetry</td>
+</tr>
+<tr><td>setSym</td>
+<td>value</td><td>None</td>
+<td class="explain">setter for symmetry</td>
+</tr>
+<tr><td>makeSym</td>
+<td>RtoL</td><td>None</td>
+<td class="explain">creates symmetry for right to left or left to right.</td>
+</tr>
+<tr><td>loadModellingJSON</td>
+<td>None</td><td>None</td>
+<td class="explain">loads the macro.json and modelling.json file.
+So macro.json (if available) will be loaded first from contarget in
+user section, then from system path. Then load modelling.json from contarget
+in user section, then from system path, load additional flexible
+modelling.json from userpath. macrodefs are created and linked to
+glob.targetMacros. targetjson from system (+ userjson) are returned.</td>
+</tr>
+<tr><td>createTarget</td>
+<td>name<br>t</td><td>None</td>
+<td class="explain">create a target either from system/user-contarget path or user path. It is added to the glob.targetRepo by name or by name or list
+and appended to modelling_targets.</td>
+</tr>
+<tr><td>loadTargets</td>
+<td>None<br>t</td><td>None</td>
+<td class="explain">loads target categories,
+loads macros and modelling json files. Then it loads
+binary targets, if not possible it creates them.
+Inside the macro targets are loaded and all targets are created.</td>
+</tr>
+<tr><td>saveBinaryTargets</td>
+<td>bckproc<br>*args<br>t</td><td>None</td>
+<td class="explain">save targets as compressed binary (running as
+background command) also works for contargets.
+Argument [0][0] explains what to compress:  1 = system, 2 = user (3 is both).
+</td>
+</tr>
+<tr><td>setSkinDiffuseColor</td>
+<td>None</td><td>None</td>
+<td class="explain">searches for barycentric target and set diffuse color.</td>
+</tr>
+<tr><td>reset</td>
+<td>colors</td><td>None</td>
+<td class="explain">reset all targets and does a setSkinDiffuseColor if
+colors is True.</td>
+</tr>
+<tr><td>isHeadPattern</td>
+<td>pattern</td><td>is head (boolean)</td>
+<td class="explain">returns True if a pattern is used for head.</td>
+</tr>
+<tr><td>isHeadTarget</td>
+<td>key</td><td>is head (boolean)</td>
+<td class="explain">returns True if a target is for head.</td>
+</tr>
+<tr><td>resetHead</td>
+<td>None</td><td>None</td>
+<td class="explain">sets all head values to default.</td>
+</tr>
+<tr><td>setTargetByName</td>
+<td>key<br>value</td><td>None</td>
+<td class="explain">set target name key to a certain value, also
+appends missing targets to glob.missingTargets.</td>
+</tr>
+<tr><td>modifierPresets</td>
+<td>presets</td><td>None</td>
+<td class="explain">set presets mentioned in base.json to targets.</td>
+</tr>
+<tr><td>destroyTargets</td>
+<td>None</td><td>None</td>
+<td class="explain">destroys all targets and sets modelling_targets to an
+empty array.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
