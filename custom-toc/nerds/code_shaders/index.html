@@ -78,57 +78,132 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.1 Code</h2>
+  <h2>9.1.6 Code of opengl/shaders.py</h2>
   <div class="page-body">
+<kbd>opengl/shaders</kbd> provides <b>all methods to deal with openGL shaders.</b>
+The file only contains 2 classes:
+<ul>
+<li>ShaderFiles</li>
+<li>ShaderRepository</li>
+</ul>
+<!-- more -->
+<h2>Class ShaderFiles</h2>
+This class is derived from QOpenGLShaderProgram and is the class to store 3 connected shaders
+<h3>Variables</h3>
+These variables are all preset by __init__.
 <table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
 <tr>
-<td><a href="../code_globenv">Global environment</a></td>
-<td>core/globenv.py</td>
-<td class="explain">
-The file contains global parts used in MakeHuman2
-</td>
+<td>uniforms</td>
+<td class="explain">Dictionary of shader uniform values, all preset by -1 (so no position in shader).</td>
 </tr>
 <tr>
-<td><a href="../code_baseobj">Base Object</a></td>
-<td>core/baseobj.py</td>
-<td class="explain">
-The file contains all methods to handle base object (the human mesh usually).
-</td>
+<td>env</td>
+<td class="explain">reference to environment object.</td>
 </tr>
 <tr>
-<td><a href="../code_object3d">Object3d</a></td>
-<td>obj3d/object3d.py</td>
-<td class="explain">
-The file contains all methods to handle mesh objects.
-</td>
+<td>name</td>
+<td class="explain">The name of the shader.</td>
 </tr>
 <tr>
-<td><a href="../code_buffers">OpenGL Buffers</a></td>
-<td>opengl/buffers.py</td>
-<td class="explain">
-This file contains all openGL buffer handling and methods for rendering
-</td>
+<td>frag_id</td>
+<td class="explain">ID of the fragment shader (preset: None).</td>
 </tr>
 <tr>
-<td><a href="../code_material">OpenGL Material</a></td>
-<td>opengl/material.py</td>
-<td class="explain">
-This file contains all openGL material methods
-</td>
+<td>vert_id</td>
+<td class="explain">ID of the vertex shader (preset: None).</td>
 </tr>
 <tr>
-<td><a href="../code_texture">OpenGL Textures</a></td>
-<td>opengl/texture.py</td>
-<td class="explain">
-This file contains all openGL texture methods
-</td>
+<td>geom_id</td>
+<td class="explain">ID of the geometry shader (preset: None).</td>
 </tr>
 <tr>
-<td><a href="../code_shaders">OpenGL Shaders</a></td>
-<td>opengl/shaders.py</td>
-<td class="explain">
-This file contains all openGL shader methods
-</td>
+<td>path</td>
+<td class="explain">The path of the shader (without suffix .frag, .vert and .geom.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>loadFragShader</td>
+<td>None</td><td>success boolean</td>
+<td class="explain">Adds fragment shader path.frag and the shader ID to frag_id. Returns True on success.</td>
+</tr>
+<tr><td>loadVertShader</td>
+<td>None</td><td>success boolean</td>
+<td class="explain">Adds fragment shader path.vert and the shader ID to vert_id. Returns True on success.</td>
+</tr>
+<tr><td>loadGeomShader</td>
+<td>None</td><td>success boolean</td>
+<td class="explain">Adds geometry shader path.geom and the shader ID to geom_id. Returns True on success.</td>
+</tr>
+<tr><td>loadAllShaderTypes</td>
+<td>None</td><td>success boolean</td>
+<td class="explain">Adds at least fragment and vertex shader, but also geometry shader path.geom is existent. Returns True on success.</td>
+</tr>
+</table>
+<hr>
+<h2>Class ShaderRepository</h2>
+Handles all shaders.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment object.</td>
+</tr>
+<tr>
+<td>_shaders</td>
+<td class="explain">List of all shaders.</td>
+</tr>
+<tr>
+<td>_shadernames</td>
+<td class="explain">shader dictionary referencing _shaders by name.</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td class="explain">special index for Apple (v12_) or empty.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>getShader</td>
+<td>name</td><td>shader object</td>
+<td class="explain">returns shader object by name.</td>
+</tr>
+<tr><td>loadshader</td>
+<td>filename</td><td>shader</td>
+<td class="explain">loads or reuses a shader given by pathname and returns shader number.</td>
+</tr>
+<tr><td>loadShaders</td>
+<td>filenames</td><td>None</td>
+<td class="explain">loads a list of shaders and sets attributes and uniform values.</td>
+</tr>
+<tr><td>attribVertShader</td>
+<td>num</td><td>None</td>
+<td class="explain">set attributes of vertex shader (aPosition, aNormal, aTexCoords) to location 0 to 2 and links and binds shader.</td>
+</tr>
+<tr><td>bindShader</td>
+<td>shader number</td><td>None</td>
+<td class="explain">bind the shader.</td>
+</tr>
+<tr><td>getUniforms</td>
+<td>shader number</td><td>None</td>
+<td class="explain">set shader uniforms array of ShaderFiles class to the shader uniform location evaluated.</td>
+</tr>
+<tr><td>setShaderUniform</td>
+<td>shader reference<br>name<br>var</td><td>None</td>
+<td class="explain">set shader uniforms value of a certain name to a specific value.</td>
+</tr>
+<tr><td>setShaderArrayStruct</td>
+<td>shader<br>name<br>index<br>member<br>var</td><td>None</td>
+<td class="explain">Get the location of "name[index],member". If not -1 set value to var (float must be handled different).</td>
 </tr>
 </table>
   </div>
