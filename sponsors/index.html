@@ -39,7 +39,7 @@
       <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
       <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
       <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
-      <a href="/sponsors/" class=""><b>Sponsors</b></a>&nbsp;
+      <a href="/sponsors/" class="nav-active"><b>Sponsors</b></a>&nbsp;
     </td>
 <td>
   <div style="display: flex; align-items: center;">
@@ -79,150 +79,18 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.2 Fileformat example for Material files (.mhmat)</h2>
+  <h2>The Dream Team</h2>
   <div class="page-body">
-Materials are represented in a certain format and placed in <kbd>.mhmat</kbd> files.
-<p>
-<xmp class="html-scroll-bubble">
-name ww-corsage
-description Ww_corsage material
-ambientColor 0.517647058824 0.517647058824 0.517647058824
-diffuseColor 1.0 1.0 1.0
-emissiveColor 0.0 0.0 0.0
-metallicFactor 1.0
-roughnessFactor 1.0
-transparent False
-alphaToCoverage True
-backfaceCull False
-diffuseTexture ww_corsage.png
-normalmapTexture ww_corsage_normals.png
-normalmapIntensity 0.36
-aomapTexture ww_corsage_ao.png
-aomapIntensity 1.72
-metallicRoughnessTexture ww_corsage_mr.png
-shader pbr
-</xmp>
-<p>
-<!-- table legend to explain common stuff -->
-<table border=1>
-<thead>
-<tr><th>Legend</th></tr>
-</thead>
-<tbody>
-<tr><td>Colors are used in RGB order, each value has a range of 0.0 to 1.0.</td></tr>
-</tbody>
-</table>
-<p>
-<!-- table with commands -->
-<table>
-<thead>
-<tr>
-<th style="text-align:left">key</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">tag</td>
-<td style="text-align:left">The tags added to the material can be used for filtering.</td>
-</tr>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">Name of the material.</td>
-</tr>
-<tr>
-<td style="text-align:left">description</td>
-<td style="text-align:left">Description to explain what the material is used for.</td>
-</tr>
-<tr>
-<td style="text-align:left">license</td>
-<td style="text-align:left">Licence of the material (optional).</td>
-</tr>
-<tr>
-<td style="text-align:left">author</td>
-<td style="text-align:left">Author of the material (optional).</td>
-</tr>
-<tr>
-<td style="text-align:left">ambientColor</td>
-<td style="text-align:left">Grey-scale (3 identical values for red, green and blue), used with no ambient occlusion map.</td>
-</tr>
-<tr>
-<td style="text-align:left">diffuseColor</td>
-<td style="text-align:left">Base color used as RGB, used when no diffuse texture is given.</td>
-</tr>
-<tr>
-<td style="text-align:left">emissiveColor</td>
-<td style="text-align:left">Emission color used as RGB, used when no emission texture is given and emission color is not black.</td>
-</tr>
-<tr>
-<td style="text-align:left">aomapTexture</td>
-<td style="text-align:left">Ambient occlusion texture, a method to use ambient light, this is usually a grey map. So only one channel is used.</td>
-</tr>
-<tr>
-<td style="text-align:left">diffuseTexture</td>
-<td style="text-align:left">Diffuse texture for the used colors (optional).</td>
-</tr>
-<tr>
-<td style="text-align:left">emissiveTexture</td>
-<td style="text-align:left">Texture for illumination (optional).</td>
-</tr><tr>
-<td style="text-align:left">metallicRoughnessTexture</td>
-<td style="text-align:left">A standard method using green channel for roughness and blue channel for metallic entry.</td>
-</tr>
-<tr>
-<td style="text-align:left">normalmapTexture</td>
-<td style="text-align:left">Normal map to simulate higher detail by colors.</td>
-</tr>
-<tr>
-<td style="text-align:left">aomapIntensity</td>
-<td style="text-align:left">Intensity of the ambient occlusion map, without map ambient occlusion from a grey-scale 1.0 is normal, up to 2.0</td>
-</tr>
-<tr>
-<td style="text-align:left">emissiveFactor</td>
-<td style="text-align:left">Intensity of light. 0-255 will be recalculated to 0-1.</td>
-</tr>
-<tr>
-<td style="text-align:left">metallicFactor</td>
-<td style="text-align:left">metallic factor of a material, in case of a given texture it is 1.0 which is the value how much the metallic texture is used.</td>
-</tr>
-<tr>
-<td style="text-align:left">normalmapIntensity</td>
-<td style="text-align:left">Intensity of the normalmap.</td>
-</tr>
-<tr>
-<td style="text-align:left">roughnessFactor</td>
-<td style="text-align:left">Roughness factor of a material, in case of a texture it is 1.0 which is the value how much the roughness texture is used.</td>
-</tr>
-<tr>
-<td style="text-align:left">colorationMethod</td>
-<td style="text-align:left">Used to easily recolor assets. 0: off, 1: hue-to-fixed, 2: desaturate + color multiply.</td>
-</tr>
-<tr>
-<td style="text-align:left">colorationColor</td>
-<td style="text-align:left">Color used as RGB for coloration.</td>
-</tr>
-<tr>
-<td style="text-align:left">shader</td>
-<td style="text-align:left">shader type, available are pbr, toon, phong and litsphere.</td>
-</tr>
-<tr>
-<td style="text-align:left">shaderParam litsphereTexture</td>
-<td style="text-align:left">A default litsphere map for litsphere shader, no effect for other shaders.</td>
-</tr>
-<tr>
-<td style="text-align:left">alphaToCoverage</td>
-<td style="text-align:left">Parameter to be used when having multiple transparent layers (classical used for hair).</td>
-</tr>
-<tr>
-<td style="text-align:left">transparent</td>
-<td style="text-align:left">Shader should use alpha channel, because material is transparent.</td>
-</tr>
-<tr>
-<td style="text-align:left">backfaceCull</td>
-<td style="text-align:left">Material used for front and backside (false: both sides are visible).</td>
-</tr>
-</tbody>
-</table>
+    <p>Makehuman 2 is Empowering Creativity Together for the Future of open-source software, artists, creators!</p>
+<p>We are Driven by our Community. The project is Sustained by Patrons and supporters. A massive thank you to the incredible <br>
+individuals who sponsor our work. Because of your generosity, we are able to keep creating high-quality content, developing better software,<br>
+fulfilling our goals, and serving our community every single day.</p>
+<p>~Credits to our Patreon Sponsors~</p>
+<p>Our Deepest Gratitude to Our Illustrious Founders:</p>
+<ul>
+<li>SirBadfish AKA Badfish</li>
+</ul>
+<p>Our Humble Acknowledgment to all of our Patreon Supporters:</p>
   </div>
 <style>
   #footer-links-container:hover span {
