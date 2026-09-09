@@ -79,71 +79,107 @@
        style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
 </header>
 <p id="datestring">Current: Month Day, Year</p>
-  <h2>9.1 Code</h2>
+  <h2>9.1.9 Code of core/targetcat.py</h2>
   <div class="page-body">
+<kbd>core/target</kbd> provides <b>methods to deal with target categories.</b>
+The file contains 1 class:
+<ul>
+<li>TargetCategories</li>
+</ul>
+<!-- more -->
+<h2>Class TargetCategories</h2>
+This class is used to work with target categories
+<h3>Variables</h3>
+These variables are all preset by __init__.
 <table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
 <tr>
-<td><a href="../code_globenv">Global environment</a></td>
-<td>core/globenv.py</td>
-<td class="explain">
-The file contains global parts used in MakeHuman2
-</td>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
 </tr>
 <tr>
-<td><a href="../code_baseobj">Base Object</a></td>
-<td>core/baseobj.py</td>
-<td class="explain">
-The file contains all methods to handle base object (the human mesh usually).
-</td>
+<td>env</td>
+<td class="explain">reference to global environment.</td>
 </tr>
 <tr>
-<td><a href="../code_object3d">Object3d</a></td>
-<td>obj3d/object3d.py</td>
-<td class="explain">
-The file contains all methods to handle mesh objects.
-</td>
+<td>basename</td>
+<td class="explain">Contains the current basename.</td>
 </tr>
 <tr>
-<td><a href="../code_buffers">OpenGL Buffers</a></td>
-<td>opengl/buffers.py</td>
-<td class="explain">
-This file contains all openGL buffer handling and methods for rendering
-</td>
+<td>user_targets</td>
+<td class="explain">list of user targets, preset as empty list.</td>
 </tr>
 <tr>
-<td><a href="../code_material">OpenGL Material</a></td>
-<td>opengl/material.py</td>
-<td class="explain">
-This file contains all openGL material methods
-</td>
+<td>icon_repos</td>
+<td class="explain">list of icon-repositiories, preset as empty list.</td>
 </tr>
-<tr>
-<td><a href="../code_texture">OpenGL Textures</a></td>
-<td>opengl/texture.py</td>
-<td class="explain">
-This file contains all openGL texture methods
-</td>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>addUserTarget</td>
+<td>folder<br>subfolder<br>filename<br>latest</td><td>newer (bool)</td>
+<td class="explain">this class add a user target name to user_targets and checks
+date. If newer true is returned.</td>
 </tr>
-<tr>
-<td><a href="../code_shaders">OpenGL Shaders</a></td>
-<td>opengl/shaders.py</td>
-<td class="explain">
-This file contains all openGL shader methods
-</td>
+<tr><td>formatModellingEntry</td>
+<td>user:mod<br>cats<br>folder<br>filename</td><td>None</td>
+<td class="explain">Formats an entry for categories in user section.
+The name is created by replacing '-' with spaces.
+If folder is not none it is prepended to the name using URI mode (so with '/')
+The element is a combination of capitalized folder and name. The group is simply "user|" + folder
+and the iconname would be folder and filename connected by '-'.
+Without subfolder the name is prepended by "User " and the group is "user|unsorted".
+<p>
+Then a dual-target (in user folder only incr and decr are allowed) is tested.
+If it ends with "incr" the opposite is calculated. If this opposite is found in cats the complete
+entry can be done (including icon-name). If the file is decr it is placed in the opposite table.
+<p>
+For all targets not being recognized as an dualtarget a single entry is done.</td>
 </tr>
-<tr>
-<td><a href="../code_target">Makehuman2 Morphs/Targets</a></td>
-<td>core/target.py</td>
-<td class="explain">
-This file contains all morph or target methods.
-</td>
+<tr><td>getIcons</td>
+<td>folder<br>lastest</td><td>newer (bool)</td>
+<td class="explain">scans folder for icons (ending with png) and appends them to icon_repos.
+If file is newer, true is returned.</td>
 </tr>
-<tr>
-<td><a href="../code_targetcat">Makehuman2 Morph/Target Categories</a></td>
-<td>core/targetcat.py</td>
-<td class="explain">
-This file contains all target category methods.
-</td>
+<tr><td>getAListOfTargets</td>
+<td>folder<br>lastest</td><td>newer (bool)</td>
+<td class="explain">Scans a list of targets, 2 layers are maximum.
+It first checks the date of the folder itself. After that it scans all entries.
+An "icons" folder is scanned with getIcons(). If the file itself is a directory it checks this
+directory for file names ending with ".target". Also targets in the first layer are accepted.</td>
+</tr>
+<tr><td>createJStruct</td>
+<td>categories</td><td>user_cat<br>user_modNone</td>
+<td class="explain">creates a dictionary for later use as JSON with
+formatModellingEntry and returns evaluated user_cat and user_mod entry.</td>
+</tr>
+<tr><td>recreateUserCategories</td>
+<td>None</td><td>userjson</td>
+<td class="explain">recreates target category for user space. No target folder in user space would be ignored.
+Then dates of target_cat.json and modelling.json are evaluated. With the older date all targets are
+compared with the help of getAListOfTargets. If a rescan should be done, the new JSON files are written.
+The current (or new) user JSON file is (re-)read and returned. </td>
+</tr>
+<tr><td>connectCategories</td>
+<td>json</td><td>None</td>
+<td class="explain">When glob.targetCategories is not None the user categories are appended to "User",
+otherwise they are directly used for glob.targetCategories.</td>
+</tr>
+<tr><td bgcolor="orange">readFiles</td>
+<td>None</td><td>None</td>
+<td class="explain">create internal structure of target categories, the user category is appended
+to system category. contarget is tested first (user only system). Otherwise system target is used.
+glob.targetCategories will be linked and newUserCategories is called.</td>
+</tr>
+<tr><td bgcolor="orange">newUserCategories</td>
+<td>None</td><td>None</td>
+<td class="explain">main command to create new user categories.</td>
+</tr>
+<tr><td>findUserAsset</td>
+<td>search</td><td>name<br>t</td>
+<td class="explain">Searches for a certain target and returns target and name.
+Also can deal with two layers or dual target. Returns name and target itself. None, None if not found.</td>
 </tr>
 </table>
   </div>
