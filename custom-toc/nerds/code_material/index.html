@@ -146,6 +146,10 @@ These variables are all preset by __init__ and the method to reset the material 
 <td class="explain">reference to emission map (preset to None).</td>
 </tr>
 <tr>
+<td>tex_mask</td>
+<td class="explain">reference to mask map (preset to None) for coloration.</td>
+</tr>
+<tr>
 <td>diffuseTexture</td>
 <td class="explain">name of the diffuse texture, optional attribute.</td>
 </tr>
@@ -168,6 +172,10 @@ These variables are all preset by __init__ and the method to reset the material 
 <tr>
 <td>sp_litsphereTexture</td>
 <td class="explain">name of the litsphere texture, optional attribute.</td>
+</tr>
+<tr>
+<td>maskTexture</td>
+<td class="explain">name of the mask texture, optional attribute.</td>
 </tr>
 <tr>
 <td>colorationOldColor</td>
@@ -390,6 +398,39 @@ current emissiveColor value. If nothing is given, nocolor (black) is returned.</
 Otherwise the texture is freed and a new one is returned. If nothing is given, white
 is returned.</td>
 </tr>
+<tr><td>loadMaskMap</td>
+<td>modify<br>obj</td><td>mask texture or None</td>
+<td class="explain">If the map has not changed, the old mask is returned.
+Otherwise the texture is freed and a new one is returned. If nothing is given, None is returned.</td>
+</tr>
+<tr><td>setDiffuse</td>
+<td>name<br>alternative<br>obj</td><td>diffuse texture</td>
+<td class="explain">This function can only be use for additional objects. Used for e.g. floor.
+If no name is given, the alternative is returned, Programs gets the diffuse texture and
+returns it. In case of None the alternative is returned.</td>
+</tr>
+<tr><td>loadDiffuse</td>
+<td>modify<br>obj</td><td>diffuse texture</td>
+<td class="explain">If the texture has not
+changed, the old diffuse texture is returned. If an diffuseTexture is still in the attributes
+free old texture and get new one. If diffuseColor was not changed, the old 1x1 pixel map is
+returned. Otherwise "diffuseTexture" is freed and a new unicolor map is created with the
+current diffuseColor value. If nothing is given, grey is returned.</td>
+</tr>
+<tr><td>saveDiffuse</td>
+<td>None</td><td>filename or None</td>
+<td class="explain">Method to save the colorated diffuse color as a temporary file.
+Returns filename if 'diffuseTexture' exists.</td>
+</tr>
+<tr><td>freeTexture</td>
+<td>atrrib</td><td>None</td>
+<td class="explain">free only one texture (used in material editor).</td>
+</tr>
+<tr><td>freeTextures</td>
+<td>None</td><td>None</td>
+<td class="explain">frees all textures with destroy (if not of type system).</td>
+</tr>
+</table>
 <tr><td>setDiffuse</td>
 <td>name<br>alternative<br>obj</td><td>diffuse texture</td>
 <td class="explain">This function can only be use for additional objects. Used for e.g. floor.

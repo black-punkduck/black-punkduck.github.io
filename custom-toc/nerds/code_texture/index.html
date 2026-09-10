@@ -172,24 +172,30 @@ These variables are all preset by __init__.
 <h3>Methods:</h3>
 <table class="contexttab">
 <tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td bgcolor="orange">validMask</td>
+<td>image<br>mask</td><td>True if valid</td>
+<td class="explain">check if mask is valid (has same size and is not none)</td>
+</tr>
 <tr><td bgcolor="orange">modifyToConstantHue</td>
-<td>image<br>r<br>g<br>b</td><td>None</td>
+<td>image<br>r<br>g<br>b<br>mask</td><td>None</td>
 <td class="explain">modify an image to a constant hue. The image is transformed to a numpy array.
 then the hue is calculated from r, g, b (in degrees). The values are converted to float.
 Then if hue is -1 (r, g, b are identical), hue is set to index 0 and p, q, t are identical to value.
-Otherwise hue p, q, t are calculated by hue formular in 6 different sections depending on index.</td>
+Otherwise hue p, q, t are calculated by hue formular in 6 different sections depending on index.
+<p>
+If a mask image is given only white areas are changed, black ones stay identical.</td>
 </tr>
 <tr><td bgcolor="orange">noColor</td>
-<td>image</td><td>None</td>
-<td class="explain">desaturates image</td>
+<td>image<br>mask</td><td>None</td>
+<td class="explain">desaturates image by using modifyToConstantHue and values 1.0, 1.0, 1.0, and  mask.</td>
 </tr>
 <tr><td>multColor</td>
-<td>image<br>r<br>g<br>b</td><td>None</td>
-<td class="explain">multiplies image with a certain color</td>
+<td>image<br>r<br>g<br>b<br>mask</td><td>None</td>
+<td class="explain">multiplies image with a certain color. If a mask image is given only white areas are changed, black ones stay identical.</td>
 </tr>
 <tr><td bgcolor="orange">greyToColor</td>
-<td>image<br>r<br>g<br>b</td><td>None</td>
-<td class="explain">first desaturates image and then multiplies image with a certain color</td>
+<td>image<br>r<br>g<br>b<br>mask</td><td>None</td>
+<td class="explain">first desaturates image and then multiplies image with a certain color. A mask can be used.</td>
 </tr>
 </table>
 <hr>
