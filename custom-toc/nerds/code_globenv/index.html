@@ -166,6 +166,18 @@ cannot be connected to subwindows.</td>
 <td class="explain">bool value, application is closing (exit yes/no) needs that not to stay in infinite loop</td>
 </tr>
 <tr>
+<td>openGLPreDraw</td>
+<td class="explain">Array of functions to be called before drawing main character.</td>
+</tr>
+<tr>
+<td>openGLPostDraw</td>
+<td class="explain">Array of functions to be called after drawing main character.</td>
+</tr>
+<tr>
+<td>drawFunction</td>
+<td class="explain">Dictionary of named draw functions.</td>
+</tr>
+<tr>
 <td>textureRepo</td>
 <td class="explain">the repository of the loaded textures</td>
 </tr>
@@ -333,6 +345,24 @@ are rescanned.
 <td class="explain">generates all folders in user-data for a certain base. These are the base folders
 mentioned in the environment and "exports", "skins", "models", "target", "contarget", "dbcache", "downloads".
 If mkdir fails False is returned.</td>
+</tr>
+<tr><td>_insertInDrawFunction</td>
+<td>draw array<br>listelem</td><td>None</td>
+<td class="explain">Method inserts or appends a drawfunction (listelem) into draw_array. It considers second value
+of listelem as a priority. This is a helper method.</td>
+</tr>
+<tr><td>_createDrawFunctionIndex</td>
+<td>None</td><td>None</td>
+<td class="explain">Method to create a dictionary of drawfunctions This is a helper method.</td>
+</tr>
+<tr><td bgcolor="orange">registerDrawFunction</td>
+<td>toolname<br>drawfunćtion<br>priority</td><td>None</td>
+<td class="explain">Method insert drawfunction into an array, registered by "toolname". If priority is equal or greater than zero it is post-Draw function.
+Otherwise it is drawn before scene. While inserting, openGL is blocked.</td>
+</tr>
+<tr><td bgcolor="orange">unregisterDrawFunction</td>
+<td>toolname</td><td>None</td>
+<td class="explain">Unregister the drawfunction named tool name. While deleting, openGL is blocked.</td>
 </tr>
 </table>
 <hr>

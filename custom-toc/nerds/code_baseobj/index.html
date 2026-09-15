@@ -421,6 +421,11 @@ are marked accordingly and skeleton is prepared for scene.</td>
 <td class="explain">Deletes a skeleton (set skeleton to None). It is
 unmarked and the internal pose-skeleton is prepared.</td>
 </tr>
+<tr><td bgcolor="orange">getVirtualBonePosition</td>
+<td>name</td><td>position vector<br>bone</td>
+<td class="explain">returns world position of the tail of a virtual bone (a bone using an alias name). For further calculation bone is
+also returned. If bone is not fould or other problems will occur, bone and position are None.</td>
+</tr>
 <tr><td>hasPoses</td>
 <td>None</td><td>bool has pose<br>cnt int</td>
 <td class="explain">returns if poses are available (either bvh or posemodifiers) and returns the number of frames for bvh.</td>

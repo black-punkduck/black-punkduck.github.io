@@ -319,6 +319,11 @@ Methods are used for loading, setting materials, hiding vertices, triangularizat
 <td class="explain">create buffersizes for vertsperface, faceverts buffer. The mask calculates if faces are used.
 overrideignore: normaly used when the helper as invisible group should also be considered. Returns number of indices and faces.</td>
 </tr>
+<tr><td>highestVisibleVert</td>
+<td>None</td><td>highest vertex</td>
+<td class="explain">Checks all visible groups and returns highest visible vertex number. Also works for assets without extra
+groups (usually this is used to figure out, where the helper begins for bone reduction).</td>
+</tr>
 <tr><td>fillFaceBuffers</td>
 <td>vertsperface<br>faceverts<br>mask<br>overrideignore</td><td>highest</td>
 <td class="explain">fill vertsperface, faceverts buffer. vertsperface is the buffer to put the vertices per face, faceverts is the
