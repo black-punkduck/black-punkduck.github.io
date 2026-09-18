@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+      <a href="/sponsors/" class=""><b>Sponsors</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.10 Code of opengl/bone.py</h2>
+  <div class="page-body">
+<kbd>opengl/bone</kbd> provides <b>all methods to deal with bones.</b>
+The file contains 2 classes:
+<ul>
+<li>cBone</li>
+<li>boneWeights</li>
+</ul>
+<!-- more -->
+<h2>Class cBone</h2>
+This class is used to work with a single bone.
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td bgcolor="orange">parentname</td>
+<td class="explain">name of the parent bone or None.</td>
+</tr>
+<tr>
+<td>name</td>
+<td class="explain">name of the bone.</td>
+</tr>
+<tr>
+<td>skeleton</td>
+<td class="explain">reference to skeleton.</td>
+</tr>
+<tr>
+<td>children</td>
+<td class="explain">a list of children bones.</td>
+</tr>
+<tr>
+<td>reference</td>
+<td class="explain">a list of reference bones used for copying weights.</td>
+</tr>
+<tr>
+<td>weightref</td>
+<td class="explain">reference to weights, preset with None.</td>
+</tr>
+<tr>
+<td>level</td>
+<td class="explain">bone level (0 = root bone) + 1 for each child.</td>
+</tr>
+<tr>
+<td>head</td>
+<td class="explain">list of vertices for head.</td>
+</tr>
+<tr>
+<td>tail</td>
+<td class="explain">list of vertices for tail.</td>
+</tr>
+<tr>
+<td>localplane</td>
+<td class="explain">rotation plane for bone. (0 if not existing)</td>
+</tr>
+<tr>
+<td bgcolor="orange">headPos</td>
+<td class="explain">Numpy array of 3 elements for bone head position (default).</td>
+</tr>
+<tr>
+<td bgcolor="orange">tailPos</td>
+<td class="explain">Numpy array of 3 elements for bone tail position (default).</td>
+</tr>
+<tr>
+<td bgcolor="orange">poseheadPos</td>
+<td class="explain">Numpy array of 3 elements for bone head position (pose mode).</td>
+</tr>
+<tr>
+<td bgcolor="orange">posetailPos</td>
+<td class="explain">Numpy array of 3 elements for bone tail position (pose mode).</td>
+</tr>
+<tr>
+<td>matRestGlobal</td>
+<td class="explain">rest pose, global position 4x4 Matrix of bone object.</td>
+</tr>
+<tr>
+<td>invRestGlobal</td>
+<td class="explain">inverse global Matrix (to do less calculation).</td>
+</tr>
+<tr>
+<td>matRestLocal</td>
+<td class="explain">rest Pose, relative (local) position 4x4 Matrix of bone object.</td>
+</tr>
+<tr>
+<td>matPoseGlobal</td>
+<td class="explain">global pose matrix.</td>
+</tr>
+<tr>
+<td>matPoseLocal</td>
+<td class="explain">relative pose matrix, preset with 4x4 identity.</td>
+</tr>
+<tr>
+<td>matPoseVerts</td>
+<td class="explain">result of matRestLocal X matPoseLocal X inv(matRestGlobal).</td>
+</tr>
+<tr>
+<td>length</td>
+<td class="explain">length of bone</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>debugMats</td>
+<td>None</td><td>None</td>
+<td class="explain">A simple function to print matRestGlobal, matRestLocal.</td>
+</tr>
+<tr><td>getRestLocalRotQVector</td>
+<td>None</td><td>quaternion vector</td>
+<td class="explain">yields the rotation for bones.</td>
+</tr>
+<tr><td>getPoseLocalRotQVector</td>
+<td>None</td><td>quaternion vector</td>
+<td class="explain">yields the local rotation for bones in pose mode</td>
+</tr>
+<tr><td bgcolor="orange">getPoseGlobalRotQVector</td>
+<td>None</td><td>quaternion vector</td>
+<td class="explain">yields the global rotation for bones in pose mode. Used for gltf exporter.</td>
+</tr>
+<tr><td>getRestLocalTransVector</td>
+<td>None</td><td>transition vector</td>
+<td class="explain">return first 3 elements of last column of local rest matrix (transition vector)</td>
+</tr>
+<tr><td>getRestGlobalTransVector</td>
+<td>None</td><td>transition vector</td>
+<td class="explain">return first 3 elements of last column of global rest matrix (transition vector)</td>
+</tr>
+<tr><td>getPoseLocalTransVector</td>
+<td>None</td><td>transition vector</td>
+<td class="explain">return first 3 elements of last column of local pose matrix (transition vector)</td>
+</tr>
+<tr><td bgcolor="orange">getPoseGlobalTransVector</td>
+<td>None</td><td>transition vector</td>
+<td class="explain">return first 3 elements of last column of global pose matrix (transition vector). Used for gltf exporter.</td>
+</tr>
+<tr><td bgcolor="orange">getPoseRelParentRotQVector</td>
+<td>None</td><td>quaternion vector</td>
+<td class="explain">yields the global rotation for bones in pose mode relatively to parent bone. Used for gltf exporter.</td>
+</tr>
+<tr><td bgcolor="orange">getBindMatrix</td>
+<td>orientation<br>rotAxis<br>offset</td><td>4x4 bindmat<br>4x4 bindinv</td>
+<td class="explain">calculates the transformed rest matrix, then bindinv by transposing the rest matrix
+and calculating the inverse matrix from it. Last column is set to 0, 0, 0, 1 for gltf.</td>
+</tr>
+<tr><td>getTransformedRestMatrix</td>
+<td>orientation<br>rotAxis<br>offset</td><td>4x4 restmatrix</td>
+<td class="explain">calculates the rest matrix with changeOrientation() function.</td>
+</tr>
+<tr><td bgcolor="orange">getRelativeCorrection</td>
+<td>None</td><td>None</td>
+<td class="explain">calculates the relative correction by multiplying matRestGlobal, matPoseLocal, invRestGlobal</td>
+</tr>
+<tr><td>getNormal</td>
+<td>None</td><td>None</td>
+<td class="explain">Should calculate the normal, if a localplane is given as a string, the normals are
+calculated by skeleton getNormal. If no normal can be calculated or normals are close to zeros, normal
+is the y vector.</td>
+</tr>
+<tr><td>assignJointPos</td>
+<td>head<br>tail</td><td>None</td>
+<td class="explain">sets headPos, tailPos</td>
+</tr>
+<tr><td>getJointPos</td>
+<td>None</td><td>head, tail</td>
+<td class="explain">Calculates head and tail position by mean values.</td>
+</tr>
+<tr><td>setJointPos</td>
+<td>None</td><td>None</td>
+<td class="explain">sets headPos, tailPos by calculation of mean position of head and tail.</td>
+</tr>
+<tr><td>calcLocalRestMat</td>
+<td>normal</td><td>rest matrix</td>
+<td class="explain">Calculates the local rest matrix by first calculating a normalize bone vector.
+For the orthonormal base, perpendicular vector to normal / bone_direction needed (cross-product).
+The missing axis x is calculated by using bone_direction and z_axis by cross product and calculating
+the norm. These values can now calculate the orthonormal base.</td>
+</tr>
+<tr><td>calcRestMatFromSkeleton</td>
+<td>None</td><td>matrix calculation failed (bool)</td>
+<td class="explain">First get the own normal and calculate local rest matrix from that normal.
+Assign this to matRestGlobal and calculate inverse global rest matrix. If that does not
+work, return with error (non singular matrix). To calculate local rest matrix, do a dot product of
+parent global rest matrix and own global restmatrix. For no parent bone the local and global matrices
+are equal.</td>
+</tr>
+<tr><td bgcolor="orange">restPose</td>
+<td>None</td><td>None</td>
+<td class="explain">set local pose matrix to identity.</td>
+</tr>
+<tr><td>calcLocalPoseMat</td>
+<td>poseMat</td><td>None</td>
+<td class="explain">Set local pose matrix to a 4x4 identity and copy posemat to matPoseLocal,
+then calculate the dot product of invRestGlobal .matPoseLocal, and the result again as a dot product
+of matRestGlobal, then add the translations from original bone (translations must be calculated with
+dot product and invRestGlobal.</td>
+</tr>
+<tr><td>calcGlobalPoseMat</td>
+<td>None</td><td>None</td>
+<td class="explain">matPoseGlobal is calculated by dot product of matRestLocal, matPoseLocal when no parent bone
+is available, otherwise parent bones matPoseGlobal must be used as second dot product. matPoseVerts
+are calculated by dot product of matPoseGlobal and invRestGlobal.</td>
+</tr>
+<tr><td>poseBone</td>
+<td>None</td><td>None</td>
+<td class="explain">poseheadPos and posetailPos are calculated by transposing headPos or tailPos and using this with
+a dot product of matPoseVerts and then transposing it back.</td>
+</tr>
+</table>
+<hr>
+<h2>Class boneWeights</h2>
+This class is used to support work with bone weights
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment object.</td>
+</tr>
+<tr>
+<td>default_skeleton</td>
+<td class="explain">reference to default skeleton.</td>
+</tr>
+<tr>
+<td>root</td>
+<td class="explain">reference to root of default skeleton.</td>
+</tr>
+<tr>
+<td bgcolor="orange">bWeights</td>
+<td class="explain">dictionary of weights, initialized empty.</td>
+</tr>
+<tr>
+<td>mesh</td>
+<td class="explain">reference to the mesh</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>createWeightsPerBone</td>
+<td>wdict</td><td>None</td>
+<td class="explain">Calculate the sums of normalize weights per bone, put these in verts and weights arrays
+The weights are sorted by index filter for values higher that 0.001. All what is not found is assigned to root bone.
+In this case a warning is given.</td>
+</tr>
+<tr><td>sortWeights</td>
+<td>weights</td><td>weights</td>
+<td class="explain">when using a custom skeleton, one bone may contain more than one bone of the default skeleton.
+sortWeights is needed, since deduplication is only working on sorted array.</td>
+</tr>
+<tr><td>deDuplicateWeights</td>
+<td>weights</td><td>weights</td>
+<td class="explain">weight arrays must be sorted before, for assets weights are calculated using 3 values
+from the base mesh, this means that values are used multiple times
+the skinning algorithm expects them once. This procedure is doing that by using np.unique to get occurences.</td>
+</tr>
+<tr><td bgcolor="orange">approxWeights</td>
+<td>asset<br>base</td><td>None</td>
+<td class="explain">create bone weights from base, recalculate the input in case of mesh loaded in binary form for
+easier calculation (tested). form is: vertex_num: baseskeleton: [(vertexnum_asset, weight), (...) ]. In the end
+the weights must be deduplicated.</td>
+</tr>
+<tr><td bgcolor="orange">transferWeights</td>
+<td>customskeleton</td><td>weights</td>
+<td class="explain">if custom skeleton is not default skeleton, weights must be transfered.
+Then collect which bones of standard-skeleton are referenced by a bone. If bone is found in default,
+test "weights_reference". If available sum these up to one bone otherwise simply "copy" the weights.
+It is possible to define the same name for another bone but in this case reference must have 0 elements.
+The missing vertices must be distributed. This is done a by a parent chain reference, until a bone is found.
+(e.g. eyes will be transfered to head if no eye-bones)
+The values are sorted and deduplicated.</td>
+</tr>
+<tr><td>loadJSON</td>
+<td>path</td><td>success (bool)</td>
+<td class="explain">Loads JSON file and sets attributes, checks if "weights" are a value and creates weights
+per bone.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
