@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+      <a href="/sponsors/" class=""><b>Sponsors</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.12 Code of opengl/light.py</h2>
+  <div class="page-body">
+<kbd>opengl/light</kbd> provides <b>all methods to deal with openGL light settings.</b>
+The file only contains 1 class:
+<ul>
+<li>Light</li>
+</ul>
+<!-- more -->
+<h2>Class Light</h2>
+This class is used to create all light effects used by shaders in openGL
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>shaderInit</td>
+<td class="explain">reference to global shader initialization object.</td>
+</tr>
+<tr>
+<td>shaders</td>
+<td class="explain">List of all shaders.</td>
+</tr>
+<tr>
+<td>phong</td>
+<td class="explain">references phong shader.</td>
+</tr>
+<tr>
+<td>pbr</td>
+<td class="explain">references pbr shader.</td>
+</tr>
+<tr>
+<td>toon</td>
+<td class="explain">references toon shader.</td>
+</tr>
+<tr>
+<td>min_coords</td>
+<td class="explain">minimal values of the scene in units as a list.</td>
+</tr>
+<tr>
+<td>max_coords</td>
+<td class="explain">maximal values of the scene in units as a list.</td>
+</tr>
+<tr>
+<td>glclearcolor</td>
+<td class="explain">Color as QVector4D to clear openGL</td>
+</tr>
+<tr>
+<td>ambientLight</td>
+<td class="explain">ambientLight as QVector4D</td>
+</tr>
+<tr>
+<td>lightWeight</td>
+<td class="explain">lightWeight as QVector3D, x is luminance, y is focus</td>
+</tr>
+<tr>
+<td>blinn</td>
+<td class="explain">Phong shading, boolean, true if mode blinn is used.</td>
+</tr>
+<tr>
+<td>skybox</td>
+<td class="explain">Determines if skybox is used.</td>
+</tr>
+<tr>
+<td>skyboxname</td>
+<td class="explain">Name of the skybox.</td>
+</tr>
+<tr>
+<td bgcolor="orange">lights</td>
+<td class="explain">List of 3 dictionaries with lights, each one represented
+as position, volume (color), intensity and type (directional or point).</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>numlights</td>
+<td>None</td><td>number of lights</td>
+<td class="explain">returns number of lights (3).</td>
+</tr>
+<tr><td>listTo3D</td>
+<td>vector<br>elems (list)</td><td>None</td>
+<td class="explain">set components of QVector3D from list.</td>
+</tr>
+<tr><td>listTo4D</td>
+<td>vector<br>elems (list)</td><td>None</td>
+<td class="explain">set components of QVector4D from list.</td>
+</tr>
+<tr><td>q3ToList</td>
+<td>v (QVector3D)</td><td>list of 3 elements</td>
+<td class="explain">Converts QVector3D to list.</td>
+</tr>
+<tr><td>q4ToList</td>
+<td>v (QVector4D)</td><td>list of 4 elements</td>
+<td class="explain">Converts QVector4D to list.</td>
+</tr>
+<tr><td>fromGlobal</td>
+<td>load_json (bool)</td><td>None</td>
+<td class="explain">set all values from either reading the shader-init JSON
+file by first setting shaderInit or uses these variables directly without
+re-reading the file.
+</tr>
+<tr><td>toGlobal</td>
+<td>None</td><td>None</td>
+<td class="explain">Replaces the variables of global file with new values.</td>
+</tr>
+<tr><td bgcolor="orange">setShader</td>
+<td>None</td><td>None</td>
+<td class="explain">bind phong, pbr and toon shader with the new settings.</td>
+</tr>
+<tr><td>useBlinn</td>
+<td>value</td><td>None</td>
+<td class="explain">set blinn parameter of shader to value (True or False).</td>
+</tr>
+<tr><td>useSkyBox</td>
+<td>value</td><td>None</td>
+<td class="explain">set skybox parameter to value (True or False).</td>
+</tr>
+<tr><td bgcolor="orange">getAmbientLuminance</td>
+<td>None</td><td>luminance</td>
+<td class="explain">return ambientLight.w() (last parameter of luminance QVector4D)</td>
+</tr>
+<tr><td bgcolor="orange">setAmbientLuminance</td>
+<td>value</td><td>None</td>
+<td class="explain">sets last parameter of ambientLight QVector4D to value.</td>
+</tr>
+<tr><td bgcolor="orange">setSpecularLuminance</td>
+<td>value</td><td>None</td>
+<td class="explain">sets first parameter of lightWeight QVector3D to value.</td>
+</tr>
+<tr><td bgcolor="orange">setSpecularFocus</td>
+<td>value</td><td>None</td>
+<td class="explain">sets second  parameter of lightWeight QVector3D to value.</td>
+</tr>
+<tr><td bgcolor="orange">getClearColor</td>
+<td>None</td><td>rounded list of 3 floats</td>
+<td class="explain">Returns current clear-color.</td>
+</tr>
+<tr><td bgcolor="orange">setClearColor</td>
+<td>value</td><td>None</td>
+<td class="explain">sets clear-color QVector4D. Transparent value is set to 1.0</td>
+</tr>
+<tr><td bgcolor="orange">getAmbientColor</td>
+<td>None</td><td>rounded list of 3 floats</td>
+<td class="explain">Returns current ambient color.</td>
+</tr>
+<tr><td bgcolor="orange">setAmbientColor</td>
+<td>value</td><td>None</td>
+<td class="explain">sets first 3 values of ambientLight QVector4D.</td>
+</tr>
+<tr><td>setHPos</td>
+<td>lnum<br>height</td><td>None</td>
+<td class="explain">sets height of light lnum.</td>
+</tr>
+<tr><td>setLPos</td>
+<td>lnum<br>x<br>y</td><td>None</td>
+<td class="explain">sets x and y position of light lnum.</td>
+</tr>
+<tr><td bgcolor="orange">getLPos</td>
+<td>lnum</td><td>position as list</td>
+<td class="explain">returns the position of light lnum.</td>
+</tr>
+<tr><td>setType</td>
+<td>lnum<br>ltype</td><td>None</td>
+<td class="explain">sets type of light lnum.</td>
+</tr>
+<tr><td>getType</td>
+<td>lnum</td><td>type</td>
+<td class="explain">returns type of light lnum.</td>
+</tr>
+<tr><td bgcolor="orange">setLLuminance</td>
+<td>lnum<br>value</td><td>None</td>
+<td class="explain">set intensity of luminance of light lnum.</td>
+</tr>
+<tr><td bgcolor="orange">getLLuminance</td>
+<td>lnum</td><td>luminance</td>
+<td class="explain">returns intensity of luminance of light lnum.</td>
+</tr>
+<tr><td bgcolor="orange">setLColor</td>
+<td>lnum<br>value</td><td>None</td>
+<td class="explain">sets RGB color from value for light lnum.</td>
+</tr>
+<tr><td bgcolor="orange">getLColor</td>
+<td>lnum</td><td>RGB color as a list of 3 floats</td>
+<td class="explain">returns RGB color of light lnum.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>

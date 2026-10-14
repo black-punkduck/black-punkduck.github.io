@@ -622,8 +622,8 @@ Methods are converter functions, JSON reader/writer and integrity test.
 <td class="explain">Converts path including environment and all converted to a standard format (no backslashes).</td>
 </tr>
 <tr><td bgcolor=orange>normalizeName</td>
-<td>path</td><td>path</td>
-<td class="explain">change a name to lower case, only allow a-z 0-9 - + _ =, it is used to create filenames compatible for Windows and Linux.
+<td>path<br>lower</td><td>path</td>
+<td class="explain">change a name to lower case (if lower is set), only allow a-z 0-9 - + _ =, it is used to create filenames compatible for Windows and Linux.
 <p><kbd>name = "{}_{:03d}".format(env.normalizeName(raw_name), material_cnt)</kbd></td>
 </tr>
 <tr><td>developmentPyCacheCleanup</td>
