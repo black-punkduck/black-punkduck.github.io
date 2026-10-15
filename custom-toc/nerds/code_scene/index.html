@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+      <a href="/sponsors/" class=""><b>Sponsors</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>9.1.13 Code of opengl/scene.py</h2>
+  <div class="page-body">
+<kbd>opengl/scene</kbd> provides <b>all methods to deal with openGL scene settings.</b>
+The file only contains 1 class:
+<ul>
+<li>Scene</li>
+</ul>
+<!-- more -->
+<h2>Class Scene</h2>
+This class is used to create the scene used in openGL
+<h3>Variables</h3>
+These variables are all preset by __init__.
+<table class="contexttab">
+<tr><th>name</th><th>description</th></tr>
+<tr>
+<td>glob</td>
+<td class="explain">reference to global object.</td>
+</tr>
+<tr>
+<td>env</td>
+<td class="explain">reference to environment object.</td>
+</tr>
+<tr>
+<td>parent</td>
+<td class="explain">reference to parent window.</td>
+</tr>
+<tr>
+<td>context</td>
+<td class="explain">OpenGL context of parent window.</td>
+</tr>
+<tr>
+<td>shaders</td>
+<td class="explain">Reference to shaders.</td>
+</tr>
+<tr>
+<td>update</td>
+<td class="explain">Parent update function to redraw elements.</td>
+</tr>
+<tr>
+<td>floor</td>
+<td class="explain">Boolean value if floor is used.</td>
+</tr>
+<tr>
+<td>floortex</td>
+<td class="explain">Reference to floor texture.</td>
+</tr>
+<tr>
+<td>floorsize</td>
+<td class="explain">List of 3 elements presenting dimension of the floor.</td>
+</tr>
+<tr>
+<td>floortexname</td>
+<td class="explain">Name of the floor texture.</td>
+</tr>
+<tr>
+<td>sysmaterials</td>
+<td class="explain">List of system materials.</td>
+</tr>
+<tr>
+<td>prims</td>
+<td class="explain">Dictionary of primitives.</td>
+</tr>
+<tr>
+<td>visLights</td>
+<td class="explain">Reference to visible lights.</td>
+</tr>
+<tr>
+<td>diamondskel</td>
+<td class="explain">Boolean value if diamond skeleton is used.</td>
+</tr>
+<tr>
+<td>other_objects_invisible</td>
+<td class="explain">Boolean value if all objects are invisible</td>
+</tr>
+<tr>
+<td>black</td>
+<td class="explain">System material black.</td>
+</tr>
+<tr>
+<td>white</td>
+<td class="explain">System material white.</td>
+</tr>
+<tr>
+<td>orange</td>
+<td class="explain">System material orange.</td>
+</tr>
+<tr>
+<td>red</td>
+<td class="explain">System material red.</td>
+</tr>
+<tr>
+<td>blues</td>
+<td class="explain">System material blues.</td>
+</tr>
+<tr>
+<td>normal</td>
+<td class="explain">System material neutral normal map.</td>
+</tr>
+</table>
+<h3>Methods:</h3>
+<table class="contexttab">
+<tr><th>name</th><th>parameters</th><th>returns</th><th>description</th></tr>
+<tr><td>lowestPos</td>
+<td>posed</td><td>lowest value</td>
+<td class="explain">Used to calculate the floor, returns 20 without baseclass.</td>
+</tr>
+<tr><td>createPrims</td>
+<td>light</td><td>None</td>
+<td class="explain">Creates all primitives, axes, floor, light.</td>
+</tr>
+<tr><td>togglePrims</td>
+<td>name<br>status</td><td>None</td>
+<td class="explain">Toggle a primitive, floor can be the cuboid or a grid, skeleton is presented in pose color or normal color.</td>
+</tr>
+<tr><td>setFloor</td>
+<td>v</td><td>None</td>
+<td class="explain">Sets floor, also changes between cuboid or xzgrid to status v</td>
+</tr>
+<tr><td bgcolor="orange">getFloorSizeFloat</td>
+<td>None</td><td>floorsize as a float</td>
+<td class="explain">Returns floorsize. 10 in case of no basemesh</td>
+</tr>
+<tr><td  bgcolor="orange">setFloorSize</td>
+<td>sq<br>d</td><td>None</td>
+<td class="explain">Sets floor size to size of the sq and density (thickness) d.
+</td>
+</tr>
+<tr><td>hasFloor</td>
+<td>None</td><td>floor</td>
+<td class="explain">Returns if scene has a floor.</td>
+</tr>
+<tr><td>floorTexture</td>
+<td>name</td><td>None</td>
+<td class="explain">Sets a floor texture (if available).</td>
+</tr>
+<tr><td bgcolor="orange">getfloorTexture</td>
+<td>None</td><td>name</td>
+<td class="explain">Returns name of floor texture.</td>
+</tr>
+<tr><td bgcolor="orange">modFloorTexture</td>
+<td>name</td><td>None</td>
+<td class="explain">Modifies floor texture to new name.</td>
+</tr>
+<tr><td>newFloorPosition</td>
+<td>posed</td><td>None</td>
+<td class="explain">sets a new floor position to fit under character.</td>
+</tr>
+<tr><td>setObjectsInvisible</td>
+<td>value</td><td>None</td>
+<td class="explain">Sets the value for other_objects_invisible</td>
+</tr>
+<tr><td>prepareSkeleton</td>
+<td>posed</td><td>None</td>
+<td class="explain">Prepare graphical presentation of skeleton. Posed mode: orange, normal mode blue, internal=no skeleton red.</td>
+</tr>
+<tr><td>hasSkeleton</td>
+<td>None</td><td>available</td>
+<td class="explain">Returns if a skeleton is available.</td>
+</tr>
+<tr><td>delSkeleton</td>
+<td>None</td><td>None</td>
+<td class="explain">Deletes the skeleton, if available.</td>
+</tr>
+<tr><td>setDiamondSkeleton</td>
+<td>value</td><td>None</td>
+<td class="explain">Toggles between diamond and stick-skeleton.</td>
+</tr>
+<tr><td>setYRotation</td>
+<td>angle</td><td>None</td>
+<td class="explain">set y rotation (only skeleton rotates)</td>
+</tr>
+<tr><td>draw</td>
+<td>proj_view_matrix<br>campos<br>offset<br>showskel</td><td>None</td>
+<td class="explain">draws the assets (lights, primitives, different skeletons).</td>
+</tr>
+<tr><td>cleanup</td>
+<td>None</td><td>None</td>
+<td class="explain">Frees textures of system materials.</td>
+</tr>
+</table>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
