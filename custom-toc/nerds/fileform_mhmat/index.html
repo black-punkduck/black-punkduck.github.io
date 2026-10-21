@@ -110,6 +110,14 @@ shader pbr
 </thead>
 <tbody>
 <tr><td>Colors are used in RGB order, each value has a range of 0.0 to 1.0.</td></tr>
+<tr><td>Relative path names of textures must obey the following rules:
+<ul><li>a single pathname if in same folder as the obj and mhclo file e.g. cloth.png</li>
+<li>a pathname with additional "materials" subfolder e.g. materials/cloth.png</li>
+<li>a pathname starting with type, but without mesh name, name of asset e.g. clothes/clothname/cloth.png</li>
+<li>a pathname starting with type, but without mesh name, name of asset and materials folder e.g. clothes/clothname/materials/cloth.png</li>
+<li>image files can be placed in system or user sections using the same foldername, otherwise user eye-textures would not be possible</li>
+</ul>
+</td></tr>
 </tbody>
 </table>
 <p>
@@ -149,6 +157,10 @@ shader pbr
 <tr>
 <td style="text-align:left">diffuseColor</td>
 <td style="text-align:left">Base color used as RGB, used when no diffuse texture is given.</td>
+</tr>
+<tr>
+<td style="text-align:left">glassColor</td>
+<td style="text-align:left">Glass color used as RGB.</td>
 </tr>
 <tr>
 <td style="text-align:left">emissiveColor</td>
@@ -192,6 +204,14 @@ shader pbr
 <tr>
 <td style="text-align:left">roughnessFactor</td>
 <td style="text-align:left">Roughness factor of a material, in case of a texture it is 1.0 which is the value how much the roughness texture is used.</td>
+</tr>
+<tr>
+<td style="text-align:left">glassRoughness</td>
+<td style="text-align:left">A roughness factor for glass. A value between 0 and 1 (1 means rough)</td>
+</tr>
+<tr>
+<td style="text-align:left">ior</td>
+<td style="text-align:left">A factor for glass, index of refraction. 1 - 2.5</td>
 </tr>
 <tr>
 <td style="text-align:left">colorationMethod</td>
