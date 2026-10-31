@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+      <meta charset="GLUT_BITMAP_HELVETICA_18">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://black-punkduck.github.io/styles/style.css">
+  <title>MakeHuman2</title>
+  <script src="https://black-punkduck.github.io/js/redirectsearch.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/randomgallery.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/searchscript.js" type="module" defer></script>
+  <script src="https://black-punkduck.github.io/js/getdate.js" type="module" defer></script>
+  <link rel="icon" type="image/png" href="https://black-punkduck.github.io/favicon.png">
+</head>
+<body><header style="border-bottom: 4px solid #1e1e1e; border-top: 4px solid #FFFFFF; padding-top: 3px; padding-bottom: 3px;">
+<table width="100%">
+  <tr valign="center">
+<td style="vertical-align: middle;">
+  <a href="https://black-punkduck.github.io//" style="text-decoration: none;">
+    <img src="/images/makehumanexeclogo2.png" width="50" style="vertical-align: sub; display: inline-block;" alt="Logo">
+  </a>&nbsp;
+</td>
+    <td>
+      <a href="/" class=""><b>Home</b></a>
+      <a href="/custom-toc/" class=""><b>Table of Contents</b></a>&nbsp;
+      <div class="dropdown" style="display: inline-block;">
+        <a href="/resources/" class=""><b>Resources ▼</b></a>
+        <div class="dropdown-content">
+          <a href="/resources/first/">MH2 Official Videos</a>
+          <a href="/resources/second/">Tutorials</a>
+          <a href="/resources/third/">MH2 Downloads</a>
+          <a href="/resources/fourth/">Feedback & Testimonials</a>
+          <a href="/resources/fifth/">New & In Development</a>
+          <a href="/resources/sixth/">MH 1 & MHFB</a>
+          <a href="/resources/seventh/">Non MH Family in Blender</a>
+        </div>
+      </div>&nbsp;
+      <a href="/news/" class=""><b>News</b></a>&nbsp;
+      <a href="/bookpage/" class=""><b>Dev Blogs</b></a>&nbsp;
+      <a href="/gallery/" class=""><b>Gallery</b></a>&nbsp;
+      <a href="/timeline/" class=""><b>Timeline</b></a>&nbsp;
+      <a href="/mh2_icon_guide/" class=""><b>Legend</b></a>&nbsp;
+      <a href="/tags/" class=""><b>Tags</b></a>&nbsp;
+      <a href="/sponsors/" class=""><b>Sponsors</b></a>&nbsp;
+    </td>
+<td>
+  <div style="display: flex; align-items: center;">
+    <input type="search" id="mySearch" class="searchinp" name="q" style="box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2); padding: 5px; border: 1px solid #ccc;">
+    <button class="searchbut" id="SearchButton" style="padding: 0; margin-left: 2px; border: none; background: none; cursor: pointer;">
+        <span style="font-size: 35px;">🔍</span>
+    </button>
+  </div>
+</td>
+    <td align="left">
+      <div class="header-help">
+        <a href="/help" class="btn-help" style="padding: 10px 15px; background-color: #f58220; color: white; border-radius: 5px; text-decoration: none; white-space: nowrap;">(?) Help Page</a>
+      </div>
+    </td>
+    <td align="right">
+      <font color="#000000">Join us on...&nbsp;</font>
+    </td>
+    <td>
+      <a href="https://discord.gg/tnhDFdVFyC" style="text-decoration: none;">
+          <img src="/icons/external_icons/discord_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://store.steampowered.com/app/4676360/Makehuman_2/" style="text-decoration: none;">
+          <img src="/icons/external_icons/Steam_logo.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/@makehuman2official?si=Ovkuig2NLHhdssHv" style="text-decoration: none;">
+          <img src="/icons/external_icons/youtube.png" width="50" style="vertical-align: middle;">
+      </a>
+    </td>
+  </tr>
+</table>
+<img id = "bannerimage" src="/images/seasonal_banners/bannermh2_sparkle.png"
+       alt="Banner"
+       style="width:100%; height:100%; border-top: 8px solid #1e1e1e; border-bottom: 5px solid #f58220; display: block;">
+</header>
+<p id="datestring">Current: Month Day, Year</p>
+  <h2>The Plugin Release!</h2>
+  <div class="page-body">
+    <p>The Plugin Panel Release and Halloween/Fall DLC are live!
+Downloads are ready!</p>
+<p>📢 Greetings again MH2 Creators,</p>
+<p>• 🎉 We are so very delighted to announce that the MakeHuman 2 second major expansion/patch is live! The Plugin Panel patch is now ready to be downloaded. This expansion, like the original MH2, is completely free to use and create with. As always, our software is AGPL, and all of our content is CC0 and CC-BY with respect to the original creators. Please note we are still in an ongoing open alpha state at present (though highly polished); all feedback and bug finding is highly encouraged and so very helpful!</p>
+<p>• ⚡ The original version along with the legacy (final alpha release) and of course the fantasy version of MakeHuman 2 will remain available for download for the foreseeable future! The version you choose is entirely up to you. Linux is also available via the download options in all available versions.</p>
+<p>• ⚠️ The Plugin Panel expansion is mostly the same as the current one; however, it unlocks all the newly available features also. To avoid any chance of losing your personal work, always backup before downloading/updating new versions.</p>
+<p>• 📝 The most current patch notes can be found below. Briefly, for the sake of explanation, the major difference between the current or Fantasy versions and the plugin release is the addition of a Plugin Panel. This release also includes working examples of both official plugins and community extension-style add-ons.</p>
+<p>🎬 Behind the Scenes: We are still actively developing all-new features behind closed doors. If you want to follow our raw development logs, see what we are working on next, or directly support our tiny team&rsquo;s open-source efforts, check out our community page on Patreon! Also, note there are numerous free downloads both available and upcoming simply for being a free community member. News, teasers, links, and more will be available.</p>
+<p>💬 Also Note: We hear the thoughts and opinions of the community. We see all of your suggestions and requests. Do not be bashful; we love to see this! :D However, do keep in mind that not all can ever be honored by us. That said, the community itself may also see and respond to suggestions and share requests.</p>
+<p>• 🛠️ As always, the code is available on GitHub as source, and feedback is welcome at any time.</p>
+<p>• 🎃 🍁 Halloween/Fall Season DLC is available at this time. There is a completely free content pack to download, and a Patreon one available also.</p>
+<p>• 👥 Feel free to join us on Discord and make your thoughts and observations known! We love to see and hear from you all!</p>
+<p>• 🎨 🖼️ Please feel welcome to share your art with us on Tumblr with #Makehuman2, and on Discord in the showcase channel. Please also feel free to share your new plugins/add-ons, etc.</p>
+<p>• 👀 Also note that the Prop Panel plugin is actively being worked on, and should be available by the end of the year, along with another seasonal DLC. Stay tuned for more news &amp; information to come soon!</p>
+<p>The October 2026 Plugin Panel Release Patch/Changenotes:</p>
+<p>✨ New Features:</p>
+<p>• The Plugin Panel: This opens up via the dropdown menu and will allow any installed add-on to be loaded. (Endpoints to draw one&rsquo;s own stuff [pre/post paint] &amp; a mechanism for easy connection [load/unload] of plugins). A tutorial example can be found on GitHub.</p>
+<p>• Included Plugins: Added both as working examples and to bring additional functionality such as camera controls, lighting tools, an outfit saver, asset purging, and more. (Docking is mostly available for ease of space/usage). See below for an itemized list of inclusions.</p>
+<p>• Enhanced Downloader Page: Fully enhanced downloader page allowing multiple asset downloading and thumbnail pre-caching to improve browsing.</p>
+<p>• Scalp Helper: Added to the body helper in vertex assignment (for MC2 &amp; Make Apparel functionality at present).</p>
+<p>• Alpha Masks: Alpha masks have been added—recoloring of eyes, for example, is now possible using alpha masks.</p>
+<p>• Play Timer: A new play timer to announce when you have been creating for preferred durations.</p>
+<p>• Skeleton Reduction: Added support for skeleton reduction used for the fantasy skeleton (e.g., to only have a fishtail).</p>
+<p>🐞 Bugfixes:</p>
+<p>• Breast Region Weights: Fixed and improved the weights in the breast region.</p>
+<p>• Normalizing Names: Created normalizing names changed to deal better with Linux and Windows (case dependency / case independency).</p>
+<p>• LogLine Crash: Fixed the file helper logLine crash.</p>
+<p>• Exporter Parameters: Resolved an object exporter error where it had the wrong number of parameters.</p>
+<p>• File Pathing: Fixed file pathing issues causing texture loading problems.</p>
+<p>✓ General Quality of Life Improvements:</p>
+<p>• Favorites Saving: Save favorites is now available in the asset downloader.</p>
+<p>• Scroll Bars: Scroll bars are now available where window size in pop-ups is an issue.</p>
+<p>• Make Apparel: More improvements in Make Clothes leading to its new incarnation of Make Apparel (more coming soon for this too).</p>
+<p>• Rigid Support: Solid (rigid) handheld support viability. This allows for better use and creation of non-deforming assets.</p>
+<p>• Rescan Options: Added rescan options in multiple areas such as the skybox and floor folders, and sorting entries.</p>
+<p>• Empty Basemesh: An empty basemesh is now possible (clothes deleting all vertices).</p>
+<p>🔌 Our Included Plugins in the Current Release</p>
+<p>(Please note all add-ons are a WIP—however, they are highly functional. Find and enable these as you see fit in the dropdown menu under Settings -&gt; Community Plugins)</p>
+<table>
+<thead>
+<tr>
+<th>Plugin Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MH2 Asset Purge</td>
+<td>This simple and handy tool will allow you to easily cleanup all of your unwanted downloads and creations taking up space. The deleted assets will go to the trash can, allowing you to recall any mistaken removals.</td>
+</tr>
+<tr>
+<td>MH2 Camera Controls</td>
+<td>This necessary tool allows one to adjust the camera settings with the click of a mouse to all available presets. It also allows for filters, box zoom, and overlays.</td>
+</tr>
+<tr>
+<td>Make Outfit</td>
+<td>Making an outfit was always bound to a character—this should likely not be so, which is why we have designed Make Outfit. This easy-to-navigate add-on will allow one to save presets of outfits to attach on the fly to any character they see fit.</td>
+</tr>
+<tr>
+<td>Make Note</td>
+<td>Though a truly simple add-on, this may prove essential in one&rsquo;s workflow once implemented. Make Note allows one to take notes on the fly and post them alongside their model in a MakeHuman 2 project. You can also attach images of your current muse. These notes can be saved and referred to again.</td>
+</tr>
+<tr>
+<td>MH2 Make Lighting Presets</td>
+<td>Lighting is fun and it should be celebrated as such. Why hide its truly powerful abilities when one can put them right on their screen display? This plugin harnesses what the MH2 engine is capable of in one more way—by unleashing visual effects on the screen and your model!</td>
+</tr>
+<tr>
+<td>Make Story</td>
+<td>A work in progress, but very useful all the same. Make Story allows you to create a backstory, name, career, zodiac assignment (birthday), era, and so much more for the character you create as a way of fleshing it out and making it truly unique. One can have a lot of fun with this. Manual and random entry choices are available at present.</td>
+</tr>
+</tbody>
+</table>
+<p>🚨News Flash</p>
+<p>As of October of 2026 there are issues affecting the legacy download servers. Some functionality of asset downloading is currently being directly affected.
+A new method is in the works, until further notice however- assume the asset repo will not behave as expected or at all even.</p>
+  </div>
+<style>
+  #footer-links-container:hover span {
+    color: #cc6d1e !important;
+    text-decoration: underline;
+  }
+  .footer-social-link:hover {
+    opacity: 0.9;
+    text-decoration: underline !important;
+  }
+</style>
+<footer>
+  <div>
+      &copy; 2026 Makehuman2
+      <img src="/images/makehumanexeclogo2.png" alt="Makehuman 2 Logo" style="height: 38px; vertical-align: middle;">
+  </div>
+  <div>
+      <a id="footer-links-container" href="https://black-punkduck.github.io/" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: white;">Home</span>
+            <img src="/images/makehumanexeclogo2.png" alt="Makehuman_2" style="height: 80px;" />
+            <span style="color: white;">Site</span>
+          </div>
+      </a>
+  </div>
+  <div>
+    <nav aria-label="footer">
+      <ul class="footer-links" style="margin: 0 0; list-style: none; padding: 0;">
+        <li>
+          <a href="https://github.com/makehumancommunity/makehuman2" class="footer-social-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: white;">
+              <img src="/icons/external_icons/github_invertocat_black.png" height=50px alt="Find us on GitHub!" style="vertical-align: middle;">
+            Find us on GitHub!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<style>
+  #footer-links-container, .footer-social-link {
+    text-decoration: none !important;
+  }
+  #footer-links-container:hover span {
+    color: orange !important;
+    text-decoration: none !important;
+  }
+  .footer-social-link:hover {
+    color: #f58220 !important;
+    text-decoration: none !important;
+  }
+</style>
+</footer>
+</body>
+</html>
