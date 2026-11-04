@@ -92,6 +92,13 @@
         <ul>
             <li>
               <h2>
+                <a href="https://black-punkduck.github.io/blogs/punkduckplugin/" class="preview-trigger" data-id="blog-ccf0b8a9677a39791a551ca6dcc75f04">
+                    Punkduck&#39;s Plugin release Blog 2026
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
                 <a href="https://black-punkduck.github.io/blogs/pluginblog/" class="preview-trigger" data-id="blog-fad1c0963201cbda8cbb762f7bf82d96">
                     Elv&#39;s Plugin release Blog 2026
                 </a>
@@ -118,13 +125,6 @@
                 </a>
               </h2>
             </li>
-            <li>
-              <h2>
-                <a href="https://black-punkduck.github.io/blogs/second/" class="preview-trigger" data-id="blog-993497f2cac843ad602c5769d39b9063">
-                    Punkducks Dev Blog #1
-                </a>
-              </h2>
-            </li>
         </ul>
       </div>
     </div>
@@ -137,6 +137,41 @@
   </div>
 </div>
 <div id="blog-database" style="display: none;">
+    <div class="blog-entry"
+         id="blog-ccf0b8a9677a39791a551ca6dcc75f04"
+         data-title="Punkduck&#39;s Plugin release Blog 2026"
+         data-url="https://black-punkduck.github.io/blogs/punkduckplugin/">
+      <p>Hey everybody from a country where Halloween is more or less ignored except from those selling stuff to the kids :)</p>
+<p>At least it is as dark as in North America :)</p>
+<p>Most Elv already mentioned when we talk about Makehuman 2! But I will add a few comments as well.
+In the beginning it was not expected that Makehuman 2 will deal with plugins. I was not sure if a
+precompiled version with pyInstaller or nsis will ever work with that. Elv proved it works and meanwhile we also know why.</p>
+<p>Whereas the nsis version is more or less a python environment in a container with all sources still contained and
+where libraries must be mentioned, pyInstaller creates a running object which also contains the python interpreter
+itself. This of course can be used to add &ldquo;non-compiled&rdquo; code. A source code version like debian will always work.</p>
+<p>pyInstaller is the base for Steam and now one could add more tools in steam later.</p>
+<p>Of course we also learnt that we need
+to add more documented endpoints in the software, which will make it easy to add new plugins.
+This will be improved, but I have to admit that the structure itself was not that bad
+(light plugin did e.g. not need new endpoints).
+Some others needed an improvement in the base version, like e.g. &ldquo;strip all clothes&rdquo; for the outfit-plugin.
+I already tried to explain most the endpoints in the nerds pages.
+For sure there will be additional endpoints in the future.</p>
+<p>So if you want to add a plugin and miss something, join discord and simply ask us.</p>
+<p>As you may have noticed old makehuman forum
+is more or less gone. That also means that the asset downloader of single assets does no longer work. We will try to add
+a replacement soonish. But it will be written to work with sets mainly.</p>
+<p>At the moment you may have noticed a few sets are on github already. We partly need to restructure them to allow loading them
+flawlessly. We will also check the assets and improve some of them (call it moderation),
+since e.g. wrong pathnames lead to questions and we cannot reach the original authors (reason: on windows path names are not case sensitive, they are on linux and if texture names mentioned in material files are wrong no textures will be shown).</p>
+<p>Btw.: The path name determination inside makehuman was changed as well and could result in new errors according to good old Murphy. Programmers know what I mean.</p>
+<p>I already put the old wonderwoman collection with new materials on patreon and also on github. We will add more soon.</p>
+<p>We have a Steam Linux version meanwhile. We created it with an ubuntu 26.4 and we also use pyInstaller like with Windows.
+It will only run on newer Linux systems since there was a major change in the c-libraries compared to old version.
+That, btw. was the reason why I failed with the first try &hellip;</p>
+<p>Greeting
+Black-Punkduck</p>
+    </div>
     <div class="blog-entry"
          id="blog-fad1c0963201cbda8cbb762f7bf82d96"
          data-title="Elv&#39;s Plugin release Blog 2026"
